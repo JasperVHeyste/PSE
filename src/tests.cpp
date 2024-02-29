@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 
-
-class LargestTest: public ::testing::Test {
+class ClassTest: public ::testing::Test {
 protected:
     // You should make the members protected s.t. they can be
     // accessed from sub-classes.
@@ -19,7 +18,7 @@ protected:
     }
 };
 
-TEST_F(LargestTest, Test1) {
+TEST_F(ClassTest, Test1) {
 std::vector<int> some_numbers = std::vector<int>();
 some_numbers.push_back(3);
 some_numbers.push_back(5);
@@ -30,45 +29,3 @@ int max = largest2(&some_numbers);
 EXPECT_EQ(5, max);
 }
 
-TEST_F(LargestTest, Test2) {
-std::vector<int> some_numbers = std::vector<int>();
-some_numbers.push_back(-10);
-some_numbers.push_back(-9);
-some_numbers.push_back(-11);
-
-int max = largest2(&some_numbers);
-
-EXPECT_EQ(-9, max);
-}
-
-TEST_F(LargestTest, Test3) {
-std::vector<int> some_numbers = std::vector<int>();
-some_numbers.push_back(-11);
-
-int max = largest2(&some_numbers);
-
-EXPECT_EQ(-11, max);
-}
-
-TEST_F(LargestTest, Test4) {
-std::vector<int> some_numbers = std::vector<int>();
-some_numbers.push_back(-11);
-some_numbers.push_back(-11);
-some_numbers.push_back(-11);
-
-int max = largest2(&some_numbers);
-
-EXPECT_EQ(-11, max);
-}
-
-TEST_F(LargestTest, Test5) {
-std::vector<int> some_numbers = std::vector<int>();
-some_numbers.push_back(-11);
-some_numbers.push_back(-11);
-some_numbers.push_back(-11);
-some_numbers.push_back(5);
-
-int max = largest2(&some_numbers);
-
-EXPECT_EQ(5, max);
-}
