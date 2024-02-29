@@ -22,7 +22,12 @@ set(RELEASE_SOURCE_FILES
         src/tinyxml.cpp
         src/tinyxmlerror.cpp
         src/tinyxmlparser.cpp
-        src/main.cpp)
+        src/main.cpp
+        src/Node.cpp
+        src/Job.cpp
+        src/Printer.cpp
+        src/PrintingSystem.cpp
+)
 
 # Set source files for DEBUG target
 # Only add cpp files, no h files!
@@ -33,7 +38,13 @@ set(DEBUG_SOURCE_FILES
         src/tinyxmlparser.cpp
         src/tests.cpp
         src/processXML.cpp
-        src/processXML.h)
+        src/processXML.h
+        src/Node.cpp
+        src/Job.cpp
+        src/Printer.cpp
+        src/PrintingSystem.cpp
+        src/Queue.cpp
+)
 
 # Create RELEASE target
 add_executable(release_target ${RELEASE_SOURCE_FILES})
