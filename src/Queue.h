@@ -1,13 +1,13 @@
 #ifndef UNTITLED_QUEUE_H
 #define UNTITLED_QUEUE_H
-#include "Node.h"
+#include "QueueNode.h"
 #include "Job.h"
 
 class Queue {
 public:
     int size = 0;
-    Node* head = nullptr;
-    Node* tail = nullptr;
+    QueueNode* head = nullptr;
+    QueueNode* tail = nullptr;
 
     bool isEmpty();
     bool enqueue(Job* p);

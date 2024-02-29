@@ -9,13 +9,13 @@
 using namespace std;
 
 
-class Node {
+class QueueNode {
 public:
     Job* item;
-    Node* next = nullptr;
-    Node* prev = nullptr;
+    QueueNode* next = nullptr;
+    QueueNode* prev = nullptr;
 
-    explicit Node(Job *item);
+    explicit QueueNode(Job *item);
 };
 
 

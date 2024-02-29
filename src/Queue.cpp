@@ -11,7 +11,7 @@ bool Queue::isEmpty() {
 }
 
 bool Queue::enqueue(Job* p) {
-    Node* newNode = new Node(p);
+    QueueNode* newNode = new QueueNode(p);
     if (this->size == 0){
         this->head = newNode;
         this->tail = newNode;
@@ -26,7 +26,7 @@ bool Queue::enqueue(Job* p) {
 }
 
 Job* Queue::dequeue() {
-    Node* headNode = this->head;
+    QueueNode* headNode = this->head;
     if (this->isEmpty()){
         cout << "error, queue is empty";
         return nullptr;

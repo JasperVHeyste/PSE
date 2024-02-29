@@ -23,7 +23,7 @@ set(RELEASE_SOURCE_FILES
         src/tinyxmlerror.cpp
         src/tinyxmlparser.cpp
         src/main.cpp
-        src/Node.cpp
+        src/QueueNode.cpp
         src/Job.cpp
         src/Printer.cpp
         src/PrintingSystem.cpp
@@ -39,7 +39,7 @@ set(DEBUG_SOURCE_FILES
         src/tests.cpp
         src/processXML.cpp
         src/processXML.h
-        src/Node.cpp
+        src/QueueNode.cpp
         src/Job.cpp
         src/Printer.cpp
         src/PrintingSystem.cpp
