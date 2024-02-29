@@ -31,7 +31,9 @@ set(DEBUG_SOURCE_FILES
         src/tinyxml.cpp
         src/tinyxmlerror.cpp
         src/tinyxmlparser.cpp
-        src/tests.cpp)
+        src/tests.cpp
+        src/processXML.cpp
+        src/processXML.h)
 
 # Create RELEASE target
 add_executable(release_target ${RELEASE_SOURCE_FILES})
