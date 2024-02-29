@@ -1,112 +1,94 @@
 #include "processXML.h"
-/*#include <iostream>
 #include "tinyxml.h"
-#include "CD.h"
-#include "Catalog.h"
+#include <iostream>
 #include <string>
+
+#include "Printer.h"
+#include "Job.h"
+
 using namespace std;
 
-CD* createCD(string t, string a, int y, float p){
-    CD* newcd = new CD();
-    newcd->setTitle(t);
-    newcd->setArtist(a);
-    newcd->setYear(y);
-    newcd->setPrice(p);
-    return newcd;
+Printer* createPrinter(string name, int emissions, int speed){
+    Printer* newPrinter = new Printer(name, emissions, speed);
+    return newPrinter;
 }
 
-CD* xmlToCD(){
-    TiXmlDocument doc;
-    string title = "";
-    string artist = "";
-    int year = 0;
-    float price = 0;
+Job* createJob(int jobnumber, int pagecount, string username){
+    Job* newJob = new Job(jobnumber, pagecount, username);
+    return newJob;
+}
 
-    if (!doc.LoadFile("eenCD.xml")) {
+bool readXML(FILE* filename){ //change bool to void once error messages have been implemented
+    TiXmlDocument doc;
+
+    if (!doc.LoadFile(filename)) {
         std::cerr << doc.ErrorDesc() << std::endl;
-        return nullptr;
+        return false; //replace with error message
     }
 
     TiXmlElement *root = doc.FirstChildElement();
 
-    for (TiXmlElement *elem = root->FirstChildElement(); elem != NULL;
-         elem = elem->NextSiblingElement()) {
-        string elemName = elem->Value();
+    for (TiXmlElement *object = root->FirstChildElement(); object != NULL; object = object->NextSiblingElement()) {
+        string objectType = object->Value();
 
-        for(TiXmlNode* e = elem->FirstChild(); e != NULL; e = e->NextSibling()){
-            TiXmlText* text = e->ToText();
-            if(text == NULL)
-                continue;
-            string element = text->Value();
-            if (elemName == "TITLE"){
-                title = element;
+        if (objectType == "DEVICE"){
+            string name;
+            int emission;
+            int speed;
+
+            for (TiXmlElement *elem = object->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
+                string specification = elem->Value();
+
+                for(TiXmlNode* e = elem->FirstChild(); e != NULL; e = e->NextSibling()){
+                    TiXmlText* text = e->ToText();
+                    if(text == NULL)
+                        continue;
+                    string element = text->Value();
+                    if (specification == "name"){
+                        name = element;
+                    }
+                    else if (specification == "emissions"){
+                        emission = stoi(element);
+                    }
+                    else if (specification == "speed"){
+                       speed = stoi(element);
+                    }
+                }
             }
-            else if (elemName == "ARTIST"){
-                artist = element;
+            createPrinter(name, emission, speed); //send to datastructure or something
+        }
+
+        if (objectType == "JOB"){
+            int jobnumber;
+            int pagecount;
+            string username;
+
+            for (TiXmlElement *elem = object->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
+                string specification = elem->Value();
+
+                for(TiXmlNode* e = elem->FirstChild(); e != NULL; e = e->NextSibling()){
+                    TiXmlText* text = e->ToText();
+                    if(text == NULL)
+                        continue;
+                    string element = text->Value();
+                    if (specification == "jobnumber"){
+                        jobnumber = stoi(element);
+                    }
+                    else if (specification == "pagecount"){
+                        pagecount = stoi(element);
+                    }
+                    else if (specification == "username"){
+                        username = element;
+                    }
+                }
             }
-            else if (elemName == "YEAR"){
-                year = stoi(element);
-            }
-            else if (elemName == "PRICE"){
-                price = stof(element);
-            }
+            createJob(jobnumber, pagecount, username); //send to datastructure or something
         }
     }
     doc.Clear();
-    return createCD(title, artist, year, price);
+    return true; //delete once error messages in place
 }
 
-void xmlToCatalog(Catalog* c){
-    TiXmlDocument doc;
-    string title = "";
-    string artist = "";
-    int year = 0;
-    float price = 0;
-
-    if (!doc.LoadFile("cdCatalog.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-
-    TiXmlElement *root = doc.FirstChildElement();
-
-    for (TiXmlElement* cd = root->FirstChildElement(); cd != NULL;
-         cd = cd->NextSiblingElement()) {
-
-        for (TiXmlElement *elem = cd->FirstChildElement(); elem != NULL;
-             elem = elem->NextSiblingElement()) {
-            string elemName = elem->Value();
-
-            for(TiXmlNode* e = elem->FirstChild(); e != NULL; e = e->NextSibling()){
-                TiXmlText* text = e->ToText();
-                if(text == NULL)
-                    continue;
-                string element = text->Value();
-                if (elemName == "TITLE"){
-                    title = element;
-                }
-                else if (elemName == "ARTIST"){
-                    artist = element;
-                }
-                else if (elemName == "YEAR"){
-                    year = stoi(element);
-                }
-                else if (elemName == "PRICE"){
-                    price = stof(element);
-                }
-            }
-        }
-        c->addCD(createCD(title, artist, year, price));
-    }
-}
-
-int main() {
-    CD cd = *xmlToCD();
-    cd.printCDData();
-
-    Catalog c;
-    xmlToCatalog(&c);
-    c.printCatalog();
-}*/
 
 
 

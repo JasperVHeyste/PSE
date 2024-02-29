@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+#include <iostream>
 
 class ClassTest: public ::testing::Test {
 protected:
@@ -19,13 +20,14 @@ protected:
 };
 
 TEST_F(ClassTest, Test1) {
-std::vector<int> some_numbers = std::vector<int>();
+    std::cout << "runs a test, remove this text once test is implemented" << std::endl;
+/*std::vector<int> some_numbers = std::vector<int>();
 some_numbers.push_back(3);
 some_numbers.push_back(5);
 some_numbers.push_back(-11);
 
 int max = largest2(&some_numbers);
 
-EXPECT_EQ(5, max);
+EXPECT_EQ(5, max);*/
 }
 

@@ -1,7 +1,3 @@
-//
-// Created by student on 29/02/24.
-//
-
 #ifndef UNTITLED_QUEUE_H
 #define UNTITLED_QUEUE_H
 #include "Node.h"

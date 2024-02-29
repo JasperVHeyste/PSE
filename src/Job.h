@@ -1,13 +1,15 @@
-//
-// Created by student on 29/02/24.
-//
-
 #ifndef UNTITLED_JOB_H
 #define UNTITLED_JOB_H
 
+#include <string>
 
 class Job {
-
+private:
+    int jobnumber;
+    int pagecount;
+    std::string username;
+public:
+    Job(int jn, int pc, std::string un) : jobnumber(jn), pagecount(pc), username(un) {};
 };
 
 

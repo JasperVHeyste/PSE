@@ -1,17 +1,14 @@
-//
-// Created by student on 29/02/24.
-//
-
 #ifndef UNTITLED_PRINTER_H
 #define UNTITLED_PRINTER_H
 #include <string>
-using namespace std;
 
 class Printer {
 private:
+    std::string name;
     int emission;
     int speed; // pager per minute
-    string type;
+public:
+    Printer(std::string n, int e, int s) : name(n), emission(e), speed(s) {};
 };
 
 

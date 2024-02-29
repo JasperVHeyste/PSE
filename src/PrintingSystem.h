@@ -1,7 +1,3 @@
-//
-// Created by student on 29/02/24.
-//
-
 #ifndef UNTITLED_PRINTINGSYSTEM_H
 #define UNTITLED_PRINTINGSYSTEM_H
 #include <vector>
