@@ -6,7 +6,7 @@
 
 class PrintingSystem {
 private:
-    vector<Printer> printers;
+    std::vector<Printer> printers;
 
 
 public:
