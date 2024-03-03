@@ -6,7 +6,7 @@ class Printer {
 private:
     std::string name;
     int emission;
-    int speed; // pager per minute
+    int speed; // pages per minute
 public:
     Printer(std::string n, int e, int s) : name(n), emission(e), speed(s) {};
 };

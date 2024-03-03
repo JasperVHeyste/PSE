@@ -1,29 +1,14 @@
-#include "processXML.h"
+#include "readXML.h"
 #include "tinyxml.h"
 #include <iostream>
-#include <string>
 
-#include "Printer.h"
-#include "Job.h"
-
-using namespace std;
-
-Printer* createPrinter(string name, int emissions, int speed){
-    Printer* newPrinter = new Printer(name, emissions, speed);
-    return newPrinter;
-}
-
-Job* createJob(int jobnumber, int pagecount, string username){
-    Job* newJob = new Job(jobnumber, pagecount, username);
-    return newJob;
-}
-
-bool readXML(FILE* filename){ //change bool to void once error messages have been implemented
+vector<map<string, string>> readXML(const char* filename){
+    vector<map<string, string>> output;
     TiXmlDocument doc;
 
     if (!doc.LoadFile(filename)) {
         std::cerr << doc.ErrorDesc() << std::endl;
-        return false; //replace with error message
+        return output; //replace with error message
     }
 
     TiXmlElement *root = doc.FirstChildElement();
@@ -32,9 +17,8 @@ bool readXML(FILE* filename){ //change bool to void once error messages have bee
         string objectType = object->Value();
 
         if (objectType == "DEVICE"){
-            string name;
-            int emission;
-            int speed;
+            map<string, string> newdevice;
+            newdevice["type"] = "device";
 
             for (TiXmlElement *elem = object->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
                 string specification = elem->Value();
@@ -45,23 +29,22 @@ bool readXML(FILE* filename){ //change bool to void once error messages have bee
                         continue;
                     string element = text->Value();
                     if (specification == "name"){
-                        name = element;
+                        newdevice["name"] = element;
                     }
                     else if (specification == "emissions"){
-                        emission = stoi(element);
+                        newdevice["emissions"] = element;
                     }
                     else if (specification == "speed"){
-                       speed = stoi(element);
+                        newdevice["speed"] = element;
                     }
                 }
             }
-            createPrinter(name, emission, speed); //send to datastructure or something
+            output.push_back(newdevice);
         }
 
         if (objectType == "JOB"){
-            int jobnumber;
-            int pagecount;
-            string username;
+            map<string, string> newjob;
+            newjob["type"] = "job";
 
             for (TiXmlElement *elem = object->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
                 string specification = elem->Value();
@@ -72,21 +55,21 @@ bool readXML(FILE* filename){ //change bool to void once error messages have bee
                         continue;
                     string element = text->Value();
                     if (specification == "jobnumber"){
-                        jobnumber = stoi(element);
+                        newjob["jobnumber"] = element;
                     }
                     else if (specification == "pagecount"){
-                        pagecount = stoi(element);
+                        newjob["pagecount"] = element;
                     }
                     else if (specification == "username"){
-                        username = element;
+                        newjob["username"] = element;
                     }
                 }
             }
-            createJob(jobnumber, pagecount, username); //send to datastructure or something
+            output.push_back(newjob);
         }
     }
     doc.Clear();
-    return true; //delete once error messages in place
+    return output;
 }
 
 

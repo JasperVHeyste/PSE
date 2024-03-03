@@ -3,11 +3,10 @@
 
 
 bool Queue::isEmpty() {
-    if (this->size ==0){
+    if (this->size == 0){
         return true;
-    }else{
-        return false;
     }
+    return false;
 }
 
 bool Queue::enqueue(Job* p) {
@@ -15,12 +14,12 @@ bool Queue::enqueue(Job* p) {
     if (this->size == 0){
         this->head = newNode;
         this->tail = newNode;
-        this->size += 1;
+        this->size++;
         return true;
     }else {
         this->tail->next = newNode;
         this->tail = newNode;
-        this->size += 1;
+        this->size++;
         return true;
     }
 }
@@ -28,12 +27,12 @@ bool Queue::enqueue(Job* p) {
 Job* Queue::dequeue() {
     QueueNode* headNode = this->head;
     if (this->isEmpty()){
-        cout << "error, queue is empty";
+        cout << "error, queue is empty"; //vervang door REQUIRE
         return nullptr;
     }else if (this->size == 1){
         this->head = nullptr;
         this->tail = nullptr;
-        this->size -= 1;
+        this->size = 0;
         return headNode->item;
     }else{
         this->head = headNode->next;

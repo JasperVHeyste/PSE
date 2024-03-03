@@ -1,7 +1,3 @@
-//
-// Created by student on 29/02/24.
-//
-
 #ifndef UNTITLED_NODE_H
 #define UNTITLED_NODE_H
 #include <string>

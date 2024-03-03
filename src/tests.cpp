@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 
-class ClassTest: public ::testing::Test {
+class InputTest: public ::testing::Test {
 protected:
     // You should make the members protected s.t. they can be
     // accessed from subclasses.
@@ -19,15 +19,15 @@ protected:
     }
 };
 
-TEST_F(ClassTest, Test1) {
-    std::cout << "runs a test, remove this text once test is implemented" << std::endl;
-/*std::vector<int> some_numbers = std::vector<int>();
-some_numbers.push_back(3);
-some_numbers.push_back(5);
-some_numbers.push_back(-11);
+#include "readXML.h"
 
-int max = largest2(&some_numbers);
+TEST_F(InputTest, emptyxml) {
+    /*const char* filename = "testinput1.xml";
 
-EXPECT_EQ(5, max);*/
+    std::vector<std::map<std::string, std::string>> output;
+    output = readXML(filename);
+
+
+    EXPECT_EQ(5, max);*/
 }
 
