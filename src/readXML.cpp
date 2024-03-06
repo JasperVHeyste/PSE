@@ -54,13 +54,13 @@ vector<map<string, string>> readXML(const char* filename){
                     if(text == NULL)
                         continue;
                     string element = text->Value();
-                    if (specification == "jobnumber"){
+                    if (specification == "jobNumber"){
                         newjob["jobnumber"] = element;
                     }
-                    else if (specification == "pagecount"){
+                    else if (specification == "pageCount"){
                         newjob["pagecount"] = element;
                     }
-                    else if (specification == "username"){
+                    else if (specification == "userName"){
                         newjob["username"] = element;
                     }
                 }

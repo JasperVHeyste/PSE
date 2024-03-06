@@ -37,6 +37,7 @@ void PrintingSystem::implementXML(const char* file) {
             string username = object["username"];
 
             createJob(jobnumber, pagecount, username);
+            cout << "created job with jobnumber " << jobnumber << endl;
         }
     }
 }

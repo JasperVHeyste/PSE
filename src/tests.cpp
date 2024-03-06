@@ -22,12 +22,12 @@ protected:
 #include "readXML.h"
 
 TEST_F(InputTest, emptyxml) {
-    /*const char* filename = "testinput1.xml";
+    const char* filename = "testinput1.xml";
 
     std::vector<std::map<std::string, std::string>> output;
     output = readXML(filename);
 
 
-    EXPECT_EQ(5, max);*/
+    EXPECT_EQ(5, max);
 }
 
