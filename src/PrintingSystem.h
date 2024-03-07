@@ -24,9 +24,6 @@ public:
     void manualJob();
     void automatedJob();
 
-    void manualJob();
-    void automatedJob();
-
     void implementXML(const char* file, std::ostream& outputstream = cout);
 };
 
