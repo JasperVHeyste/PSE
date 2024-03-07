@@ -9,16 +9,20 @@
 #include "readXML.h"
 
 
+
 class PrintingSystem {
 private:
     std::vector<Printer*> printers;
     Queue jobs;
+
 
 public:
     virtual ~PrintingSystem();
 
     void createPrinter(std::string name, int emissions, int speed);
     void createJob(int jobnumber, int pagecount, string username);
+    void manualJob();
+    void automatedJob();
 
     void manualJob();
     void automatedJob();
