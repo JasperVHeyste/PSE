@@ -41,3 +41,33 @@ void PrintingSystem::implementXML(const char* file) {
         }
     }
 }
+
+void PrintingSystem::manualJob() {
+    if (jobs.size != 0) {
+        for (auto p : printers) {
+            if (p->isReady()) {
+                Job *job = jobs.dequeue();
+                p->work(job);
+                cout << "Printer " << "'" << p->getName() << "'" << " finished job:" << "\n    Number: " << job->getJobnumber() << "\n    Submitted by '" <<
+                job->getUsername() << "'" << endl << "    " <<job->getPagecount() << " pages" << endl;
+            }
+        }
+    }
+    else {
+        cout << "All jobs ready" << endl;
+    }
+}
+
+void PrintingSystem::automatedJob() {
+    while (!jobs.isEmpty()) {
+        for (auto p : printers) {
+            if (p->isReady()) {
+                Job *job = jobs.dequeue();
+                p->work(job);
+                cout << "Printer " << "'" << p->getName() << "'" << " finished job:" << "\n    Number: " << job->getJobnumber() << "\n    Submitted by '" <<
+                     job->getUsername() << "'" << endl << "    " <<job->getPagecount() << " pages" << endl;
+            }
+        }
+    }
+
+}
