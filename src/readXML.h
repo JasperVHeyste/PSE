@@ -4,8 +4,10 @@
 #include <vector>
 #include <map>
 #include <string>
+#include <iostream>
 using namespace std;
 
-vector<map<string, string>> readXML(const char* filename);
+bool stringIsPositiveInteger(std::string s);
+vector<map<string, string>> readXML(const char* filename, std::ostream& outputstream = cout);
 
 #endif //PROJECT_READXML_H

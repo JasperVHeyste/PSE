@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SYSTEM>
+	<DEVICE>
+		<name>Office_Printer5</name>
+		<emissions>3</emissions>
+		<speed>40</speed>
+	</DEVICE>
+	<JOB>
+		<jobNumber>89751</jobNumber>
+		<pageCount>2</pageCount>
+		<userName>SergeDemeyer</userName>
+	</JOB>
+	<JOB>
+		<jobNumber>2189</jobNumber>
+		<pageCount>3</pageCount>
+		<userName>anonymous_user</userName>
+	</JOB>
+	<DEVICE>
+		<name>Office_Printer6</name>
+		<emissions>2</emissions>
+		<speed>30</speed>
+	</DEVICE>
+</SYSTEM>

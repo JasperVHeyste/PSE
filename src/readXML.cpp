@@ -1,14 +1,25 @@
 #include "readXML.h"
-#include "tinyxml.h"
-#include <iostream>
 
-vector<map<string, string>> readXML(const char* filename){
+bool stringIsPositiveInteger(std::string s){
+    for (char character : s){
+        if (not isdigit(character)){
+            return false;
+        }
+    }
+    if (stoi(s) < 0){
+        return false;
+    }
+    return true;
+}
+
+vector<map<string, string>> readXML(const char* filename, std::ostream& outputstream){
     vector<map<string, string>> output;
     TiXmlDocument doc;
 
     if (!doc.LoadFile(filename)) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-        return output; //replace with error message
+        outputstream << doc.ErrorDesc() << std::endl;
+        doc.Clear();
+        return output;
     }
 
     TiXmlElement *root = doc.FirstChildElement();
@@ -19,6 +30,8 @@ vector<map<string, string>> readXML(const char* filename){
         if (objectType == "DEVICE"){
             map<string, string> newdevice;
             newdevice["type"] = "device";
+
+            bool validinfo = true;
 
             for (TiXmlElement *elem = object->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
                 string specification = elem->Value();
@@ -33,18 +46,34 @@ vector<map<string, string>> readXML(const char* filename){
                     }
                     else if (specification == "emissions"){
                         newdevice["emissions"] = element;
+                        if (not stringIsPositiveInteger(element)){
+                            validinfo = false;
+                        }
                     }
                     else if (specification == "speed"){
                         newdevice["speed"] = element;
+                        if (not stringIsPositiveInteger(element)){
+                            validinfo = false;
+                        }
+                    }
+                    else{
+                        validinfo = false;
                     }
                 }
             }
-            output.push_back(newdevice);
+            if (validinfo and newdevice.size() == 4) {
+                output.push_back(newdevice);
+            }
+            else{
+                outputstream << "Invalid information" << endl;
+            }
         }
 
-        if (objectType == "JOB"){
+        else if (objectType == "JOB"){
             map<string, string> newjob;
             newjob["type"] = "job";
+
+            bool validinfo = true;
 
             for (TiXmlElement *elem = object->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
                 string specification = elem->Value();
@@ -55,22 +84,42 @@ vector<map<string, string>> readXML(const char* filename){
                         continue;
                     string element = text->Value();
                     if (specification == "jobNumber"){
-                        newjob["jobnumber"] = element;
+                        newjob["jobNumber"] = element;
+                        if (not stringIsPositiveInteger(element)){
+                            validinfo = false;
+                        }
                     }
                     else if (specification == "pageCount"){
-                        newjob["pagecount"] = element;
+                        newjob["pageCount"] = element;
+                        if (not stringIsPositiveInteger(element)){
+                            validinfo = false;
+                        }
                     }
                     else if (specification == "userName"){
-                        newjob["username"] = element;
+                        newjob["userName"] = element;
+                    }
+                    else{
+                        validinfo = false;
                     }
                 }
             }
-            output.push_back(newjob);
+            if (validinfo and newjob.size() == 4) {
+                output.push_back(newjob);
+            }
+            else{
+                outputstream << "Invalid information" << std::endl;
+            }
+        }
+
+        else{
+            outputstream << "Unrecognizable element" << std::endl;
         }
     }
     doc.Clear();
     return output;
 }
+
+
 
 
 

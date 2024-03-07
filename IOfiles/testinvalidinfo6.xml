@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SYSTEM>
+	<DEVICE>
+		<name>Office_Printer5</name>
+		<emissions>3</emissions>
+		<speed>40</speed>
+	</DEVICE>
+	<JOB>
+		<pageCount>1</pageCount>
+		<userName>SergeDemeyer</userName>
+	</JOB>
+</SYSTEM>

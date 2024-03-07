@@ -20,7 +20,10 @@ public:
     void createPrinter(std::string name, int emissions, int speed);
     void createJob(int jobnumber, int pagecount, string username);
 
-    void implementXML(const char* file);
+    void manualJob();
+    void automatedJob();
+
+    void implementXML(const char* file, std::ostream& outputstream = cout);
 };
 
 
