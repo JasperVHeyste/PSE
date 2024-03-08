@@ -16,8 +16,8 @@ void PrintingSystem::createJob(int jobnumber, int pagecount, string username){
     jobs.enqueue(newJob);
 }
 
-void PrintingSystem::implementXML(const char* file, std::ostream& outputstream) {
-    vector<map<string,string>> input = readXML(file, outputstream);
+void PrintingSystem::implementXML(const char* file, XMLprocessor& xmlp) {
+    vector<map<string,string>> input = xmlp.readXML(file);
 
     for (unsigned int i = 0; i < input.size(); i++){
         map<string, string> object = input[i];

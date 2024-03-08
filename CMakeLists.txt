@@ -28,7 +28,7 @@ set(RELEASE_SOURCE_FILES
         src/Printer.cpp
         src/PrintingSystem.cpp
         src/Queue.cpp
-        src/readXML.cpp
+        src/XMLprocessor.cpp
 )
 
 # Set source files for DEBUG target
@@ -44,7 +44,7 @@ set(DEBUG_SOURCE_FILES
         src/Printer.cpp
         src/PrintingSystem.cpp
         src/Queue.cpp
-        src/readXML.cpp
+        src/XMLprocessor.cpp
 )
 
 # Create RELEASE target

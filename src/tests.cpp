@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "gtest/gtest.h"
-#include "readXML.h"
+#include "XMLprocessor.h"
 
 class InputTest: public ::testing::Test {
 protected:
@@ -19,6 +19,8 @@ protected:
     // you don't have to provide it.
     virtual void TearDown() {
     }
+
+    XMLprocessor xmlp;
 };
 
 bool FileCompare(const std::string leftFileName, const std::string rightFileName) { //van tictactoe14
@@ -71,7 +73,7 @@ void processedxmlToTextFile(vector<map<string,string>> input, const char* output
 
 TEST_F(InputTest, correctemptyxml) {
     std::vector<std::map<std::string, std::string>> input;
-    input = readXML("testempty.xml");
+    input = xmlp.readXML("testempty.xml");
     int objectamount = input.size();
     EXPECT_EQ(0, objectamount);
 }
@@ -80,12 +82,12 @@ TEST_F(InputTest, correctxmls) {
     std::vector<std::map<std::string, std::string>> input;
     const char* outputfilename;
 
-    input = readXML("testvalid1.xml");
+    input = xmlp.readXML("testvalid1.xml");
     outputfilename = "testvalid1.txt";
     processedxmlToTextFile(input, outputfilename);
     EXPECT_TRUE(FileCompare("testvalid1.txt", "testvalid1_expected.txt"));
 
-    input = readXML("testvalid2.xml");
+    input = xmlp.readXML("testvalid2.xml");
     outputfilename = "testvalid2.txt";
     processedxmlToTextFile(input, outputfilename);
     EXPECT_TRUE(FileCompare("testvalid2.txt", "testvalid2_expected.txt"));
@@ -96,19 +98,19 @@ TEST_F(InputTest, nonexistentxml) {
     ofstream errorfile;
     errorfile.open("testnonexistentxml.txt");
 
-    input = readXML("thisfileshouldnotexist.xml", errorfile);
+    input = xmlp.readXML("thisfileshouldnotexist.xml", errorfile);
     int objectamount = input.size();
     EXPECT_EQ(0, objectamount);
     EXPECT_TRUE(FileCompare("testnonexistentxml.txt", "testnonexistentxml_expected.txt"));
 }
 
-TEST_F(InputTest, checkstringforposint) {
-    EXPECT_TRUE(stringIsPositiveInteger("12"));
-    EXPECT_TRUE(stringIsPositiveInteger("9"));
-    EXPECT_TRUE(stringIsPositiveInteger("3987524"));
-    EXPECT_FALSE(stringIsPositiveInteger("a"));
-    EXPECT_FALSE(stringIsPositiveInteger("-1"));
-    EXPECT_FALSE(stringIsPositiveInteger("hello world"));
+TEST_F(InputTest, checkstringisposint) {
+    EXPECT_TRUE(xmlp.checkStringIsPositiveInt("12"));
+    EXPECT_TRUE(xmlp.checkStringIsPositiveInt("9"));
+    EXPECT_TRUE(xmlp.checkStringIsPositiveInt("3987524"));
+    EXPECT_FALSE(xmlp.checkStringIsPositiveInt("a"));
+    EXPECT_FALSE(xmlp.checkStringIsPositiveInt("-1"));
+    EXPECT_FALSE(xmlp.checkStringIsPositiveInt("hello world"));
 }
 
 
@@ -116,16 +118,26 @@ TEST_F(InputTest, testinvalidinfoxml) {
     std::ofstream errorfile;
     errorfile.open("testinvalidinfoxml.txt");
 
-    std::vector<std::map<std::string, std::string>> input;
-    readXML("testinvalidinfo1.xml", errorfile); //non-int emission
-    readXML("testinvalidinfo2.xml", errorfile); //non-int speed
-    readXML("testinvalidinfo3.xml", errorfile); //non-int jobnumber
-    readXML("testinvalidinfo4.xml", errorfile); //non-int pagecount
-    readXML("testinvalidinfo5.xml", errorfile); //missing element for device
-    readXML("testinvalidinfo6.xml", errorfile); //missing element for job
-    readXML("testinvalidinfo7.xml", errorfile); //negative int
+    xmlp.readXML("testinvalidinfo1.xml", errorfile); //non-int emission
+    xmlp.readXML("testinvalidinfo2.xml", errorfile); //non-int speed
+    xmlp.readXML("testinvalidinfo3.xml", errorfile); //non-int jobnumber
+    xmlp.readXML("testinvalidinfo4.xml", errorfile); //non-int pagecount
+    xmlp.readXML("testinvalidinfo5.xml", errorfile); //missing element for device
+    xmlp.readXML("testinvalidinfo6.xml", errorfile); //missing element for job
+    xmlp.readXML("testinvalidinfo7.xml", errorfile); //negative int
 
     EXPECT_TRUE(FileCompare("testinvalidinfoxml.txt", "testinvalidinfoxml_expected.txt"));
+}
+
+TEST_F(InputTest, testinconsistentprintingsystem) {
+    std::ofstream errorfile;
+    errorfile.open("testinconsistentprintsys.txt");
+
+    std::vector<std::map<std::string, std::string>> input;
+    input = xmlp.readXML("testrepeatjobnr.xml", errorfile); //two jobs with same jobNumber
+    int objectamount = input.size();
+    EXPECT_EQ(0, objectamount);
+    EXPECT_TRUE(FileCompare("testinconsistentprintsys.txt", "testinconsistentprintsys_expected.txt"));
 }
 
 TEST_F(InputTest, testunrecognizableelementxml) {
@@ -133,14 +145,15 @@ TEST_F(InputTest, testunrecognizableelementxml) {
     errorfile.open("testunrecognizableelementxml.txt");
 
     std::vector<std::map<std::string, std::string>> input;
-    readXML("testunrecognizableelement1.xml", errorfile);
-    readXML("testunrecognizableelement2.xml", errorfile);
+    xmlp.readXML("testunrecognizableelement1.xml", errorfile);
+    xmlp.readXML("testunrecognizableelement2.xml", errorfile);
     EXPECT_TRUE(FileCompare("testunrecognizableelementxml.txt", "testunrecognizableelementxml_expected.txt"));
 }
 
-TEST_F(InputTest, testnonxml) {
-    EXPECT_DEATH(readXML("testnonxml.txt"), "Assertion.*failed");
-    EXPECT_DEATH(readXML("testnonxml"), "Assertion.*failed");
+TEST_F(InputTest, contracttests) {
+    EXPECT_TRUE(xmlp.properlyinitialized());
+    EXPECT_DEATH(xmlp.readXML("testnonxml.txt"), "Assertion.*failed");
+    EXPECT_DEATH(xmlp.readXML("testnonxml"), "Assertion.*failed");
 }
 
 

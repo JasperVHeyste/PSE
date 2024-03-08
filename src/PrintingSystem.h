@@ -6,7 +6,7 @@
 #include "Printer.h"
 #include "Job.h"
 #include "Queue.h"
-#include "readXML.h"
+#include "XMLprocessor.h"
 
 
 
@@ -24,7 +24,7 @@ public:
     void manualJob();
     void automatedJob();
 
-    void implementXML(const char* file, std::ostream& outputstream = cout);
+    void implementXML(const char* file, XMLprocessor& xmlp);
 };
 
 

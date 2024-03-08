@@ -1,8 +1,19 @@
-#include "readXML.h"
-#include "DesignByContract.h"
-//#include "DesignByContract_windows.h"
+#include "XMLprocessor.h"
+//#include "DesignByContract.h"
+#include "DesignByContract_windows.h"
 
-bool stringIsPositiveInteger(std::string s){
+
+XMLprocessor::XMLprocessor() {
+    initializecheck = this;
+    ENSURE(properlyinitialized(), "constructor must end in properlyInitialized state");
+}
+
+bool XMLprocessor::properlyinitialized() {
+    return initializecheck == this;
+}
+
+bool XMLprocessor::checkStringIsPositiveInt(std::string s){
+    REQUIRE(properlyinitialized(), "XMLprocessor is not properly initialized");
     for (char character : s){
         if (not isdigit(character)){
             return false;
@@ -14,20 +25,23 @@ bool stringIsPositiveInteger(std::string s){
     return true;
 }
 
-vector<map<string, string>> readXML(const char* filename, std::ostream& outputstream){
+vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ostream& outputstream){
     string fname = filename;
     string ftype;
     for (unsigned int i = fname.length()-4; i < fname.length(); i++){
         ftype += fname[i];
     }
+    REQUIRE(properlyinitialized(), "XMLprocessor is not properly initialized");
     REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
+    previousjobnumbers.clear();
     vector<map<string, string>> output;
+    vector<map<string, string>> emptyoutput;
     TiXmlDocument doc;
 
     if (!doc.LoadFile(filename)) {
         outputstream << doc.ErrorDesc() << std::endl;
         doc.Clear();
-        return output;
+        return emptyoutput;
     }
 
     TiXmlElement *root = doc.FirstChildElement();
@@ -36,8 +50,8 @@ vector<map<string, string>> readXML(const char* filename, std::ostream& outputst
         string objectType = object->Value();
 
         if (objectType == "DEVICE"){
-            map<string, string> newdevice;
-            newdevice["type"] = "device";
+            map<string, string> newobject;
+            newobject["type"] = "device";
 
             bool validinfo = true;
 
@@ -50,17 +64,17 @@ vector<map<string, string>> readXML(const char* filename, std::ostream& outputst
                         continue;
                     string element = text->Value();
                     if (specification == "name"){
-                        newdevice["name"] = element;
+                        newobject["name"] = element;
                     }
                     else if (specification == "emissions"){
-                        newdevice["emissions"] = element;
-                        if (not stringIsPositiveInteger(element)){
+                        newobject["emissions"] = element;
+                        if (not checkStringIsPositiveInt(element)){
                             validinfo = false;
                         }
                     }
                     else if (specification == "speed"){
-                        newdevice["speed"] = element;
-                        if (not stringIsPositiveInteger(element)){
+                        newobject["speed"] = element;
+                        if (not checkStringIsPositiveInt(element)){
                             validinfo = false;
                         }
                     }
@@ -69,17 +83,18 @@ vector<map<string, string>> readXML(const char* filename, std::ostream& outputst
                     }
                 }
             }
-            if (validinfo and newdevice.size() == 4) {
-                output.push_back(newdevice);
+
+            if (validinfo and newobject.size() == 4){
+                output.push_back(newobject);
             }
             else{
-                outputstream << "Invalid information" << endl;
+                outputstream << "Invalid information" << std::endl;
             }
         }
 
         else if (objectType == "JOB"){
-            map<string, string> newjob;
-            newjob["type"] = "job";
+            map<string, string> newobject;
+            newobject["type"] = "job";
 
             bool validinfo = true;
 
@@ -92,27 +107,39 @@ vector<map<string, string>> readXML(const char* filename, std::ostream& outputst
                         continue;
                     string element = text->Value();
                     if (specification == "jobNumber"){
-                        newjob["jobNumber"] = element;
-                        if (not stringIsPositiveInteger(element)){
+                        newobject["jobNumber"] = element;
+                        if (not checkStringIsPositiveInt(element)){
                             validinfo = false;
+                        }
+                        else {
+                            int jn = stoi(element);
+                            for (unsigned int i = 0; i < previousjobnumbers.size(); i++){
+                                if (jn == previousjobnumbers[i]){
+                                    outputstream << "Inconsistent printing system" << std::endl;
+                                    doc.Clear();
+                                    return emptyoutput;
+                                }
+                            }
+                            previousjobnumbers.push_back(jn);
                         }
                     }
                     else if (specification == "pageCount"){
-                        newjob["pageCount"] = element;
-                        if (not stringIsPositiveInteger(element)){
+                        newobject["pageCount"] = element;
+                        if (not checkStringIsPositiveInt(element)){
                             validinfo = false;
                         }
                     }
                     else if (specification == "userName"){
-                        newjob["userName"] = element;
+                        newobject["userName"] = element;
                     }
                     else{
                         validinfo = false;
                     }
                 }
             }
-            if (validinfo and newjob.size() == 4) {
-                output.push_back(newjob);
+
+            if (validinfo and newobject.size() == 4){
+                output.push_back(newobject);
             }
             else{
                 outputstream << "Invalid information" << std::endl;

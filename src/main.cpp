@@ -4,8 +4,9 @@
 
 int main() {
     TiXmlDocument doc;
+    XMLprocessor xmlp = XMLprocessor();
     PrintingSystem s = PrintingSystem();
-    s.implementXML("PDFinput.xml");
+    s.implementXML("PDFinput.xml", xmlp);
     s.automatedJob();
 //    s.manualJob();
 //    s.manualJob();
