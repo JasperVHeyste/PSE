@@ -8,6 +8,8 @@
 using namespace std;
 
 bool stringIsPositiveInteger(std::string s);
+
 vector<map<string, string>> readXML(const char* filename, std::ostream& outputstream = cout);
+//REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
 
 #endif //PROJECT_READXML_H

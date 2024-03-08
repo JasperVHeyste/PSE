@@ -226,3 +226,8 @@ $RECYCLE.BIN/
 .DS_Store
 
 ###
+/IOfiles/testvalid2.txt
+/IOfiles/testvalid1.txt
+/IOfiles/testunrecognizableelementxml.txt
+/IOfiles/testnonexistentxml.txt
+/IOfiles/testinvalidinfoxml.txt

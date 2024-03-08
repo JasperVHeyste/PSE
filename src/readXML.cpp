@@ -1,4 +1,6 @@
 #include "readXML.h"
+#include "DesignByContract.h"
+//#include "DesignByContract_windows.h"
 
 bool stringIsPositiveInteger(std::string s){
     for (char character : s){
@@ -13,6 +15,12 @@ bool stringIsPositiveInteger(std::string s){
 }
 
 vector<map<string, string>> readXML(const char* filename, std::ostream& outputstream){
+    string fname = filename;
+    string ftype;
+    for (unsigned int i = fname.length()-4; i < fname.length(); i++){
+        ftype += fname[i];
+    }
+    REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
     vector<map<string, string>> output;
     TiXmlDocument doc;
 
