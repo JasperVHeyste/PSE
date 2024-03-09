@@ -13,6 +13,9 @@ public:
     bool enqueue(Job* p);
     Job* dequeue();
 
+    int getSize() const;
+    Job* getJob(int index);
+
     virtual ~Queue();
 
 };

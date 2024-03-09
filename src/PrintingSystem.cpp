@@ -1,6 +1,7 @@
 #include <iostream>
-
+#include <fstream>
 #include "PrintingSystem.h"
+#include <string>
 
 PrintingSystem::~PrintingSystem() {
 
@@ -69,5 +70,45 @@ void PrintingSystem::automatedJob() {
             }
         }
     }
+
+}
+
+void PrintingSystem::simpleOutput() {
+    ofstream outputFile("status_report.txt");
+    if (!outputFile.is_open()) {
+        cout << "Can not open status_report." << endl;
+        return;
+    }
+
+    if (printers.empty()){
+        cout << "No printers present in Printingsystem" << endl;
+    }
+
+    // printers
+    for (auto& p: printers){
+        outputFile << "NEW-Printer (" << p->getName() << ": " << p->getEmission() << "g/page):\n";
+
+        if (p->isReady()) {
+            outputFile << "* Current:\n";
+            outputFile << "[#" << std::to_string(p->getJobnumber()) << "|" << p->getUsername() << "]\n";
+        }
+        if (!p->isReady()){
+            outputFile << "Not ready.\n";
+        }
+    }
+
+    // queue
+    outputFile << "Queue:\n";
+    if (jobs.isEmpty()){
+        outputFile << "No current jobs in queue.";
+    }else{
+        QueueNode* temp = jobs.head;
+        for (int i = 0; i < jobs.getSize(); i++){
+            Job* current = temp->item;
+            outputFile << "[#" << std::to_string(current->getJobnumber()) << "|" << current->getUsername() << "]\n";
+            temp = temp->next;
+        }
+    }
+    outputFile.close();
 
 }

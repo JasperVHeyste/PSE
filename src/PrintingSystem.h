@@ -25,6 +25,10 @@ public:
     void automatedJob();
 
     void implementXML(const char* file, XMLprocessor& xmlp);
+
+
+    // use case 2.1
+    void simpleOutput();
 };
 
 

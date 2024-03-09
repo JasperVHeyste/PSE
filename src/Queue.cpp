@@ -46,3 +46,15 @@ Job* Queue::dequeue() {
 
 Queue::~Queue() {
 }
+
+int Queue::getSize() const {
+    return size;
+}
+
+Job *Queue::getJob(int index) {
+    QueueNode* temp = this->head;
+    for (int i = 0; i < index; i++){
+        temp = temp->next;
+    }
+    return temp->item;
+}

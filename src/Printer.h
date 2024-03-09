@@ -20,6 +20,14 @@ public:
     bool isReady() const;
 
     const std::string &getName() const;
+
+    int getEmission() const;
+
+    const std::string &getUsername() const;
+
+    int getJobnumber() const;
+
+    int getPagecount() const;
 };
 
 

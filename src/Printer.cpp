@@ -18,3 +18,19 @@ bool Printer::isReady() const {
 const std::string &Printer::getName() const {
     return name;
 }
+
+int Printer::getEmission() const {
+    return emission;
+}
+
+const std::string &Printer::getUsername() const {
+    return username;
+}
+
+int Printer::getJobnumber() const {
+    return jobnumber;
+}
+
+int Printer::getPagecount() const {
+    return pagecount;
+}
