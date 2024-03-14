@@ -3,8 +3,8 @@
 #include "PrintingSystem.h"
 #include <string>
 
-#include "DesignByContract.h"
-//#include "DesignByContract_windows.h"
+//#include "DesignByContract.h"
+#include "DesignByContract_windows.h"
 
 PrintingSystem::PrintingSystem(){
     initcheck = this;
@@ -68,16 +68,16 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
         }
     }
 }
-
-void PrintingSystem::manualJob() {
-    if (jobs.size != 0) {
-        for (auto p : printers) {
-            if (p->isReady()) {
-                Job *job = jobs.dequeue();
-                p->work(job);
-                cout << "Printer " << "'" << p->getName() << "'" << " finished job:" << "\n    Number: " << job->getJobnumber() << "\n    Submitted by '" <<
-                     job->getUsername() << "'" << endl << "    " <<job->getPagecount() << " pages" << endl;
+void PrintingSystem::assignJob() {
+    if (!jobs.isEmpty()) {
+        for (auto p: printers) {
+            if (!jobs.isEmpty()) {
+                if (p->isReady()) {
+                    Job *job = jobs.dequeue();
+                    p->setJob(job);
+                }
             }
+
         }
     }
     else {
@@ -85,22 +85,24 @@ void PrintingSystem::manualJob() {
     }
 }
 
-void PrintingSystem::automatedJob() {
-    while (!jobs.isEmpty()) {
-        for (auto p : printers) {
-            if (p->isReady()) {
-                Job *job = jobs.dequeue();
-                p->work(job);
-                cout << "Printer " << "'" << p->getName() << "'" << " finished job:" << "\n    Number: " << job->getJobnumber() << "\n    Submitted by '" <<
-                     job->getUsername() << "'" << endl << "    " <<job->getPagecount() << " pages" << endl;
-            }
+void PrintingSystem::proccesJob() {
+    for (auto p: printers) {
+        if (!p->isReady()) {
+            p->work();
         }
     }
+}
 
+void PrintingSystem::automatedJob() {
+    while(not isQueueEmpty()){
+        assignJob();
+        proccesJob();
+    }
 }
 
 void PrintingSystem::simpleOutput() {
-    ofstream outputFile("status_report.txt");
+    ofstream outputFile("status_report.txt" + to_string(reportIndex));
+    reportIndex += 1;
     if (!outputFile.is_open()) {
         cout << "Can not open status_report." << endl;
         return;
@@ -115,26 +117,29 @@ void PrintingSystem::simpleOutput() {
         outputFile << "NEW-Printer (" << p->getName() << ": " << p->getEmission() << "g/page):\n";
 
         if (p->isReady()) {
-            outputFile << "* Current:\n";
-            outputFile << "[#" << std::to_string(p->getJobnumber()) << "|" << p->getUsername() << "]\n";
+            if (p->getJob() == nullptr) {
+                outputFile << "printer has no job\n";
+            }
         }
         if (!p->isReady()){
-            outputFile << "Not ready.\n";
+            outputFile << "     * Current:\n";
+            outputFile << "[#" << p->getJobnumber() << "|" << p->getUsername() << "]\n";
+        }
+        // queue
+        outputFile << "     * Queue:\n";
+        if (jobs.isEmpty()){
+            outputFile << "         No current jobs in queue.\n";
+        }else{
+            QueueNode* temp = jobs.head;
+            for (int i = 0; i < jobs.getSize(); i++){
+                Job* current = temp->item;
+                outputFile << "         [#" << std::to_string(current->getJobnumber()) << "|" << current->getUsername() << "]\n";
+                temp = temp->next;
+            }
         }
     }
 
-    // queue
-    outputFile << "Queue:\n";
-    if (jobs.isEmpty()){
-        outputFile << "No current jobs in queue.";
-    }else{
-        QueueNode* temp = jobs.head;
-        for (int i = 0; i < jobs.getSize(); i++){
-            Job* current = temp->item;
-            outputFile << "[#" << std::to_string(current->getJobnumber()) << "|" << current->getUsername() << "]\n";
-            temp = temp->next;
-        }
-    }
+
     outputFile.close();
 
 }

@@ -8,17 +8,17 @@ private:
     std::string name;
     int emission;
     int speed; // pages per minute
-    std::string username;
-    int jobnumber;
-    int pagecount;
-    bool ready;
+    //int pagecount;
+    bool ready = true;
     Printer* initcheck;
+    Job* job = nullptr;
 public:
     Printer(std::string n, int e, int s);
 
     bool properlyInitialized();
 
-    bool work(Job *job);
+    bool work();
+
 
     bool isReady() const;
 
@@ -31,6 +31,10 @@ public:
     int getJobnumber() const;
 
     int getPagecount() const;
+
+    void setJob(Job *job);
+
+    Job *getJob() const;
 };
 
 

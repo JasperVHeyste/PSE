@@ -7,8 +7,14 @@ int main() {
     XMLprocessor xmlp = XMLprocessor();
     PrintingSystem s = PrintingSystem();
     s.implementXML("PDFinput.xml", xmlp);
+
     s.automatedJob();
-//    s.manualJob();
-//    s.manualJob();
-//    s.manualJob();
+
+    /*while(not s.isQueueEmpty()){
+        s.simpleOutput();
+        s.assignJob();
+        s.simpleOutput();
+        s.proccesJob();
+        s.simpleOutput();
+    }*/
 }

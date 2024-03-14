@@ -12,6 +12,7 @@
 
 class PrintingSystem {
 private:
+    int reportIndex = 0;
     std::vector<Printer*> printers;
     Queue jobs;
     PrintingSystem* initcheck;
@@ -36,11 +37,14 @@ public:
     //REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
     //REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
 
-    void manualJob();
+    void proccesJob();
+    void assignJob();
     void automatedJob();
 
     // use case 2.1
     void simpleOutput();
+
+    bool isQueueEmpty() { return jobs.isEmpty();}
 };
 
 

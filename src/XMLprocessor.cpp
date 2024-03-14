@@ -1,7 +1,7 @@
 #include "XMLprocessor.h"
 
-#include "DesignByContract.h"
-//#include "DesignByContract_windows.h"
+//#include "DesignByContract.h"
+#include "DesignByContract_windows.h"
 
 XMLprocessor::XMLprocessor() {
     initcheck = this;
