@@ -93,26 +93,25 @@ TEST_F(InputTest, correctxmls) {
     EXPECT_TRUE(FileCompare("testvalid2.txt", "testvalid2_expected.txt"));
 }
 
-TEST_F(InputTest, nonexistentxml) {
+TEST_F(InputTest, wrongxml) {
     std::vector<std::map<std::string, std::string>> input;
     ofstream errorfile;
-    errorfile.open("testnonexistentxml.txt");
+    errorfile.open("testwrongxml.txt");
 
     input = xmlp.readXML("thisfileshouldnotexist.xml", errorfile);
     int objectamount = input.size();
     EXPECT_EQ(0, objectamount);
-    EXPECT_TRUE(FileCompare("testnonexistentxml.txt", "testnonexistentxml_expected.txt"));
-}
 
-TEST_F(InputTest, checkstringisposint) {
-    EXPECT_TRUE(xmlp.checkStringIsPositiveInt("12"));
-    EXPECT_TRUE(xmlp.checkStringIsPositiveInt("9"));
-    EXPECT_TRUE(xmlp.checkStringIsPositiveInt("3987524"));
-    EXPECT_FALSE(xmlp.checkStringIsPositiveInt("a"));
-    EXPECT_FALSE(xmlp.checkStringIsPositiveInt("-1"));
-    EXPECT_FALSE(xmlp.checkStringIsPositiveInt("hello world"));
-}
+    input = xmlp.readXML("testfaultyxml1.xml", errorfile);
+    objectamount = input.size();
+    EXPECT_EQ(0, objectamount);
 
+    input = xmlp.readXML("testfaultyxml2.xml", errorfile);
+    objectamount = input.size();
+    EXPECT_EQ(0, objectamount);
+
+    EXPECT_TRUE(FileCompare("testwrongxml.txt", "testwrongxml_expected.txt"));
+}
 
 TEST_F(InputTest, testinvalidinfoxml) {
     std::ofstream errorfile;
@@ -148,6 +147,15 @@ TEST_F(InputTest, testunrecognizableelementxml) {
     xmlp.readXML("testunrecognizableelement1.xml", errorfile);
     xmlp.readXML("testunrecognizableelement2.xml", errorfile);
     EXPECT_TRUE(FileCompare("testunrecognizableelementxml.txt", "testunrecognizableelementxml_expected.txt"));
+}
+
+TEST_F(InputTest, checkstringisposint) {
+    EXPECT_TRUE(xmlp.checkStringIsPositiveInt("12"));
+    EXPECT_TRUE(xmlp.checkStringIsPositiveInt("9"));
+    EXPECT_TRUE(xmlp.checkStringIsPositiveInt("3987524"));
+    EXPECT_FALSE(xmlp.checkStringIsPositiveInt("a"));
+    EXPECT_FALSE(xmlp.checkStringIsPositiveInt("-1"));
+    EXPECT_FALSE(xmlp.checkStringIsPositiveInt("hello world"));
 }
 
 TEST_F(InputTest, contracttests) {
