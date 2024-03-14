@@ -1,6 +1,7 @@
 #ifndef UNTITLED_JOB_H
 #define UNTITLED_JOB_H
 
+#include "ContractManager.h"
 #include <string>
 
 class Job {
@@ -12,20 +13,18 @@ private:
 
 public:
     Job(int jn, int pc, std::string un);
+    //ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state")
 
-    bool properlyInitialized();
+    bool properlyInitialized() const;
 
-    int getPagecount() const {
-        return pagecount;
-    }
+    int getJobnumber() const;
+    //REQUIRE(properlyInitialized(), "Job is not properly initialized")
 
-    int getJobnumber() const {
-        return jobnumber;
-    }
+    int getPagecount() const;
+    //REQUIRE(properlyInitialized(), "Job is not properly initialized")
 
-    const std::string &getUsername() const {
-        return username;
-    }
+    const std::string& getUsername() const;
+    //REQUIRE(properlyInitialized(), "Job is not properly initialized")
 };
 
 

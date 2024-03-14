@@ -6,12 +6,17 @@ using namespace std;
 
 
 class QueueNode {
+private:
+    QueueNode* initcheck;
 public:
     Job* item;
     QueueNode* next = nullptr;
     QueueNode* prev = nullptr;
 
     explicit QueueNode(Job *item);
+    //ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
+
+    bool properlyInitialized() const;
 };
 
 

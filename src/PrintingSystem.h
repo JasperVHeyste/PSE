@@ -44,7 +44,9 @@ public:
     // use case 2.1
     void simpleOutput();
 
-    bool isQueueEmpty() { return jobs.isEmpty();}
+    bool isQueueEmpty();
+    //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+    //REQUIRE(jobs.properlyInitialized(), "Queue is not properly initialized");
 };
 
 

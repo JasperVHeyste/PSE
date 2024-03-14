@@ -16,9 +16,7 @@ bool PrintingSystem::properlyInitialized() {
 }
 
 
-PrintingSystem::~PrintingSystem() {
-
-}
+PrintingSystem::~PrintingSystem() {}
 
 void PrintingSystem::createPrinter(string name, int emissions, int speed){
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
@@ -68,6 +66,7 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
         }
     }
 }
+
 void PrintingSystem::assignJob() {
     if (!jobs.isEmpty()) {
         for (auto p: printers) {
@@ -130,7 +129,7 @@ void PrintingSystem::simpleOutput() {
         if (jobs.isEmpty()){
             outputFile << "         No current jobs in queue.\n";
         }else{
-            QueueNode* temp = jobs.head;
+            QueueNode* temp = jobs.getHead();
             for (int i = 0; i < jobs.getSize(); i++){
                 Job* current = temp->item;
                 outputFile << "         [#" << std::to_string(current->getJobnumber()) << "|" << current->getUsername() << "]\n";
@@ -139,7 +138,9 @@ void PrintingSystem::simpleOutput() {
         }
     }
 
-
     outputFile.close();
+}
 
+bool PrintingSystem::isQueueEmpty() {
+    return jobs.isEmpty();
 }

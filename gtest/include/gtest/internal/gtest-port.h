@@ -683,7 +683,7 @@ using ::std::tuple_size;
 # define GTEST_CAN_STREAM_RESULTS_ 1
 #endif
 
-// Defines some utility macros.
+// Defines some given_utility macros.
 
 // The GNU compiler emits a warning if nested "if" statements are followed by
 // an "else" statement and braces are not used to explicitly disambiguate the
@@ -1931,7 +1931,7 @@ typedef TypeWithSize<8>::Int TimeInMillis;  // Represents time in milliseconds.
 // to *value and returns true; otherwise leaves *value unchanged and returns
 // false.
 // TODO(chandlerc): Find a better way to refactor flag and environment parsing
-// out of both gtest-port.cc and gtest.cc to avoid exporting this utility
+// out of both gtest-port.cc and gtest.cc to avoid exporting this given_utility
 // function.
 bool ParseInt32(const Message& src_text, const char* str, Int32* value);
 

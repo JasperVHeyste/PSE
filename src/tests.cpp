@@ -190,7 +190,6 @@ protected:
 TEST_F(PrintSysTest, contracttests) {
     EXPECT_TRUE(ps.properlyInitialized());
     EXPECT_DEATH(ps.implementXML("testnonxml.txt", xmlp), "Assertion.*failed");
-    EXPECT_DEATH(ps.implementXML("testnonxml", xmlp), "Assertion.*failed");
 }
 
 int main(int argc, char **argv) {

@@ -171,7 +171,7 @@ const TiXmlEncoding TIXML_DEFAULT_ENCODING = TIXML_ENCODING_UNKNOWN;
 
 /** TiXmlBase is a base class for every class in TinyXml.
 	It does little except to establish that TinyXml classes
-	can be printed and provide some utility functions.
+	can be printed and provide some given_utility functions.
 
 	In XML, the document and elements can contain
 	other elements and other types of nodes.
@@ -1558,7 +1558,7 @@ private:
 /**
 	A TiXmlHandle is a class that wraps a node pointer with null checks; this is
 	an incredibly useful thing. Note that TiXmlHandle is not part of the TinyXml
-	DOM structure. It is a separate utility class.
+	DOM structure. It is a separate given_utility class.
 
 	Take an example:
 	@verbatim

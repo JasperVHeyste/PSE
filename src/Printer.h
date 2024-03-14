@@ -8,33 +8,44 @@ private:
     std::string name;
     int emission;
     int speed; // pages per minute
-    //int pagecount;
     bool ready = true;
-    Printer* initcheck;
     Job* job = nullptr;
+    Printer* initcheck;
 public:
     Printer(std::string n, int e, int s);
+    //ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
 
-    bool properlyInitialized();
+    bool properlyInitialized() const;
+
+    void setJob(Job* j);
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    //REQUIRE(j->properlyInitialized(), "Job is not properly initialized");
 
     bool work();
-
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    //ENSURE(isReady(), "Printer must be ready after work is done");
+    //ENSURE(getJob() == nullptr, "Printer cannot have an assigned job after work is done");
 
     bool isReady() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
     const std::string &getName() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
     int getEmission() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
     const std::string &getUsername() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
     int getJobnumber() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
     int getPagecount() const;
-
-    void setJob(Job *job);
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
     Job *getJob() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 };
 
 

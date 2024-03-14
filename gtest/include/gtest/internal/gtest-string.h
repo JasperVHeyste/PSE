@@ -57,7 +57,7 @@ namespace internal {
 // String - an abstract class holding static string utilities.
 class GTEST_API_ String {
  public:
-  // Static utility methods
+  // Static given_utility methods
 
   // Clones a 0-terminated C string, allocating memory using new.  The
   // caller is responsible for deleting the return value using

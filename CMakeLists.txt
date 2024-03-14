@@ -9,7 +9,7 @@ set(CMAKE_CXX_FLAGS "-std=c++17 -Wall -Werror -O2")
 set(CMAKE_EXE_LINKER_FLAGS -pthread)
 
 # Set include dir
-include_directories(./gtest/include)
+include_directories(./gtest/include, ./given_utility)
 
 # Set Library dir
 link_directories(./gtest/lib)
@@ -18,10 +18,6 @@ link_directories(./gtest/lib)
 # Only add cpp files, no h files!
 # Only add files with functionality here, no test files!
 set(RELEASE_SOURCE_FILES
-        src/tinystr.cpp
-        src/tinyxml.cpp
-        src/tinyxmlerror.cpp
-        src/tinyxmlparser.cpp
         src/main.cpp
         src/QueueNode.cpp
         src/Job.cpp
@@ -29,15 +25,15 @@ set(RELEASE_SOURCE_FILES
         src/PrintingSystem.cpp
         src/Queue.cpp
         src/XMLprocessor.cpp
+        given_utility/tinystr.cpp
+        given_utility/tinyxml.cpp
+        given_utility/tinyxmlerror.cpp
+        given_utility/tinyxmlparser.cpp
 )
 
 # Set source files for DEBUG target
 # Only add cpp files, no h files!
 set(DEBUG_SOURCE_FILES
-        src/tinystr.cpp
-        src/tinyxml.cpp
-        src/tinyxmlerror.cpp
-        src/tinyxmlparser.cpp
         src/tests.cpp
         src/QueueNode.cpp
         src/Job.cpp
@@ -45,6 +41,10 @@ set(DEBUG_SOURCE_FILES
         src/PrintingSystem.cpp
         src/Queue.cpp
         src/XMLprocessor.cpp
+        given_utility/tinystr.cpp
+        given_utility/tinyxml.cpp
+        given_utility/tinyxmlerror.cpp
+        given_utility/tinyxmlparser.cpp
 )
 
 # Create RELEASE target

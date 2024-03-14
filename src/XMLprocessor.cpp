@@ -1,18 +1,15 @@
 #include "XMLprocessor.h"
 
-//#include "DesignByContract.h"
-#include "DesignByContract_windows.h"
-
 XMLprocessor::XMLprocessor() {
     initcheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-bool XMLprocessor::properlyInitialized() {
+bool XMLprocessor::properlyInitialized() const {
     return initcheck == this;
 }
 
-bool XMLprocessor::checkStringIsPositiveInt(std::string s){
+bool XMLprocessor::checkStringIsPositiveInt(std::string s) const{
     REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
     for (char character : s){
         if (not isdigit(character)){

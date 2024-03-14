@@ -1,8 +1,19 @@
 #include "Queue.h"
 #include <iostream>
 
+Queue::Queue(){
+    initcheck = this;
+    ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
+}
+
+Queue::~Queue() {}
+
+bool Queue::properlyInitialized() const {
+    return initcheck == this;
+}
 
 bool Queue::isEmpty() {
+    REQUIRE(properlyInitialized(), "Queue is not properly initialized");
     if (this->size == 0){
         return true;
     }
@@ -10,6 +21,7 @@ bool Queue::isEmpty() {
 }
 
 bool Queue::enqueue(Job* p) {
+    REQUIRE(properlyInitialized(), "Queue is not properly initialized");
     QueueNode* newNode = new QueueNode(p);
     if (this->size == 0){
         this->head = newNode;
@@ -25,16 +37,16 @@ bool Queue::enqueue(Job* p) {
 }
 
 Job* Queue::dequeue() {
+    REQUIRE(properlyInitialized(), "Queue is not properly initialized");
+    REQUIRE(!isEmpty(), "Queue is empty");
     QueueNode* headNode = this->head;
-    if (this->isEmpty()){
-        cout << "error, queue is empty"; //vervang door REQUIRE
-        return nullptr;
-    }else if (this->size == 1){
+    if (this->size == 1) {
         this->head = nullptr;
         this->tail = nullptr;
         this->size = 0;
         return headNode->item;
-    }else{
+    }
+    else{
         this->head = headNode->next;
         this->head->prev = nullptr;
     }
@@ -44,14 +56,19 @@ Job* Queue::dequeue() {
 
 }
 
-Queue::~Queue() {
+QueueNode* Queue::getHead(){
+    REQUIRE(properlyInitialized(), "Queue is not properly initialized");
+    return head;
 }
 
 int Queue::getSize() const {
+    REQUIRE(properlyInitialized(), "Queue is not properly initialized");
     return size;
 }
 
 Job *Queue::getJob(int index) {
+    REQUIRE(properlyInitialized(), "Queue is not properly initialized");
+    REQUIRE(index < size, "Queue does not have an item with the given index");
     QueueNode* temp = this->head;
     for (int i = 0; i < index; i++){
         temp = temp->next;
