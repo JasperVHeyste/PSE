@@ -1,18 +1,19 @@
 #include "XMLprocessor.h"
+
 #include "DesignByContract.h"
 //#include "DesignByContract_windows.h"
 
 XMLprocessor::XMLprocessor() {
-    initializecheck = this;
-    ENSURE(properlyinitialized(), "constructor must end in properlyInitialized state");
+    initcheck = this;
+    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
-bool XMLprocessor::properlyinitialized() {
-    return initializecheck == this;
+bool XMLprocessor::properlyInitialized() {
+    return initcheck == this;
 }
 
 bool XMLprocessor::checkStringIsPositiveInt(std::string s){
-    REQUIRE(properlyinitialized(), "XMLprocessor is not properly initialized");
+    REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
     for (char character : s){
         if (not isdigit(character)){
             return false;
@@ -30,7 +31,7 @@ vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ost
     for (unsigned int i = fname.length()-4; i < fname.length(); i++){
         ftype += fname[i];
     }
-    REQUIRE(properlyinitialized(), "XMLprocessor is not properly initialized");
+    REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
     REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
     previousjobnumbers.clear();
     vector<map<string, string>> output;

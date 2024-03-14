@@ -8,8 +8,12 @@ private:
     int jobnumber;
     int pagecount;
     std::string username;
+    Job* initcheck;
+
 public:
-    Job(int jn, int pc, std::string un) : jobnumber(jn), pagecount(pc), username(un) {};
+    Job(int jn, int pc, std::string un);
+
+    bool properlyInitialized();
 
     int getPagecount() const {
         return pagecount;

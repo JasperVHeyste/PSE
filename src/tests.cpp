@@ -151,11 +151,39 @@ TEST_F(InputTest, testunrecognizableelementxml) {
 }
 
 TEST_F(InputTest, contracttests) {
-    EXPECT_TRUE(xmlp.properlyinitialized());
+    EXPECT_TRUE(xmlp.properlyInitialized());
     EXPECT_DEATH(xmlp.readXML("testnonxml.txt"), "Assertion.*failed");
     EXPECT_DEATH(xmlp.readXML("testnonxml"), "Assertion.*failed");
 }
 
+#include "PrintingSystem.h"
+
+class PrintSysTest: public ::testing::Test {
+protected:
+    // You should make the members protected s.t. they can be
+    // accessed from subclasses.
+
+    // virtual void SetUp() will be called before each test is run.  You
+    // should define it if you need to initialize the variables.
+    // Otherwise, this can be skipped.
+    virtual void SetUp() {
+    }
+
+    // virtual void TearDown() will be called after each test is run.
+    // You should define it if there is cleanup work to do.  Otherwise,
+    // you don't have to provide it.
+    virtual void TearDown() {
+    }
+
+    PrintingSystem ps;
+    XMLprocessor xmlp;
+};
+
+TEST_F(PrintSysTest, contracttests) {
+    EXPECT_TRUE(ps.properlyInitialized());
+    EXPECT_DEATH(ps.implementXML("testnonxml.txt", xmlp), "Assertion.*failed");
+    EXPECT_DEATH(ps.implementXML("testnonxml", xmlp), "Assertion.*failed");
+}
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

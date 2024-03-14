@@ -2,6 +2,15 @@
 #include <chrono>
 #include <thread>
 #include "Job.h"
+
+Printer::Printer(std::string n, int e, int s)  : name(n), emission(e), speed(s), ready(true) {
+    initcheck = this;
+}
+
+bool Printer::properlyInitialized() {
+    return initcheck == this;
+}
+
 bool Printer::work(Job *job) {
     ready = false;
     double printingTime = job->getPagecount() / speed;

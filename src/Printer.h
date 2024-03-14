@@ -12,8 +12,11 @@ private:
     int jobnumber;
     int pagecount;
     bool ready;
+    Printer* initcheck;
 public:
-    Printer(std::string n, int e, int s) : name(n), emission(e), speed(s), ready(true) {};
+    Printer(std::string n, int e, int s);
+
+    bool properlyInitialized();
 
     bool work(Job *job);
 

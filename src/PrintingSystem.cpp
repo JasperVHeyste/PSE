@@ -3,22 +3,48 @@
 #include "PrintingSystem.h"
 #include <string>
 
+#include "DesignByContract.h"
+//#include "DesignByContract_windows.h"
+
+PrintingSystem::PrintingSystem(){
+    initcheck = this;
+    ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
+}
+
+bool PrintingSystem::properlyInitialized() {
+    return initcheck == this;
+}
+
+
 PrintingSystem::~PrintingSystem() {
 
 }
 
 void PrintingSystem::createPrinter(string name, int emissions, int speed){
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     Printer* newPrinter = new Printer(name, emissions, speed);
+    ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
     printers.push_back(newPrinter);
 }
 
 void PrintingSystem::createJob(int jobnumber, int pagecount, string username){
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     Job* newJob = new Job(jobnumber, pagecount, username);
+    ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
     jobs.enqueue(newJob);
 }
 
-void PrintingSystem::implementXML(const char* file, XMLprocessor& xmlp) {
-    vector<map<string,string>> input = xmlp.readXML(file);
+void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
+    string fname = filename;
+    string ftype;
+    for (unsigned int i = fname.length()-4; i < fname.length(); i++){
+        ftype += fname[i];
+    }
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+    REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
+    REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
+
+    vector<map<string,string>> input = xmlp.readXML(filename);
 
     for (unsigned int i = 0; i < input.size(); i++){
         map<string, string> object = input[i];
@@ -29,7 +55,7 @@ void PrintingSystem::implementXML(const char* file, XMLprocessor& xmlp) {
             int speed = stoi(object["speed"]);
 
             createPrinter(name, emissions, speed);
-            cout << "created printer with name " << name << endl;
+            //cout << "created printer with name " << name << endl;
         }
 
         if (object["type"] == "job"){
@@ -38,7 +64,7 @@ void PrintingSystem::implementXML(const char* file, XMLprocessor& xmlp) {
             string username = object["userName"];
 
             createJob(jobnumber, pagecount, username);
-            cout << "created job with jobnumber " << jobnumber << endl;
+            //cout << "created job with jobnumber " << jobnumber << endl;
         }
     }
 }
