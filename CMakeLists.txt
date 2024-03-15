@@ -9,7 +9,7 @@ set(CMAKE_CXX_FLAGS "-std=c++17 -Wall -Werror -O2")
 set(CMAKE_EXE_LINKER_FLAGS -pthread)
 
 # Set include dir
-include_directories(./gtest/include, ./given_utility)
+include_directories(./given_utility ./gtest/include)
 
 # Set Library dir
 link_directories(./gtest/lib)
