@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SYSTEM>
+	<DEVICE>
+		<name>Office_Printer1</name>
+		<emissions>3</emissions>
+		<speed>40</speed>
+	</DEVICE>
+</SYSTEM>
