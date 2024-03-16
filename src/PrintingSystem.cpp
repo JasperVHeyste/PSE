@@ -100,7 +100,7 @@ void PrintingSystem::automatedJob() {
 }
 
 void PrintingSystem::simpleOutput() {
-    ofstream outputFile("status_report.txt" + to_string(reportIndex));
+    ofstream outputFile("status_report" + to_string(reportIndex) + ".txt");
     reportIndex += 1;
     if (!outputFile.is_open()) {
         cout << "Can not open status_report." << endl;
