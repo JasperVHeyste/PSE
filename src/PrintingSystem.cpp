@@ -68,6 +68,9 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
 }
 
 void PrintingSystem::assignJob() {
+    if (printers.size() == 0) {
+        cout << "No printers to assign job\n";
+    }
     if (!jobs.isEmpty()) {
         for (auto p: printers) {
             if (!jobs.isEmpty()) {
