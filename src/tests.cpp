@@ -238,10 +238,26 @@ TEST_F(PrintSysTest, MultiplePrintersMultipleJobs) {
     std::string expectedOutput = "Printer 'Office_Printer4' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer3' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 4\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer4' finished job:\n    Number: 5\n    Submitted by 'anonymous_user'\n    3 pages\n";
     ASSERT_EQ(buffer.str(), expectedOutput);
 }
-
-
-
-
+TEST_F(PrintSysTest, NoJobs) {
+    std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    ps.implementXML("PDFinput1.xml", xmlp);
+    ps.assignJob();
+    ps.proccesJob();
+    std::cout.rdbuf(oldCout);
+    std::string expectedOutput = "All jobs ready\n";
+    ASSERT_EQ(buffer.str(), expectedOutput);
+}
+TEST_F(PrintSysTest, NoPrinters) {
+    std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    ps.implementXML("Noprinters.xml", xmlp);
+    ps.assignJob();
+    ps.proccesJob();
+    std::cout.rdbuf(oldCout);
+    std::string expectedOutput = "No printers to assign job\n";
+    ASSERT_EQ(buffer.str(), expectedOutput);
+}
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
