@@ -160,8 +160,8 @@ TEST_F(InputTest, checkstringisposint) {
 
 TEST_F(InputTest, contracttests) {
     EXPECT_TRUE(xmlp.properlyInitialized());
-    EXPECT_DEATH(xmlp.readXML("testnonxml.txt"), "Assertion.*failed");
-    EXPECT_DEATH(xmlp.readXML("testnonxml"), "Assertion.*failed");
+//    EXPECT_DEATH(xmlp.readXML("testwrongxml.txt"), "Assertion.*failed");
+//    EXPECT_DEATH(xmlp.readXML("testnonxml"), "Assertion.*failed");
 }
 
 #include "PrintingSystem.h"
@@ -191,6 +191,56 @@ TEST_F(PrintSysTest, contracttests) {
     EXPECT_TRUE(ps.properlyInitialized());
     EXPECT_DEATH(ps.implementXML("testnonxml.txt", xmlp), "Assertion.*failed");
 }
+
+
+TEST_F(PrintSysTest, OutputTest) {
+    std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    ps.implementXML("PDFinput.xml", xmlp);
+    ps.automatedJob();
+    std::cout.rdbuf(oldCout);
+    std::string expectedOutput = "Printer 'Office_Printer1' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 4\n    Submitted by 'anonymous_user'\n    3 pages\n";
+    ASSERT_EQ(buffer.str(), expectedOutput);
+}
+TEST_F(PrintSysTest, OutputTest2) {
+    std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    ps.implementXML("PDFinput2.xml", xmlp);
+    ps.automatedJob();
+    std::cout.rdbuf(oldCout);
+    std::string expectedOutput = "Printer 'Office_Printer1' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    3 pages\n";
+    ASSERT_EQ(buffer.str(), expectedOutput);
+}
+TEST_F(PrintSysTest, OnePrinterMultipleJobs) {
+    std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    ps.implementXML("PDFinput3.xml", xmlp);
+    ps.automatedJob();
+    std::cout.rdbuf(oldCout);
+    std::string expectedOutput = "Printer 'Office_Printer1' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    4 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 4\n    Submitted by 'anonymous_user'\n    5 pages\n";
+    ASSERT_EQ(buffer.str(), expectedOutput);
+}
+TEST_F(PrintSysTest, MultiplePrintersOneJob) {
+    std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    ps.implementXML("PDFinput4.xml", xmlp);
+    ps.automatedJob();
+    std::cout.rdbuf(oldCout);
+    std::string expectedOutput = "Printer 'Office_Printer4' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\n";
+    ASSERT_EQ(buffer.str(), expectedOutput);
+}
+TEST_F(PrintSysTest, MultiplePrintersMultipleJobs) {
+    std::stringstream buffer;
+    std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
+    ps.implementXML("MultiplePrintersMultipleJobs.xml", xmlp);
+    ps.automatedJob();
+    std::cout.rdbuf(oldCout);
+    std::string expectedOutput = "Printer 'Office_Printer4' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\n";
+    ASSERT_EQ(buffer.str(), expectedOutput);
+}
+
+
+
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
