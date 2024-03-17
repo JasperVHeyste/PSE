@@ -21,12 +21,12 @@ void Printer::setJob(Job *j) {
     ready = false;
 }
 
-bool Printer::work() {
+bool Printer::work(ostream& outputstream) {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     /*for (int i = 0; i <= job->getPagecount(); i++) {
         std::cout << "Page printed: " << i << std::endl;
     }*/
-    std::cout << "Printer " << "'" << name << "'" << " finished job:" << "\n    Number: "
+    outputstream << "Printer " << "'" << name << "'" << " finished job:" << "\n    Number: "
          << job->getJobnumber() << "\n    Submitted by '" <<
          job->getUsername() << "'" << endl << "    " << job->getPagecount() << " pages" << endl;
     ready = true;

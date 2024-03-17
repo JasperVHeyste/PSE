@@ -1,0 +1,4 @@
+NEW-Printer (Office_Printer1: 3g/page):
+printer has no job
+     * Queue:
+         No current jobs in queue.

@@ -1,0 +1,5 @@
+NEW-Printer (Office_Printer1: 3g/page):
+     * Current:
+[#1|SergeDemeyer]
+     * Queue:
+         [#2|anonymous_user]

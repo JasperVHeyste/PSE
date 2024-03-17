@@ -1,0 +1,40 @@
+Printer 'Office_Printer1' finished job:
+    Number: 1
+    Submitted by 'SergeDemeyer'
+    2 pages
+Printer 'Office_Printer2' finished job:
+    Number: 2
+    Submitted by 'anonymous_user'
+    3 pages
+Printer 'Office_Printer3' finished job:
+    Number: 3
+    Submitted by 'anonymous_user'
+    3 pages
+Printer 'Office_Printer4' finished job:
+    Number: 4
+    Submitted by 'Jasper'
+    53 pages
+Printer 'Office_Printer5' finished job:
+    Number: 5
+    Submitted by 'Jens'
+    32 pages
+Printer 'Office_Printer6' finished job:
+    Number: 6
+    Submitted by 'Kyrill'
+    6 pages
+Printer 'Office_Printer7' finished job:
+    Number: 7
+    Submitted by 'SergeDemeyer'
+    2 pages
+Printer 'Office_Printer1' finished job:
+    Number: 8
+    Submitted by 'anonymous_user'
+    3 pages
+Printer 'Office_Printer2' finished job:
+    Number: 9
+    Submitted by 'anonymous_user'
+    3 pages
+Printer 'Office_Printer3' finished job:
+    Number: 10
+    Submitted by 'unknown'
+    53 pages

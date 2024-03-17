@@ -87,18 +87,18 @@ void PrintingSystem::assignJob() {
     }
 }
 
-void PrintingSystem::proccesJob() {
+void PrintingSystem::proccesJob(std::ostream& outputstream) {
     for (auto p: printers) {
         if (!p->isReady()) {
-            p->work();
+            p->work(outputstream);
         }
     }
 }
 
-void PrintingSystem::automatedJob() {
+void PrintingSystem::automatedJob(std::ostream& outputstream) {
     while(not isQueueEmpty()){
         assignJob();
-        proccesJob();
+        proccesJob(outputstream);
     }
 }
 
@@ -111,7 +111,7 @@ void PrintingSystem::simpleOutput() {
     }
 
     if (printers.empty()){
-        cout << "No printers present in Printingsystem" << endl;
+        outputFile << "No printers present in Printingsystem\n" << endl;
     }
 
     // printers

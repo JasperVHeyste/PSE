@@ -21,7 +21,7 @@ public:
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     //REQUIRE(j->properlyInitialized(), "Job is not properly initialized");
 
-    bool work();
+    bool work(std::ostream& outputstream = std::cout);
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     //ENSURE(isReady(), "Printer must be ready after work is done");
     //ENSURE(getJob() == nullptr, "Printer cannot have an assigned job after work is done");

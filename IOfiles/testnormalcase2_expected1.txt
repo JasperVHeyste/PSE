@@ -1,0 +1,5 @@
+NEW-Printer (Office_Printer1: 3g/page):
+printer has no job
+     * Queue:
+         [#1|SergeDemeyer]
+         [#2|anonymous_user]

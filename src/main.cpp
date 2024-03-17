@@ -8,7 +8,9 @@ int main() {
     PrintingSystem s = PrintingSystem();
     s.implementXML("PDFinput.xml", xmlp);
 
+    s.simpleOutput();
     s.automatedJob();
+    s.simpleOutput();
 
     /*while(not s.isQueueEmpty()){
         s.simpleOutput();

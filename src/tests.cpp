@@ -2,6 +2,7 @@
 #include <fstream>
 #include "gtest/gtest.h"
 #include "XMLprocessor.h"
+#include "PrintingSystem.h"
 
 class InputTest: public ::testing::Test {
 protected:
@@ -70,6 +71,7 @@ void processedxmlToTextFile(vector<map<string,string>> input, const char* output
         }
     }
 }
+
 
 TEST_F(InputTest, correctemptyxml) {
     std::vector<std::map<std::string, std::string>> input;
@@ -160,11 +162,9 @@ TEST_F(InputTest, checkstringisposint) {
 
 TEST_F(InputTest, contracttests) {
     EXPECT_TRUE(xmlp.properlyInitialized());
-//    EXPECT_DEATH(xmlp.readXML("testwrongxml.txt"), "Assertion.*failed");
-//    EXPECT_DEATH(xmlp.readXML("testnonxml"), "Assertion.*failed");
+    EXPECT_DEATH(xmlp.readXML("testwrongxml.txt"), "Assertion.*failed");
+    EXPECT_DEATH(xmlp.readXML("testnonxml"), "Assertion.*failed");
 }
-
-#include "PrintingSystem.h"
 
 class PrintSysTest: public ::testing::Test {
 protected:
@@ -192,71 +192,168 @@ TEST_F(PrintSysTest, contracttests) {
     EXPECT_DEATH(ps.implementXML("testnonxml.txt", xmlp), "Assertion.*failed");
 }
 
-
-TEST_F(PrintSysTest, OutputTest) {
+TEST_F(PrintSysTest, OutputTest1) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
-    ps.implementXML("PDFinput.xml", xmlp);
+    ps.implementXML("testoutput1.xml", xmlp);
     ps.automatedJob();
     std::cout.rdbuf(oldCout);
     std::string expectedOutput = "Printer 'Office_Printer1' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 4\n    Submitted by 'anonymous_user'\n    3 pages\n";
-    ASSERT_EQ(buffer.str(), expectedOutput);
+    EXPECT_TRUE(buffer.str() == expectedOutput);
 }
+
 TEST_F(PrintSysTest, OutputTest2) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
-    ps.implementXML("PDFinput2.xml", xmlp);
+    ps.implementXML("testoutput2.xml", xmlp);
     ps.automatedJob();
     std::cout.rdbuf(oldCout);
     std::string expectedOutput = "Printer 'Office_Printer1' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    3 pages\n";
-    ASSERT_EQ(buffer.str(), expectedOutput);
+    EXPECT_TRUE(buffer.str() == expectedOutput);
 }
+
+TEST_F(PrintSysTest, OutputTest3) {
+    std::ofstream outputfile;
+    outputfile.open("testoutput3.txt");
+    ps.implementXML("testoutput3.xml", xmlp);
+    ps.automatedJob(outputfile);
+    EXPECT_TRUE(FileCompare("testoutput3.txt", "testoutput3_expected.txt"));
+}
+
 TEST_F(PrintSysTest, OnePrinterMultipleJobs) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
-    ps.implementXML("PDFinput3.xml", xmlp);
+    ps.implementXML("testoneprintermultiplejobs.xml", xmlp);
     ps.automatedJob();
     std::cout.rdbuf(oldCout);
     std::string expectedOutput = "Printer 'Office_Printer1' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    4 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 4\n    Submitted by 'anonymous_user'\n    5 pages\n";
-    ASSERT_EQ(buffer.str(), expectedOutput);
+    EXPECT_TRUE(buffer.str() == expectedOutput);
 }
+
 TEST_F(PrintSysTest, MultiplePrintersOneJob) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
-    ps.implementXML("PDFinput4.xml", xmlp);
+    ps.implementXML("testmultipleprintersonejob.xml", xmlp);
     ps.automatedJob();
     std::cout.rdbuf(oldCout);
     std::string expectedOutput = "Printer 'Office_Printer4' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\n";
-    ASSERT_EQ(buffer.str(), expectedOutput);
+    EXPECT_TRUE(buffer.str() == expectedOutput);
 }
+
 TEST_F(PrintSysTest, MultiplePrintersMultipleJobs) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
-    ps.implementXML("MultiplePrintersMultipleJobs.xml", xmlp);
+    ps.implementXML("testmultipleprintersmultiplejobs.xml", xmlp);
     ps.automatedJob();
     std::cout.rdbuf(oldCout);
     std::string expectedOutput = "Printer 'Office_Printer4' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer3' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 4\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer4' finished job:\n    Number: 5\n    Submitted by 'anonymous_user'\n    3 pages\n";
-    ASSERT_EQ(buffer.str(), expectedOutput);
+    EXPECT_TRUE(buffer.str() == expectedOutput);
 }
+
 TEST_F(PrintSysTest, NoJobs) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
-    ps.implementXML("PDFinput1.xml", xmlp);
+    ps.implementXML("testnojobs.xml", xmlp);
     ps.assignJob();
     ps.proccesJob();
     std::cout.rdbuf(oldCout);
     std::string expectedOutput = "All jobs ready\n";
-    ASSERT_EQ(buffer.str(), expectedOutput);
+    EXPECT_TRUE(buffer.str() == expectedOutput);
 }
+
 TEST_F(PrintSysTest, NoPrinters) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
-    ps.implementXML("Noprinters.xml", xmlp);
+    ps.implementXML("testnoprinters.xml", xmlp);
     ps.assignJob();
     ps.proccesJob();
     std::cout.rdbuf(oldCout);
     std::string expectedOutput = "No printers to assign job\n";
-    ASSERT_EQ(buffer.str(), expectedOutput);
+    EXPECT_TRUE(buffer.str() == expectedOutput);
+}
+
+
+class SimpleOutputTest: public ::testing::Test {
+protected:
+    // You should make the members protected s.t. they can be
+    // accessed from subclasses.
+
+    // virtual void SetUp() will be called before each test is run.  You
+    // should define it if you need to initialize the variables.
+    // Otherwise, this can be skipped.
+    virtual void SetUp() {
+    }
+
+    // virtual void TearDown() will be called after each test is run.
+    // You should define it if there is cleanup work to do.  Otherwise,
+    // you don't have to provide it.
+    virtual void TearDown() {
+    }
+
+    PrintingSystem ps;
+    XMLprocessor xmlp;
+};
+
+TEST_F(SimpleOutputTest, noprinters){
+    TiXmlDocument doc;
+    ps.implementXML("testnoprinters.xml", xmlp);
+    ps.simpleOutput();
+    EXPECT_TRUE(FileCompare("status_report0.txt", "testnoprinters_expected.txt"));
+}
+
+// test with no jobs
+TEST_F(SimpleOutputTest, nojobs){
+    TiXmlDocument doc;
+    ps.implementXML("testnojobs.xml", xmlp);
+    ps.simpleOutput();
+    EXPECT_TRUE(FileCompare("status_report0.txt", "testnojobs_expected.txt"));
+}
+
+// test with normal case, 2 printers, 3 jobs
+TEST_F(SimpleOutputTest, normalcase){
+    TiXmlDocument doc;
+    ps.implementXML("testnormalcase1.xml", xmlp);
+
+    std::ofstream outputfile;
+    outputfile.open("temp.txt");
+
+    while(not ps.isQueueEmpty()){
+        ps.simpleOutput();
+        ps.assignJob();
+        ps.simpleOutput();
+        ps.proccesJob(outputfile);
+        ps.simpleOutput();
+    }
+
+    EXPECT_TRUE(FileCompare("status_report0.txt", "testnormalcase1_expected1.txt"));
+    EXPECT_TRUE(FileCompare("status_report1.txt", "testnormalcase1_expected2.txt"));
+    EXPECT_TRUE(FileCompare("status_report2.txt", "testnormalcase1_expected3.txt"));
+    EXPECT_TRUE(FileCompare("status_report3.txt", "testnormalcase1_expected4.txt"));
+    EXPECT_TRUE(FileCompare("status_report4.txt", "testnormalcase1_expected5.txt"));
+    EXPECT_TRUE(FileCompare("status_report5.txt", "testnormalcase1_expected6.txt"));
+}
+
+// test with normal case, 1 printer, 2 jobs
+TEST_F(SimpleOutputTest, normalcase2) {
+    ps.implementXML("testnormalcase2.xml", xmlp);
+
+    std::ofstream outputfile;
+    outputfile.open("temp.txt");
+
+    while(not ps.isQueueEmpty()){
+        ps.simpleOutput();
+        ps.assignJob();
+        ps.simpleOutput();
+        ps.proccesJob(outputfile);
+        ps.simpleOutput();
+    }
+
+    EXPECT_TRUE(FileCompare("status_report0.txt", "testnormalcase2_expected1.txt"));
+    EXPECT_TRUE(FileCompare("status_report1.txt", "testnormalcase2_expected2.txt"));
+    EXPECT_TRUE(FileCompare("status_report2.txt", "testnormalcase2_expected3.txt"));
+    EXPECT_TRUE(FileCompare("status_report3.txt", "testnormalcase2_expected4.txt"));
+    EXPECT_TRUE(FileCompare("status_report4.txt", "testnormalcase2_expected5.txt"));
+    EXPECT_TRUE(FileCompare("status_report5.txt", "testnormalcase2_expected6.txt"));
 }
 
 int main(int argc, char **argv) {

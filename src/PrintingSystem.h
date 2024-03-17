@@ -37,9 +37,9 @@ public:
     //REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
     //REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
 
-    void proccesJob();
+    void proccesJob(std::ostream& outputstream = std::cout);
     void assignJob();
-    void automatedJob();
+    void automatedJob(std::ostream& outputstream = std::cout);
 
     // use case 2.1
     void simpleOutput();
