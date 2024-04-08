@@ -3,8 +3,7 @@
 #include "PrintingSystem.h"
 #include <string>
 
-//#include "DesignByContract.h"
-#include "DesignByContract_windows.h"
+#include "ContractManager.h"
 
 PrintingSystem::PrintingSystem(){
     initcheck = this;
