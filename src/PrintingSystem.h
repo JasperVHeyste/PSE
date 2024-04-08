@@ -24,11 +24,11 @@ public:
     bool properlyInitialized();
     //ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 
-    void createPrinter(std::string name, int emissions, int speed);
+    void createPrinter(std::string name, int emissions, int speed, string type, int cost);
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     //ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
 
-    void createJob(int jobnumber, int pagecount, string username);
+    void createJob(int jobnumber, int pagecount, string username, string type);
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     //ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
 

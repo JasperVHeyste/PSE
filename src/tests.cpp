@@ -61,13 +61,24 @@ void processedxmlToTextFile(vector<map<string,string>> input, const char* output
     outputfile.open(outputfilename);
 
     for (unsigned int i = 0; i < input.size(); i++){
-        string type = input[i]["type"];
+        string objecttype = input[i]["objecttype"];
 
-        if (type == "device"){
-            outputfile << type << endl << input[i]["name"] << endl << input[i]["emissions"] << endl << input[i]["speed"] << endl << endl;
+        if (objecttype == "device"){
+            outputfile << objecttype << endl << input[i]["name"] << endl << input[i]["emissions"] << endl << input[i]["speed"] << endl;
+            if (input[i].count("type")){
+                outputfile << input[i]["type"] << endl;
+            }
+            if (input[i].count("cost")){
+                outputfile << input[i]["cost"] << endl;
+            }
+            outputfile << endl;
         }
-        if (type == "job"){
-            outputfile << type << endl << input[i]["jobNumber"] << endl << input[i]["pageCount"] << endl << input[i]["userName"] << endl << endl;
+        if (objecttype == "job"){
+            outputfile << objecttype << endl << input[i]["jobNumber"] << endl << input[i]["pageCount"] << endl << input[i]["userName"] << endl;
+            if (input[i].count("type")){
+                outputfile << input[i]["type"] << endl;
+            }
+            outputfile << endl;
         }
     }
 }
@@ -119,13 +130,15 @@ TEST_F(InputTest, testinvalidinfoxml) {
     std::ofstream errorfile;
     errorfile.open("testinvalidinfoxml.txt");
 
-    xmlp.readXML("testinvalidinfo1.xml", errorfile); //non-int emission
-    xmlp.readXML("testinvalidinfo2.xml", errorfile); //non-int speed
-    xmlp.readXML("testinvalidinfo3.xml", errorfile); //non-int jobnumber
-    xmlp.readXML("testinvalidinfo4.xml", errorfile); //non-int pagecount
-    xmlp.readXML("testinvalidinfo5.xml", errorfile); //missing element for device
-    xmlp.readXML("testinvalidinfo6.xml", errorfile); //missing element for job
-    xmlp.readXML("testinvalidinfo7.xml", errorfile); //negative int
+    xmlp.readXML("testinvalidinfo1.xml", errorfile);
+    //DEVICE: non-int emission and speed
+    //JOB: non-int jobnumber and pagecount
+    //JOB: negative pagecount, unrecognized type
+    //DEVICE: non-int cost, unrecognized type
+    xmlp.readXML("testinvalidinfo2.xml", errorfile);
+    //DEVICE: missing emissions element
+    //JOB: missing jobnumber and username
+    xmlp.readXML("testinvalidinfo3.xml", errorfile); //unrecognizable parameter for job and device
 
     EXPECT_TRUE(FileCompare("testinvalidinfoxml.txt", "testinvalidinfoxml_expected.txt"));
 }

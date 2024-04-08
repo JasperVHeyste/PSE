@@ -2,11 +2,14 @@ device
 Office_Printer5
 3
 40
+bw
+12
 
 job
 89751
 2
 SergeDemeyer
+scan
 
 job
 2189
@@ -17,4 +20,5 @@ device
 Office_Printer6
 2
 30
+color
 

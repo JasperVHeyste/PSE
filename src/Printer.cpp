@@ -5,7 +5,8 @@
 #include <iostream>
 
 using namespace std;
-Printer::Printer(std::string n, int e, int s)  : name(n), emission(e), speed(s), ready(true) {
+Printer::Printer(std::string n, int e, int s, std::string t, int c)  : name(n), emission(e), speed(s), type(t), cost(c) {
+    ready = true;
     initcheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
 }
@@ -32,13 +33,18 @@ bool Printer::work(ostream& outputstream) {
     ready = true;
     job = nullptr;
     ENSURE(isReady(), "Printer must be ready after work is done");
-    ENSURE(getJob() == nullptr, "Printer cannot have an assigned job after work is done");
+    ENSURE(not hasJob(), "Printer cannot have an assigned job after work is done");
     return true;
 }
 
 bool Printer::isReady() const {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return ready;
+}
+
+bool Printer::hasJob() const {
+    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    return job != nullptr;
 }
 
 const std::string &Printer::getName() const {
@@ -64,6 +70,16 @@ int Printer::getJobnumber() const {
 int Printer::getPagecount() const {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return job->getPagecount();
+}
+
+int Printer::getCost() const {
+    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    return cost;
+}
+
+std::string Printer::getType() const {
+    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    return type;
 }
 
 Job *Printer::getJob() const {

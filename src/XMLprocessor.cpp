@@ -48,9 +48,10 @@ vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ost
 
         if (objectType == "DEVICE"){
             map<string, string> newobject;
-            newobject["type"] = "device";
+            newobject["objecttype"] = "device";
 
             bool validinfo = true;
+            string invalidinfomessage = "Invalid information DEVICE: ";
 
             for (TiXmlElement *elem = object->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
                 string specification = elem->Value();
@@ -67,33 +68,66 @@ vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ost
                         newobject["emissions"] = element;
                         if (not checkStringIsPositiveInt(element)){
                             validinfo = false;
+                            invalidinfomessage += "The value of the emissions element is not a positive integer. ";
                         }
                     }
                     else if (specification == "speed"){
                         newobject["speed"] = element;
                         if (not checkStringIsPositiveInt(element)){
                             validinfo = false;
+                            invalidinfomessage += "The value of the speed element is not a positive integer. ";
+                        }
+                    }
+                    else if (specification == "type"){
+                        if (element == "bw" or element == "color" or element == "scan"){
+                            newobject["type"] = element;
+                        }
+                        else{
+                            validinfo = false;
+                            invalidinfomessage += "The type of the device is not a valid option. ";
+                        }
+                    }
+                    else if (specification == "cost"){
+                        newobject["cost"] = element;
+                        if (not checkStringIsPositiveInt(element)){
+                            validinfo = false;
+                            invalidinfomessage += "The value of the cost element is not a positive integer. ";
                         }
                     }
                     else{
                         validinfo = false;
+                        invalidinfomessage += "Contains unrecognizeable parameter. ";
                     }
                 }
             }
 
-            if (validinfo and newobject.size() == 4){
+            if (not newobject.count("name")){
+                validinfo = false;
+                invalidinfomessage += "Missing name. ";
+            }
+            if (not newobject.count("speed")){
+                validinfo = false;
+                invalidinfomessage += "Missing speed value. ";
+            }
+            if (not newobject.count("emissions")){
+                validinfo = false;
+                invalidinfomessage += "Missing emissions value. ";
+            }
+
+            if (validinfo){
                 output.push_back(newobject);
             }
             else{
-                outputstream << "Invalid information" << std::endl;
+                outputstream << invalidinfomessage << std::endl;
             }
         }
 
         else if (objectType == "JOB"){
             map<string, string> newobject;
-            newobject["type"] = "job";
+            newobject["objecttype"] = "job";
 
             bool validinfo = true;
+            string invalidinfomessage = "Invalid information JOB: ";
 
             for (TiXmlElement *elem = object->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
                 string specification = elem->Value();
@@ -107,6 +141,7 @@ vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ost
                         newobject["jobNumber"] = element;
                         if (not checkStringIsPositiveInt(element)){
                             validinfo = false;
+                            invalidinfomessage += "The value of the jobnumber element is not a positive integer. ";
                         }
                         else {
                             int jn = stoi(element);
@@ -124,22 +159,46 @@ vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ost
                         newobject["pageCount"] = element;
                         if (not checkStringIsPositiveInt(element)){
                             validinfo = false;
+                            invalidinfomessage += "The value of the pagecount element is not a positive integer. ";
                         }
                     }
                     else if (specification == "userName"){
                         newobject["userName"] = element;
                     }
+                    else if (specification == "type"){
+                        if (element == "bw" or element == "color" or element == "scan"){
+                            newobject["type"] = element;
+                        }
+                        else{
+                            validinfo = false;
+                            invalidinfomessage += "The type of the job is not a valid option. ";
+                        }
+                    }
                     else{
                         validinfo = false;
+                        invalidinfomessage += "Contains unrecognizeable parameter. ";
                     }
                 }
             }
 
-            if (validinfo and newobject.size() == 4){
+            if (not newobject.count("jobNumber")){
+                validinfo = false;
+                invalidinfomessage += "Missing jobnumber. ";
+            }
+            if (not newobject.count("pageCount")){
+                validinfo = false;
+                invalidinfomessage += "Missing pagecount value. ";
+            }
+            if (not newobject.count("userName")){
+                validinfo = false;
+                invalidinfomessage += "Missing username. ";
+            }
+
+            if (validinfo){
                 output.push_back(newobject);
             }
             else{
-                outputstream << "Invalid information" << std::endl;
+                outputstream << invalidinfomessage << std::endl;
             }
         }
 

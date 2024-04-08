@@ -4,10 +4,12 @@
 		<name>Office_Printer5</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<wrongtype>1</wrongtype>
 	</DEVICE>
 	<JOB>
-		<jobNumber>a</jobNumber>
-		<pageCount>2</pageCount>
+		<jobNumber>1</jobNumber>
+		<pageCount>10</pageCount>
 		<userName>SergeDemeyer</userName>
+		<ugyvtiubyt>SergeDemeyer</ugyvtiubyt>
 	</JOB>
 </SYSTEM>

@@ -4,11 +4,14 @@
 		<name>Office_Printer5</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<cost>12</cost>
+		<type>bw</type>
 	</DEVICE>
 	<JOB>
 		<jobNumber>89751</jobNumber>
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
+		<type>scan</type>
 	</JOB>
 	<JOB>
 		<jobNumber>2189</jobNumber>
@@ -19,5 +22,6 @@
 		<name>Office_Printer6</name>
 		<emissions>2</emissions>
 		<speed>30</speed>
+		<type>color</type>
 	</DEVICE>
 </SYSTEM>

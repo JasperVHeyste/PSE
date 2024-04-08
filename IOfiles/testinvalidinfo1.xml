@@ -3,11 +3,25 @@
 	<DEVICE>
 		<name>Office_Printer5</name>
 		<emissions>a</emissions>
-		<speed>40</speed>
+		<speed>!!!</speed>
 	</DEVICE>
 	<JOB>
-		<jobNumber>1</jobNumber>
-		<pageCount>2</pageCount>
+		<jobNumber>t#2mp99</jobNumber>
+		<pageCount>+-0</pageCount>
 		<userName>SergeDemeyer</userName>
+		<type>scan</type>
 	</JOB>
+	<JOB>
+		<jobNumber>12</jobNumber>
+		<pageCount>-10</pageCount>
+		<userName>SergeDemeyer</userName>
+		<type>notbw</type>
+	</JOB>
+	<DEVICE>
+		<name>Office_Printer8</name>
+		<emissions>1</emissions>
+		<speed>4</speed>
+		<cost>-12</cost>
+		<type>6</type>
+	</DEVICE>
 </SYSTEM>

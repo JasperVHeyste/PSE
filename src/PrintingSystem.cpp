@@ -18,16 +18,16 @@ bool PrintingSystem::properlyInitialized() {
 
 PrintingSystem::~PrintingSystem() {}
 
-void PrintingSystem::createPrinter(string name, int emissions, int speed){
+void PrintingSystem::createPrinter(string name, int emissions, int speed, string type, int cost){
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    Printer* newPrinter = new Printer(name, emissions, speed);
+    Printer* newPrinter = new Printer(name, emissions, speed, type, cost);
     ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
     printers.push_back(newPrinter);
 }
 
-void PrintingSystem::createJob(int jobnumber, int pagecount, string username){
+void PrintingSystem::createJob(int jobnumber, int pagecount, string username, string type){
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    Job* newJob = new Job(jobnumber, pagecount, username);
+    Job* newJob = new Job(jobnumber, pagecount, username, type);
     ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
     jobs.enqueue(newJob);
 }
@@ -46,22 +46,32 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
 
     for (unsigned int i = 0; i < input.size(); i++){
         map<string, string> object = input[i];
+        string type = "unspecified";
 
-        if (object["type"] == "device"){
+        if (object["objecttype"] == "device"){
             string name = object["name"];
+            int cost = -1;
             int emissions = stoi(object["emissions"]);
             int speed = stoi(object["speed"]);
 
-            createPrinter(name, emissions, speed);
+            if (input[i].count("type")){
+                type = object["type"];
+            }
+
+            createPrinter(name, emissions, speed, type, cost);
             //cout << "created printer with name " << name << endl;
         }
 
-        if (object["type"] == "job"){
+        if (object["objecttype"] == "job"){
             int jobnumber = stoi(object["jobNumber"]);
             int pagecount = stoi(object["pageCount"]);
             string username = object["userName"];
 
-            createJob(jobnumber, pagecount, username);
+            if (input[i].count("type")){
+                type = object["type"];
+            }
+
+            createJob(jobnumber, pagecount, username, type);
             //cout << "created job with jobnumber " << jobnumber << endl;
         }
     }
