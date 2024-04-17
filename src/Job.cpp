@@ -21,6 +21,17 @@ bool Job::properlyInitialized() const{
 }
 
 /**
+ * Assign a CO2 compensation to this job
+ * @param comp the name of the compensation
+ */
+void Job::setCompensation(std::string comp) {
+    REQUIRE(properlyInitialized(), "Job is not properly initialized");
+    compensation = comp;
+    hascomp = true;
+    ENSURE(hasCompensation(), "Compensation was not correctly assigned");
+}
+
+/**
  * @return jobnumber
  */
 int Job::getJobnumber() const {
@@ -51,3 +62,20 @@ const std::string& Job::getType() const {
     REQUIRE(properlyInitialized(), "Job is not properly initialized");
     return type;
 }
+
+/**
+ * @return compensation
+ */
+const std::string Job::getCompensation() const {
+    REQUIRE(properlyInitialized(), "Job is not properly initialized");
+    REQUIRE(hasCompensation(), "Job does not have a compensation assigned to it");
+    return compensation;
+}
+
+/**
+ * @return true if this job has a compensation, false if not
+ */
+bool Job::hasCompensation() const {
+    return hascomp;
+}
+

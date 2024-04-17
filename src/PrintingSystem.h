@@ -15,6 +15,7 @@ private:
     int reportIndex = 0;
     std::vector<Printer*> printers;
     Queue jobs;
+    std::map<int,std::string> compensationmap;
     PrintingSystem* initcheck;
 
 public:
@@ -28,7 +29,7 @@ public:
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     //ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
 
-    void createJob(int jobnumber, int pagecount, string username, string type);
+    void createJob(int jobnumber, int pagecount, string username, string type, int compensation);
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     //ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
 

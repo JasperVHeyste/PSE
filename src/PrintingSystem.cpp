@@ -42,10 +42,14 @@ void PrintingSystem::createPrinter(string name, int emissions, int speed, string
  * @param pagecount page count
  * @param username username
  * @param type type of job
+ * @param compnumber the number of the CO2-compensation for this job
  */
-void PrintingSystem::createJob(int jobnumber, int pagecount, string username, string type){
+void PrintingSystem::createJob(int jobnumber, int pagecount, string username, string type, int compnumber){
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     Job* newJob = new Job(jobnumber, pagecount, username, type);
+    if (compensationmap.count(compnumber)){
+        newJob->setCompensation(compensationmap[compnumber]);
+    }
     ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
     jobs.enqueue(newJob);
 }
@@ -70,6 +74,7 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
     for (unsigned int i = 0; i < input.size(); i++){
         map<string, string> object = input[i];
         string type = "unspecified";
+        int compensation = -1;
 
         if (object["objecttype"] == "device"){
             string name = object["name"];
@@ -94,8 +99,19 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
                 type = object["type"];
             }
 
-            createJob(jobnumber, pagecount, username, type);
+            if (input[i].count("compensation")){
+                compensation = stoi(object["compensation"]);
+            }
+
+            createJob(jobnumber, pagecount, username, type, compensation);
             //cout << "created job with jobnumber " << jobnumber << endl;
+        }
+
+        if (object["objecttype"] == "compensation"){
+            int compnumber = stoi(object["compNumber"]);
+            string name = object["name"];
+
+            compensationmap[compnumber] = name;
         }
     }
 }

@@ -194,6 +194,13 @@ vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ost
                             invalidinfomessage += "The type of the job is not a valid option. ";
                         }
                     }
+                    else if (specification == "compNumber") {
+                        newobject["compNumber"] = element;
+                        if (not checkStringIsPositiveInt(element)) {
+                            validinfo = false;
+                            invalidinfomessage += "The value of the compnumber element is not a positive integer. ";
+                        }
+                    }
                     else{
                         validinfo = false;
                         invalidinfomessage += "Contains unrecognizeable parameter. ";

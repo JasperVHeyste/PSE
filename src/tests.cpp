@@ -92,6 +92,9 @@ void processedxmlToTextFile(vector<map<string,string>> input, const char* output
             if (input[i].count("type")){
                 outputfile << input[i]["type"] << endl;
             }
+            if (input[i].count("compensation")){
+                outputfile << input[i]["compensation"] << endl;
+            }
             outputfile << endl;
         }
     }

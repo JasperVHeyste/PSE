@@ -10,6 +10,8 @@ private:
     int pagecount;
     std::string username;
     std::string type;
+    std::string compensation;
+    bool hascomp = false;
 
     Job* initcheck;
 
@@ -20,6 +22,10 @@ public:
     ~Job() {};
 
     bool properlyInitialized() const;
+
+    void setCompensation(std::string comp);
+    //REQUIRE(properlyInitialized(), "Job is not properly initialized")
+    //ENSURE(hasCompensation() == true, "Compensation was not correctly assigned")
 
     int getJobnumber() const;
     //REQUIRE(properlyInitialized(), "Job is not properly initialized")
@@ -32,6 +38,12 @@ public:
 
     const std::string& getType() const;
     //REQUIRE(properlyInitialized(), "Job is not properly initialized")
+
+    const std::string getCompensation() const;
+    //REQUIRE(properlyInitialized(), "Job is not properly initialized")
+
+    bool hasCompensation() const;
+    //REQUIRE(hasCompensation(), "Job does not have a compensation assigned to it")
 };
 
 
