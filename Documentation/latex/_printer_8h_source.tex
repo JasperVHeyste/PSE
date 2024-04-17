@@ -1,0 +1,75 @@
+\doxysection{Printer.\+h}
+\hypertarget{_printer_8h_source}{}\label{_printer_8h_source}\index{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/Printer.h@{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/Printer.h}}
+\mbox{\hyperlink{_printer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ UNTITLED\_PRINTER\_H}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ UNTITLED\_PRINTER\_H}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00005}00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_job}{Job}};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00006}\mbox{\hyperlink{class_printer}{00006}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_printer}{Printer}}\ \{}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00007}00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00008}00008\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{int}\ emission;}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00010}00010\ \ \ \ \ \textcolor{keywordtype}{int}\ speed;\ \textcolor{comment}{//\ pages\ per\ minute}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00011}00011\ \ \ \ \ std::string\ type;}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{int}\ cost;}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ ready\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_job}{Job}}*\ job\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{class_printer}{Printer}}*\ initcheck;}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00017}00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_printer_aea5ea0374f8e1dd4cafcbecbb73cc31e}{Printer}}(std::string\ n,\ \textcolor{keywordtype}{int}\ e,\ \textcolor{keywordtype}{int}\ s,\ std::string\ t\ =\ \textcolor{stringliteral}{"{}unspecified"{}},\ \textcolor{keywordtype}{int}\ c\ =\ -\/1);\ \textcolor{comment}{//if\ cost\ is\ -\/1\ it\ means\ cost\ should\ be\ ignored}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00019}00019\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyinitialized\ state"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00021}\mbox{\hyperlink{class_printer_a011da1d2aa31df5440071c0b6e80eb1d}{00021}}\ \ \ \ \ \mbox{\hyperlink{class_printer_a011da1d2aa31df5440071c0b6e80eb1d}{\string~Printer}}()\ \{\};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printer_ad4e5e3bc23d0cbef0df6ad789a54944e}{properlyInitialized}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printer_ab8985f7a06033c46d3fc61017ab4d3ba}{setJob}}(\mbox{\hyperlink{class_job}{Job}}*\ j);}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//REQUIRE(j-\/>properlyInitialized(),\ "{}Job\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printer_ac65c8b5d3e9be72efb752ff9c41a83e5}{work}}(std::ostream\&\ outputstream\ =\ std::cout);}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//ENSURE(isReady(),\ "{}Printer\ must\ be\ ready\ after\ work\ is\ done"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//ENSURE(not\ hasJob(),\ "{}Printer\ cannot\ have\ an\ assigned\ job\ after\ work\ is\ done"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printer_a97665e1054009091d7d3b15773c25c7a}{isReady}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printer_a40ac22c809109fa315bb86895e5adb73}{hasJob}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00040}00040\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_printer_a7b9e843f1d1f4f966889867a7bb2b1cc}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printer_af32e1b542a2e14c93db6b4215acc7cc3}{getEmission}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_printer_aa80383416c49834a05352f5d2c3c27db}{getUsername}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//REQUIRE(hasJob(),\ "{}Printer\ does\ not\ have\ a\ job\ assigned\ to\ it"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printer_aaeab66c81c3708b4da38c311e60ebf36}{getJobnumber}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00052}00052\ \ \ \ \ \textcolor{comment}{//REQUIRE(hasJob(),\ "{}Printer\ does\ not\ have\ a\ job\ assigned\ to\ it"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printer_a34346816b6de5395071b647863221ae3}{getPagecount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//REQUIRE(hasJob(),\ "{}Printer\ does\ not\ have\ a\ job\ assigned\ to\ it"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printer_afb630811916b803b0ad74ef4223bdda6}{getCost}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00059}00059\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00061}00061\ \ \ \ \ std::string\ \mbox{\hyperlink{class_printer_a24b32d7c6ad45f37f20895f97b9c3bed}{getType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{class_job}{Job}}\ *\mbox{\hyperlink{class_printer_a2112b4b8b96123dc1b5118cf2a524d59}{getJob}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printer\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00066}00066\ \};}
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_printer_8h_source_l00069}00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//UNTITLED\_PRINTER\_H}}
+
+\end{DoxyCode}

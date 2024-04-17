@@ -1,14 +1,27 @@
 #include "XMLprocessor.h"
 
+/**
+ * Initialize XMLprocessor:
+ * create pointer to self to check for proper initialization
+ */
 XMLprocessor::XMLprocessor() {
     initcheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
+/**
+ * Check if the XMLprocessor is properly inialized by checking if the pointer assigned in the constructor points to itself
+ * @return true if properly initialzed, false if not
+ */
 bool XMLprocessor::properlyInitialized() const {
     return initcheck == this;
 }
 
+/**
+ * Checks if an input string can be converted to a positive integer
+ * @param s input string that will be checked
+ * @return true if the string is a positive integer, false if not
+ */
 bool XMLprocessor::checkStringIsPositiveInt(std::string s) const{
     REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
     for (char character : s){
@@ -22,6 +35,12 @@ bool XMLprocessor::checkStringIsPositiveInt(std::string s) const{
     return true;
 }
 
+/**
+ * Read an XML file and convert it into a vector of maps containing pairs of keywords and values (eg. "type" = "scanner")
+ * @param filename the filename of the xml that needs to be read
+ * @param outputstream the outputstream in which any errors will be written
+ * @return the vector containing maps
+ */
 vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ostream& outputstream){
     string fname = filename;
     string ftype;

@@ -19,7 +19,7 @@ private:
 
 public:
     PrintingSystem();
-    virtual ~PrintingSystem();
+    virtual ~PrintingSystem() {};
 
     bool properlyInitialized();
     //ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");

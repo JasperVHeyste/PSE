@@ -1,0 +1,267 @@
+\doxysection{Printer Class Reference}
+\hypertarget{class_printer}{}\label{class_printer}\index{Printer@{Printer}}
+
+
+{\ttfamily \#include $<$Printer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_printer_aea5ea0374f8e1dd4cafcbecbb73cc31e}{Printer}} (std\+::string n, int e, int s, std\+::string t="{}unspecified"{}, int c=-\/1)
+\item 
+\mbox{\hyperlink{class_printer_a011da1d2aa31df5440071c0b6e80eb1d}{\texorpdfstring{$\sim$}{\string~}\+Printer}} ()
+\item 
+bool \mbox{\hyperlink{class_printer_ad4e5e3bc23d0cbef0df6ad789a54944e}{properly\+Initialized}} () const
+\item 
+void \mbox{\hyperlink{class_printer_ab8985f7a06033c46d3fc61017ab4d3ba}{set\+Job}} (\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*}j)
+\item 
+bool \mbox{\hyperlink{class_printer_ac65c8b5d3e9be72efb752ff9c41a83e5}{work}} (std\+::ostream \&outputstream=std\+::cout)
+\item 
+bool \mbox{\hyperlink{class_printer_a97665e1054009091d7d3b15773c25c7a}{is\+Ready}} () const
+\item 
+bool \mbox{\hyperlink{class_printer_a40ac22c809109fa315bb86895e5adb73}{has\+Job}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_printer_a7b9e843f1d1f4f966889867a7bb2b1cc}{get\+Name}} () const
+\item 
+int \mbox{\hyperlink{class_printer_af32e1b542a2e14c93db6b4215acc7cc3}{get\+Emission}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_printer_aa80383416c49834a05352f5d2c3c27db}{get\+Username}} () const
+\item 
+int \mbox{\hyperlink{class_printer_aaeab66c81c3708b4da38c311e60ebf36}{get\+Jobnumber}} () const
+\item 
+int \mbox{\hyperlink{class_printer_a34346816b6de5395071b647863221ae3}{get\+Pagecount}} () const
+\item 
+int \mbox{\hyperlink{class_printer_afb630811916b803b0ad74ef4223bdda6}{get\+Cost}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_printer_a24b32d7c6ad45f37f20895f97b9c3bed}{get\+Type}} () const
+\item 
+\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_printer_a2112b4b8b96123dc1b5118cf2a524d59}{get\+Job}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_printer_8h_source_l00006}{6}} of file \mbox{\hyperlink{_printer_8h_source}{Printer.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_printer_aea5ea0374f8e1dd4cafcbecbb73cc31e}\label{class_printer_aea5ea0374f8e1dd4cafcbecbb73cc31e} 
+\index{Printer@{Printer}!Printer@{Printer}}
+\index{Printer@{Printer}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{Printer()}{Printer()}}
+{\footnotesize\ttfamily Printer\+::\+Printer (\begin{DoxyParamCaption}\item[{std\+::string}]{n,  }\item[{int}]{e,  }\item[{int}]{s,  }\item[{std\+::string}]{t = {\ttfamily "{}unspecified"{}},  }\item[{int}]{c = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Constructor for a printer 
+\begin{DoxyParams}{Parameters}
+{\em n} & name of the printer \\
+\hline
+{\em e} & emissions the printer emits (gram of C02 per page) \\
+\hline
+{\em s} & speed of the printer (pages per minute) \\
+\hline
+{\em t} & type of the printer \\
+\hline
+{\em c} & cost of printing (eurocent per page) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_a011da1d2aa31df5440071c0b6e80eb1d}\label{class_printer_a011da1d2aa31df5440071c0b6e80eb1d} 
+\index{Printer@{Printer}!````~Printer@{\texorpdfstring{$\sim$}{\string~}Printer}}
+\index{````~Printer@{\texorpdfstring{$\sim$}{\string~}Printer}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Printer()}{\string~Printer()}}
+{\footnotesize\ttfamily Printer\+::\texorpdfstring{$\sim$}{\string~}\+Printer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_printer_8h_source_l00021}{21}} of file \mbox{\hyperlink{_printer_8h_source}{Printer.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_printer_afb630811916b803b0ad74ef4223bdda6}\label{class_printer_afb630811916b803b0ad74ef4223bdda6} 
+\index{Printer@{Printer}!getCost@{getCost}}
+\index{getCost@{getCost}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily int Printer\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the amount it costs to use this printer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_af32e1b542a2e14c93db6b4215acc7cc3}\label{class_printer_af32e1b542a2e14c93db6b4215acc7cc3} 
+\index{Printer@{Printer}!getEmission@{getEmission}}
+\index{getEmission@{getEmission}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{getEmission()}{getEmission()}}
+{\footnotesize\ttfamily int Printer\+::get\+Emission (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the emissions of the printer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_a2112b4b8b96123dc1b5118cf2a524d59}\label{class_printer_a2112b4b8b96123dc1b5118cf2a524d59} 
+\index{Printer@{Printer}!getJob@{getJob}}
+\index{getJob@{getJob}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{getJob()}{getJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} Printer\+::get\+Job (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the job the printer has assigned to it 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_aaeab66c81c3708b4da38c311e60ebf36}\label{class_printer_aaeab66c81c3708b4da38c311e60ebf36} 
+\index{Printer@{Printer}!getJobnumber@{getJobnumber}}
+\index{getJobnumber@{getJobnumber}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{getJobnumber()}{getJobnumber()}}
+{\footnotesize\ttfamily int Printer\+::get\+Jobnumber (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the jobnumber of the job the printer has assigned to it 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_a7b9e843f1d1f4f966889867a7bb2b1cc}\label{class_printer_a7b9e843f1d1f4f966889867a7bb2b1cc} 
+\index{Printer@{Printer}!getName@{getName}}
+\index{getName@{getName}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& Printer\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the name of the printer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_a34346816b6de5395071b647863221ae3}\label{class_printer_a34346816b6de5395071b647863221ae3} 
+\index{Printer@{Printer}!getPagecount@{getPagecount}}
+\index{getPagecount@{getPagecount}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{getPagecount()}{getPagecount()}}
+{\footnotesize\ttfamily int Printer\+::get\+Pagecount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the pagecount of the job the printer has assigned to it 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00118}{118}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_a24b32d7c6ad45f37f20895f97b9c3bed}\label{class_printer_a24b32d7c6ad45f37f20895f97b9c3bed} 
+\index{Printer@{Printer}!getType@{getType}}
+\index{getType@{getType}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Printer\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the type of the printer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_aa80383416c49834a05352f5d2c3c27db}\label{class_printer_aa80383416c49834a05352f5d2c3c27db} 
+\index{Printer@{Printer}!getUsername@{getUsername}}
+\index{getUsername@{getUsername}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{getUsername()}{getUsername()}}
+{\footnotesize\ttfamily const std\+::string \& Printer\+::get\+Username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the username of the person using the printer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_a40ac22c809109fa315bb86895e5adb73}\label{class_printer_a40ac22c809109fa315bb86895e5adb73} 
+\index{Printer@{Printer}!hasJob@{hasJob}}
+\index{hasJob@{hasJob}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{hasJob()}{hasJob()}}
+{\footnotesize\ttfamily bool Printer\+::has\+Job (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true if the printer has a job, false if not 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_a97665e1054009091d7d3b15773c25c7a}\label{class_printer_a97665e1054009091d7d3b15773c25c7a} 
+\index{Printer@{Printer}!isReady@{isReady}}
+\index{isReady@{isReady}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{isReady()}{isReady()}}
+{\footnotesize\ttfamily bool Printer\+::is\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+ready 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_ad4e5e3bc23d0cbef0df6ad789a54944e}\label{class_printer_ad4e5e3bc23d0cbef0df6ad789a54944e} 
+\index{Printer@{Printer}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Printer\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Check if the printer is properly inialized by checking if the pointer assigned in the constructor points to itself \begin{DoxyReturn}{Returns}
+true if properly initialzed, false if not 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_ab8985f7a06033c46d3fc61017ab4d3ba}\label{class_printer_ab8985f7a06033c46d3fc61017ab4d3ba} 
+\index{Printer@{Printer}!setJob@{setJob}}
+\index{setJob@{setJob}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{setJob()}{setJob()}}
+{\footnotesize\ttfamily void Printer\+::set\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*}}]{j }\end{DoxyParamCaption})}
+
+Assign a job to the printer 
+\begin{DoxyParams}{Parameters}
+{\em j} & the job that needs to be assigned to this printer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+\Hypertarget{class_printer_ac65c8b5d3e9be72efb752ff9c41a83e5}\label{class_printer_ac65c8b5d3e9be72efb752ff9c41a83e5} 
+\index{Printer@{Printer}!work@{work}}
+\index{work@{work}!Printer@{Printer}}
+\doxysubsubsection{\texorpdfstring{work()}{work()}}
+{\footnotesize\ttfamily bool Printer\+::work (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outputstream = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+
+If this printer has a job assigned to it, process that job 
+\begin{DoxyParams}{Parameters}
+{\em outputstream} & the outputstream where any messages about the progress are sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the printer had a job, false if not 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printer_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_printer_8cpp_source}{Printer.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Jasper/\+CLion\+Projects/\+Project Software Engineering/\+Project/src/\mbox{\hyperlink{_printer_8h}{Printer.\+h}}\item 
+C\+:/\+Users/\+Jasper/\+CLion\+Projects/\+Project Software Engineering/\+Project/src/\mbox{\hyperlink{_printer_8cpp}{Printer.\+cpp}}\end{DoxyCompactItemize}

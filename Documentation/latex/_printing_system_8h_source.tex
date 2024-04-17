@@ -1,0 +1,59 @@
+\doxysection{Printing\+System.\+h}
+\hypertarget{_printing_system_8h_source}{}\label{_printing_system_8h_source}\index{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/PrintingSystem.h@{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/PrintingSystem.h}}
+\mbox{\hyperlink{_printing_system_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ UNTITLED\_PRINTINGSYSTEM\_H}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ UNTITLED\_PRINTINGSYSTEM\_H}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_printer_8h}{Printer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_job_8h}{Job.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_queue_8h}{Queue.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_x_m_lprocessor_8h}{XMLprocessor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00013}\mbox{\hyperlink{class_printing_system}{00013}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_printing_system}{PrintingSystem}}\ \{}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00014}00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{int}\ reportIndex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00016}00016\ \ \ \ \ std::vector<Printer*>\ printers;}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_queue}{Queue}}\ jobs;}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_printing_system}{PrintingSystem}}*\ initcheck;}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00020}00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{class_printing_system_a593f9e98ee9ffa44950035264b9e8a2c}{PrintingSystem}}();}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00022}\mbox{\hyperlink{class_printing_system_aaa6194b045731f47519d9c462afdf203}{00022}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_printing_system_aaa6194b045731f47519d9c462afdf203}{\string~PrintingSystem}}()\ \{\};}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printing_system_a086e37e0bb372e0a8c5c8ba3cc4072fd}{properlyInitialized}}();}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyInitialized\ state"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_ac078589993d447ab8c2c0c12cef47c2f}{createPrinter}}(std::string\ name,\ \textcolor{keywordtype}{int}\ emissions,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{string}\ type,\ \textcolor{keywordtype}{int}\ cost);}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//ENSURE(newPrinter-\/>properlyInitialized(),\ "{}Printer\ must\ be\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_acaefb111df2cf396b93f8349bf5d94a2}{createJob}}(\textcolor{keywordtype}{int}\ jobnumber,\ \textcolor{keywordtype}{int}\ pagecount,\ \textcolor{keywordtype}{string}\ username,\ \textcolor{keywordtype}{string}\ type);}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//ENSURE(newJob-\/>properlyInitialized(),\ "{}Job\ must\ be\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_aa3e6c15f08f7d7902ab42ef7a00c2853}{implementXML}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ \mbox{\hyperlink{class_x_m_lprocessor}{XMLprocessor}}\&\ xmlp);}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}XMLprocessor\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//REQUIRE(ftype\ ==\ "{}.xml"{},\ "{}Inputfile\ has\ to\ be\ an\ xml\ file"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_ae9d667bae60c5cd34086297d24f47fac}{proccesJob}}(std::ostream\&\ outputstream\ =\ std::cout);}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a465bcdd52d62dd9b8b1e5e17f17f1e0f}{assignJob}}();}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_ad7774c7bc7a03449f6d4eaa29da40019}{automatedJob}}(std::ostream\&\ outputstream\ =\ std::cout);}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ use\ case\ 2.1}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_af041699f971906a020f1815e78da50fc}{simpleOutput}}();}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printing_system_adf9da36000dc9a3088fdc13cf32e2294}{isQueueEmpty}}();}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//REQUIRE(jobs.properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00050}00050\ \};}
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_printing_system_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//UNTITLED\_PRINTINGSYSTEM\_H}}
+
+\end{DoxyCode}

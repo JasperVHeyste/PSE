@@ -1,0 +1,36 @@
+\doxysection{Job.\+cpp}
+\hypertarget{_job_8cpp_source}{}\label{_job_8cpp_source}\index{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/Job.cpp@{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/Job.cpp}}
+\mbox{\hyperlink{_job_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_job_8h}{Job.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00010}\mbox{\hyperlink{class_job_a0d0a581621afab7c0ec5c5a18ac1b5f9}{00010}}\ \mbox{\hyperlink{class_job_a0d0a581621afab7c0ec5c5a18ac1b5f9}{Job::Job}}(\textcolor{keywordtype}{int}\ jn,\ \textcolor{keywordtype}{int}\ pc,\ std::string\ un,\ std::string\ t)\ :\ jobnumber(jn),\ pagecount(pc),\ username(un),\ type(t)\ \{}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00011}00011\ \ \ \ \ initcheck\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00012}00012\ \ \ \ \ ENSURE(\mbox{\hyperlink{class_job_a95910d5340aee565a2839d3d3b9a7709}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}constructor\ must\ end\ in\ properlyinitialized\ state"{}});}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00013}00013\ \}}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00019}\mbox{\hyperlink{class_job_a95910d5340aee565a2839d3d3b9a7709}{00019}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_job_a95910d5340aee565a2839d3d3b9a7709}{Job::properlyInitialized}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ initcheck\ ==\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00026}\mbox{\hyperlink{class_job_ab62363deea2f3a7e13bf2fa06b2248e9}{00026}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_job_ab62363deea2f3a7e13bf2fa06b2248e9}{Job::getJobnumber}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00027}00027\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_job_a95910d5340aee565a2839d3d3b9a7709}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Job\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ jobnumber;}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00034}\mbox{\hyperlink{class_job_adfb81bab719eeb341d0d1fa332da219c}{00034}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_job_adfb81bab719eeb341d0d1fa332da219c}{Job::getPagecount}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00035}00035\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_job_a95910d5340aee565a2839d3d3b9a7709}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Job\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ pagecount;}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00042}\mbox{\hyperlink{class_job_a2fa95f6b7279f0a4466d7b27abf0e786}{00042}}\ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_job_a2fa95f6b7279f0a4466d7b27abf0e786}{Job::getUsername}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00043}00043\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_job_a95910d5340aee565a2839d3d3b9a7709}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Job\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{return}\ username;}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00050}\mbox{\hyperlink{class_job_a86447cc930824b256f13aeee9b8c4ce6}{00050}}\ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_job_a86447cc930824b256f13aeee9b8c4ce6}{Job::getType}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00051}00051\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_job_a95910d5340aee565a2839d3d3b9a7709}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Job\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ type;}
+\DoxyCodeLine{\Hypertarget{_job_8cpp_source_l00053}00053\ \}}
+
+\end{DoxyCode}

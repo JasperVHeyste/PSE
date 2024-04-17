@@ -1,0 +1,207 @@
+\doxysection{Printing\+System Class Reference}
+\hypertarget{class_printing_system}{}\label{class_printing_system}\index{PrintingSystem@{PrintingSystem}}
+
+
+{\ttfamily \#include $<$Printing\+System.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_printing_system_a593f9e98ee9ffa44950035264b9e8a2c}{Printing\+System}} ()
+\item 
+virtual \mbox{\hyperlink{class_printing_system_aaa6194b045731f47519d9c462afdf203}{\texorpdfstring{$\sim$}{\string~}\+Printing\+System}} ()
+\item 
+bool \mbox{\hyperlink{class_printing_system_a086e37e0bb372e0a8c5c8ba3cc4072fd}{properly\+Initialized}} ()
+\item 
+void \mbox{\hyperlink{class_printing_system_ac078589993d447ab8c2c0c12cef47c2f}{create\+Printer}} (std\+::string name, int emissions, int speed, string type, int cost)
+\item 
+void \mbox{\hyperlink{class_printing_system_acaefb111df2cf396b93f8349bf5d94a2}{create\+Job}} (int jobnumber, int pagecount, string username, string type)
+\item 
+void \mbox{\hyperlink{class_printing_system_aa3e6c15f08f7d7902ab42ef7a00c2853}{implement\+XML}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{class_x_m_lprocessor}{XMLprocessor}} \&xmlp)
+\item 
+void \mbox{\hyperlink{class_printing_system_ae9d667bae60c5cd34086297d24f47fac}{procces\+Job}} (std\+::ostream \&outputstream=std\+::cout)
+\item 
+void \mbox{\hyperlink{class_printing_system_a465bcdd52d62dd9b8b1e5e17f17f1e0f}{assign\+Job}} ()
+\item 
+void \mbox{\hyperlink{class_printing_system_ad7774c7bc7a03449f6d4eaa29da40019}{automated\+Job}} (std\+::ostream \&outputstream=std\+::cout)
+\item 
+void \mbox{\hyperlink{class_printing_system_af041699f971906a020f1815e78da50fc}{simple\+Output}} ()
+\item 
+bool \mbox{\hyperlink{class_printing_system_adf9da36000dc9a3088fdc13cf32e2294}{is\+Queue\+Empty}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_printing_system_8h_source_l00013}{13}} of file \mbox{\hyperlink{_printing_system_8h_source}{Printing\+System.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_printing_system_a593f9e98ee9ffa44950035264b9e8a2c}\label{class_printing_system_a593f9e98ee9ffa44950035264b9e8a2c} 
+\index{PrintingSystem@{PrintingSystem}!PrintingSystem@{PrintingSystem}}
+\index{PrintingSystem@{PrintingSystem}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{PrintingSystem()}{PrintingSystem()}}
+{\footnotesize\ttfamily Printing\+System\+::\+Printing\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor for the printing system 
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+\Hypertarget{class_printing_system_aaa6194b045731f47519d9c462afdf203}\label{class_printing_system_aaa6194b045731f47519d9c462afdf203} 
+\index{PrintingSystem@{PrintingSystem}!````~PrintingSystem@{\texorpdfstring{$\sim$}{\string~}PrintingSystem}}
+\index{````~PrintingSystem@{\texorpdfstring{$\sim$}{\string~}PrintingSystem}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PrintingSystem()}{\string~PrintingSystem()}}
+{\footnotesize\ttfamily virtual Printing\+System\+::\texorpdfstring{$\sim$}{\string~}\+Printing\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{_printing_system_8h_source_l00022}{22}} of file \mbox{\hyperlink{_printing_system_8h_source}{Printing\+System.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_printing_system_a465bcdd52d62dd9b8b1e5e17f17f1e0f}\label{class_printing_system_a465bcdd52d62dd9b8b1e5e17f17f1e0f} 
+\index{PrintingSystem@{PrintingSystem}!assignJob@{assignJob}}
+\index{assignJob@{assignJob}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{assignJob()}{assignJob()}}
+{\footnotesize\ttfamily void Printing\+System\+::assign\+Job (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Assign jobs from the queue to printers from the vector 
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+\Hypertarget{class_printing_system_ad7774c7bc7a03449f6d4eaa29da40019}\label{class_printing_system_ad7774c7bc7a03449f6d4eaa29da40019} 
+\index{PrintingSystem@{PrintingSystem}!automatedJob@{automatedJob}}
+\index{automatedJob@{automatedJob}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{automatedJob()}{automatedJob()}}
+{\footnotesize\ttfamily void Printing\+System\+::automated\+Job (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outputstream = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+
+Automatically let jobs be assigned and processed until the queue with jobs is empty 
+\begin{DoxyParams}{Parameters}
+{\em outputstream} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00142}{142}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+\Hypertarget{class_printing_system_acaefb111df2cf396b93f8349bf5d94a2}\label{class_printing_system_acaefb111df2cf396b93f8349bf5d94a2} 
+\index{PrintingSystem@{PrintingSystem}!createJob@{createJob}}
+\index{createJob@{createJob}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{createJob()}{createJob()}}
+{\footnotesize\ttfamily void Printing\+System\+::create\+Job (\begin{DoxyParamCaption}\item[{int}]{jobnumber,  }\item[{int}]{pagecount,  }\item[{string}]{username,  }\item[{string}]{type }\end{DoxyParamCaption})}
+
+Create a new job and put it in the queue with jobs 
+\begin{DoxyParams}{Parameters}
+{\em jobnumber} & jobnumber \\
+\hline
+{\em pagecount} & page count \\
+\hline
+{\em username} & username \\
+\hline
+{\em type} & type of job \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+\Hypertarget{class_printing_system_ac078589993d447ab8c2c0c12cef47c2f}\label{class_printing_system_ac078589993d447ab8c2c0c12cef47c2f} 
+\index{PrintingSystem@{PrintingSystem}!createPrinter@{createPrinter}}
+\index{createPrinter@{createPrinter}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{createPrinter()}{createPrinter()}}
+{\footnotesize\ttfamily void Printing\+System\+::create\+Printer (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{emissions,  }\item[{int}]{speed,  }\item[{string}]{type,  }\item[{int}]{cost }\end{DoxyParamCaption})}
+
+Create a new printer and put it in the vector with printers 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the printer \\
+\hline
+{\em emissions} & emissions the printer emits (gram of C02 per page) \\
+\hline
+{\em speed} & speed of the printer (pages per minute) \\
+\hline
+{\em type} & type of the printer \\
+\hline
+{\em cost} & cost of printing (eurocent per page) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+\Hypertarget{class_printing_system_aa3e6c15f08f7d7902ab42ef7a00c2853}\label{class_printing_system_aa3e6c15f08f7d7902ab42ef7a00c2853} 
+\index{PrintingSystem@{PrintingSystem}!implementXML@{implementXML}}
+\index{implementXML@{implementXML}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{implementXML()}{implementXML()}}
+{\footnotesize\ttfamily void Printing\+System\+::implement\+XML (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{\mbox{\hyperlink{class_x_m_lprocessor}{XMLprocessor}} \&}]{xmlp }\end{DoxyParamCaption})}
+
+Let an XML be read in and then process the output 
+\begin{DoxyParams}{Parameters}
+{\em filename} & the filename of the XML \\
+\hline
+{\em xmlp} & the processor to read in the XML \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+\Hypertarget{class_printing_system_adf9da36000dc9a3088fdc13cf32e2294}\label{class_printing_system_adf9da36000dc9a3088fdc13cf32e2294} 
+\index{PrintingSystem@{PrintingSystem}!isQueueEmpty@{isQueueEmpty}}
+\index{isQueueEmpty@{isQueueEmpty}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{isQueueEmpty()}{isQueueEmpty()}}
+{\footnotesize\ttfamily bool Printing\+System\+::is\+Queue\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if the queue with jobs is empty \begin{DoxyReturn}{Returns}
+true if the queue with jobs is empty, false if not 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00198}{198}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+\Hypertarget{class_printing_system_ae9d667bae60c5cd34086297d24f47fac}\label{class_printing_system_ae9d667bae60c5cd34086297d24f47fac} 
+\index{PrintingSystem@{PrintingSystem}!proccesJob@{proccesJob}}
+\index{proccesJob@{proccesJob}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{proccesJob()}{proccesJob()}}
+{\footnotesize\ttfamily void Printing\+System\+::procces\+Job (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outputstream = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})}
+
+Let the printers that have jobs assigned to them process those jobs 
+\begin{DoxyParams}{Parameters}
+{\em outputstream} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+\Hypertarget{class_printing_system_a086e37e0bb372e0a8c5c8ba3cc4072fd}\label{class_printing_system_a086e37e0bb372e0a8c5c8ba3cc4072fd} 
+\index{PrintingSystem@{PrintingSystem}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Printing\+System\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if the printingsystem is properly inialized by checking if the pointer assigned in the constructor points to itself \begin{DoxyReturn}{Returns}
+true if properly initialzed, false if not 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+\Hypertarget{class_printing_system_af041699f971906a020f1815e78da50fc}\label{class_printing_system_af041699f971906a020f1815e78da50fc} 
+\index{PrintingSystem@{PrintingSystem}!simpleOutput@{simpleOutput}}
+\index{simpleOutput@{simpleOutput}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{simpleOutput()}{simpleOutput()}}
+{\footnotesize\ttfamily void Printing\+System\+::simple\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Write a status report to a textfile 
+
+Definition at line \mbox{\hyperlink{_printing_system_8cpp_source_l00152}{152}} of file \mbox{\hyperlink{_printing_system_8cpp_source}{Printing\+System.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Jasper/\+CLion\+Projects/\+Project Software Engineering/\+Project/src/\mbox{\hyperlink{_printing_system_8h}{Printing\+System.\+h}}\item 
+C\+:/\+Users/\+Jasper/\+CLion\+Projects/\+Project Software Engineering/\+Project/src/\mbox{\hyperlink{_printing_system_8cpp}{Printing\+System.\+cpp}}\end{DoxyCompactItemize}

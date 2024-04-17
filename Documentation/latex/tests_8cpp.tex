@@ -1,0 +1,327 @@
+\doxysection{C\+:/\+Users/\+Jasper/\+CLion\+Projects/\+Project Software Engineering/\+Project/src/tests.cpp File Reference}
+\hypertarget{tests_8cpp}{}\label{tests_8cpp}\index{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/tests.cpp@{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/tests.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}gtest/gtest.\+h"{}}\newline
+{\ttfamily \#include "{}XMLprocessor.\+h"{}}\newline
+{\ttfamily \#include "{}Printing\+System.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_input_test}{Input\+Test}}
+\item 
+class \mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}
+\item 
+class \mbox{\hyperlink{class_simple_output_test}{Simple\+Output\+Test}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{tests_8cpp_a7e429f636217210c61bb4f2cdfe74871}{File\+Compare}} (const std\+::string left\+File\+Name, const std\+::string right\+File\+Name)
+\item 
+void \mbox{\hyperlink{tests_8cpp_a29a5d0b5a8727a221547f28674f5723b}{processedxml\+To\+Text\+File}} (vector$<$ map$<$ string, string $>$ $>$ input, const char \texorpdfstring{$\ast$}{*}outputfilename)
+\item 
+\mbox{\hyperlink{tests_8cpp_ade0baf20c44537c5fdcfa7deb1827440}{TEST\+\_\+F}} (\mbox{\hyperlink{class_input_test}{Input\+Test}}, correctemptyxml)
+\item 
+\mbox{\hyperlink{tests_8cpp_a00fd216dab16b0ecace57d9a8c325940}{TEST\+\_\+F}} (\mbox{\hyperlink{class_input_test}{Input\+Test}}, correctxmls)
+\item 
+\mbox{\hyperlink{tests_8cpp_af8cc77fc19f8b3d32030b93d5a35c878}{TEST\+\_\+F}} (\mbox{\hyperlink{class_input_test}{Input\+Test}}, wrongxml)
+\item 
+\mbox{\hyperlink{tests_8cpp_abeafef1d5094720e839884fd37f072ba}{TEST\+\_\+F}} (\mbox{\hyperlink{class_input_test}{Input\+Test}}, testinvalidinfoxml)
+\item 
+\mbox{\hyperlink{tests_8cpp_a84c0632983c2c31effd15ef973d68c9b}{TEST\+\_\+F}} (\mbox{\hyperlink{class_input_test}{Input\+Test}}, testinconsistentprintingsystem)
+\item 
+\mbox{\hyperlink{tests_8cpp_aeb97eb9957d044fe4c13504a7ad55b48}{TEST\+\_\+F}} (\mbox{\hyperlink{class_input_test}{Input\+Test}}, testunrecognizableelementxml)
+\item 
+\mbox{\hyperlink{tests_8cpp_aede41a948221fd3e990a9abd3badefe3}{TEST\+\_\+F}} (\mbox{\hyperlink{class_input_test}{Input\+Test}}, checkstringisposint)
+\item 
+\mbox{\hyperlink{tests_8cpp_a563c1fa8bafc5b2d628c8b0e70186587}{TEST\+\_\+F}} (\mbox{\hyperlink{class_input_test}{Input\+Test}}, contracttests)
+\item 
+\mbox{\hyperlink{tests_8cpp_aa7b7f42c5357e67704fe4fed398b8e20}{TEST\+\_\+F}} (\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}, contracttests)
+\item 
+\mbox{\hyperlink{tests_8cpp_acf609c1144fec007d689b0f2f95f5921}{TEST\+\_\+F}} (\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}, Output\+Test1)
+\item 
+\mbox{\hyperlink{tests_8cpp_ae68d8852bfbe7c8f89fe7d54a70a5edd}{TEST\+\_\+F}} (\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}, Output\+Test2)
+\item 
+\mbox{\hyperlink{tests_8cpp_a7840f1cf6aff5fb3081f3485fbe19c09}{TEST\+\_\+F}} (\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}, Output\+Test3)
+\item 
+\mbox{\hyperlink{tests_8cpp_ac5f958b88a7018cb5596812f2deae2eb}{TEST\+\_\+F}} (\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}, One\+Printer\+Multiple\+Jobs)
+\item 
+\mbox{\hyperlink{tests_8cpp_ad0e7671f530fe4d6f12cd7a0edeab253}{TEST\+\_\+F}} (\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}, Multiple\+Printers\+One\+Job)
+\item 
+\mbox{\hyperlink{tests_8cpp_a8d731fd92fbf7fbd0b032cb270999651}{TEST\+\_\+F}} (\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}, Multiple\+Printers\+Multiple\+Jobs)
+\item 
+\mbox{\hyperlink{tests_8cpp_a031284ceda631e0bcc30119b01703f7a}{TEST\+\_\+F}} (\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}, No\+Jobs)
+\item 
+\mbox{\hyperlink{tests_8cpp_aaf928655ba2a148099986f61f3ef224d}{TEST\+\_\+F}} (\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}, No\+Printers)
+\item 
+\mbox{\hyperlink{tests_8cpp_a0d55cafca309569de9d68133cc9988df}{TEST\+\_\+F}} (\mbox{\hyperlink{class_simple_output_test}{Simple\+Output\+Test}}, noprinters)
+\item 
+\mbox{\hyperlink{tests_8cpp_afe76b874cb918ae6581888e366a66e15}{TEST\+\_\+F}} (\mbox{\hyperlink{class_simple_output_test}{Simple\+Output\+Test}}, nojobs)
+\item 
+\mbox{\hyperlink{tests_8cpp_a8cb49979e6886ae8309b852c94565b50}{TEST\+\_\+F}} (\mbox{\hyperlink{class_simple_output_test}{Simple\+Output\+Test}}, normalcase)
+\item 
+\mbox{\hyperlink{tests_8cpp_add4c35d024c53caaaf3692d2928560a6}{TEST\+\_\+F}} (\mbox{\hyperlink{class_simple_output_test}{Simple\+Output\+Test}}, normalcase2)
+\item 
+int \mbox{\hyperlink{tests_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tests_8cpp_a7e429f636217210c61bb4f2cdfe74871}\label{tests_8cpp_a7e429f636217210c61bb4f2cdfe74871} 
+\index{tests.cpp@{tests.cpp}!FileCompare@{FileCompare}}
+\index{FileCompare@{FileCompare}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{FileCompare()}{FileCompare()}}
+{\footnotesize\ttfamily bool File\+Compare (\begin{DoxyParamCaption}\item[{const std\+::string}]{left\+File\+Name,  }\item[{const std\+::string}]{right\+File\+Name }\end{DoxyParamCaption})}
+
+function to test if two given files have the same contents 
+\begin{DoxyParams}{Parameters}
+{\em left\+File\+Name} & the first file \\
+\hline
+{\em right\+File\+Name} & the second file to be compared with the first file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if both files have the same content, false if not 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{tests_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{tests.cpp@{tests.cpp}!main@{main}}
+\index{main@{main}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00391}{391}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a29a5d0b5a8727a221547f28674f5723b}\label{tests_8cpp_a29a5d0b5a8727a221547f28674f5723b} 
+\index{tests.cpp@{tests.cpp}!processedxmlToTextFile@{processedxmlToTextFile}}
+\index{processedxmlToTextFile@{processedxmlToTextFile}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{processedxmlToTextFile()}{processedxmlToTextFile()}}
+{\footnotesize\ttfamily void processedxml\+To\+Text\+File (\begin{DoxyParamCaption}\item[{vector$<$ map$<$ string, string $>$ $>$}]{input,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{outputfilename }\end{DoxyParamCaption})}
+
+Converts the vector from an xml that was already read in into a text file 
+\begin{DoxyParams}{Parameters}
+{\em input} & the vector from the read-\/in xml \\
+\hline
+{\em outputfilename} & the filename of the textfile created from this vector \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00073}{73}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_aede41a948221fd3e990a9abd3badefe3}\label{tests_8cpp_aede41a948221fd3e990a9abd3badefe3} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [1/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input_test}{Input\+Test}}}]{,  }\item[{checkstringisposint}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00181}{181}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a563c1fa8bafc5b2d628c8b0e70186587}\label{tests_8cpp_a563c1fa8bafc5b2d628c8b0e70186587} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [2/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input_test}{Input\+Test}}}]{,  }\item[{contracttests}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00190}{190}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_ade0baf20c44537c5fdcfa7deb1827440}\label{tests_8cpp_ade0baf20c44537c5fdcfa7deb1827440} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [3/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input_test}{Input\+Test}}}]{,  }\item[{correctemptyxml}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a00fd216dab16b0ecace57d9a8c325940}\label{tests_8cpp_a00fd216dab16b0ecace57d9a8c325940} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [4/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input_test}{Input\+Test}}}]{,  }\item[{correctxmls}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a84c0632983c2c31effd15ef973d68c9b}\label{tests_8cpp_a84c0632983c2c31effd15ef973d68c9b} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [5/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input_test}{Input\+Test}}}]{,  }\item[{testinconsistentprintingsystem}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00160}{160}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_abeafef1d5094720e839884fd37f072ba}\label{tests_8cpp_abeafef1d5094720e839884fd37f072ba} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [6/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input_test}{Input\+Test}}}]{,  }\item[{testinvalidinfoxml}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_aeb97eb9957d044fe4c13504a7ad55b48}\label{tests_8cpp_aeb97eb9957d044fe4c13504a7ad55b48} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [7/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input_test}{Input\+Test}}}]{,  }\item[{testunrecognizableelementxml}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00171}{171}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_af8cc77fc19f8b3d32030b93d5a35c878}\label{tests_8cpp_af8cc77fc19f8b3d32030b93d5a35c878} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [8/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input_test}{Input\+Test}}}]{,  }\item[{wrongxml}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00123}{123}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_aa7b7f42c5357e67704fe4fed398b8e20}\label{tests_8cpp_aa7b7f42c5357e67704fe4fed398b8e20} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [9/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}}]{,  }\item[{contracttests}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00220}{220}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a8d731fd92fbf7fbd0b032cb270999651}\label{tests_8cpp_a8d731fd92fbf7fbd0b032cb270999651} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [10/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}}]{,  }\item[{Multiple\+Printers\+Multiple\+Jobs}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00273}{273}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_ad0e7671f530fe4d6f12cd7a0edeab253}\label{tests_8cpp_ad0e7671f530fe4d6f12cd7a0edeab253} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [11/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}}]{,  }\item[{Multiple\+Printers\+One\+Job}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00263}{263}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a031284ceda631e0bcc30119b01703f7a}\label{tests_8cpp_a031284ceda631e0bcc30119b01703f7a} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [12/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}}]{,  }\item[{No\+Jobs}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00283}{283}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_aaf928655ba2a148099986f61f3ef224d}\label{tests_8cpp_aaf928655ba2a148099986f61f3ef224d} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [13/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}}]{,  }\item[{No\+Printers}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00294}{294}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_ac5f958b88a7018cb5596812f2deae2eb}\label{tests_8cpp_ac5f958b88a7018cb5596812f2deae2eb} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [14/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}}]{,  }\item[{One\+Printer\+Multiple\+Jobs}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00253}{253}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_acf609c1144fec007d689b0f2f95f5921}\label{tests_8cpp_acf609c1144fec007d689b0f2f95f5921} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [15/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}}]{,  }\item[{Output\+Test1}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00225}{225}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_ae68d8852bfbe7c8f89fe7d54a70a5edd}\label{tests_8cpp_ae68d8852bfbe7c8f89fe7d54a70a5edd} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [16/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}}]{,  }\item[{Output\+Test2}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00235}{235}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a7840f1cf6aff5fb3081f3485fbe19c09}\label{tests_8cpp_a7840f1cf6aff5fb3081f3485fbe19c09} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [17/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_print_sys_test}{Print\+Sys\+Test}}}]{,  }\item[{Output\+Test3}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00245}{245}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_afe76b874cb918ae6581888e366a66e15}\label{tests_8cpp_afe76b874cb918ae6581888e366a66e15} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [18/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_simple_output_test}{Simple\+Output\+Test}}}]{,  }\item[{nojobs}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00337}{337}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a0d55cafca309569de9d68133cc9988df}\label{tests_8cpp_a0d55cafca309569de9d68133cc9988df} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [19/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_simple_output_test}{Simple\+Output\+Test}}}]{,  }\item[{noprinters}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00329}{329}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_a8cb49979e6886ae8309b852c94565b50}\label{tests_8cpp_a8cb49979e6886ae8309b852c94565b50} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [20/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_simple_output_test}{Simple\+Output\+Test}}}]{,  }\item[{normalcase}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00345}{345}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\Hypertarget{tests_8cpp_add4c35d024c53caaaf3692d2928560a6}\label{tests_8cpp_add4c35d024c53caaaf3692d2928560a6} 
+\index{tests.cpp@{tests.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [21/21]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_simple_output_test}{Simple\+Output\+Test}}}]{,  }\item[{normalcase2}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00369}{369}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+

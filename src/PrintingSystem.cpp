@@ -5,18 +5,30 @@
 
 #include "ContractManager.h"
 
+/**
+ * Constructor for the printing system
+ */
 PrintingSystem::PrintingSystem(){
     initcheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
 }
 
+/**
+ * Check if the printingsystem is properly inialized by checking if the pointer assigned in the constructor points to itself
+ * @return true if properly initialzed, false if not
+ */
 bool PrintingSystem::properlyInitialized() {
     return initcheck == this;
 }
 
-
-PrintingSystem::~PrintingSystem() {}
-
+/**
+ * Create a new printer and put it in the vector with printers
+ * @param name name of the printer
+ * @param emissions emissions the printer emits (gram of C02 per page)
+ * @param speed speed of the printer (pages per minute)
+ * @param type type of the printer
+ * @param cost cost of printing (eurocent per page)
+ */
 void PrintingSystem::createPrinter(string name, int emissions, int speed, string type, int cost){
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     Printer* newPrinter = new Printer(name, emissions, speed, type, cost);
@@ -24,6 +36,13 @@ void PrintingSystem::createPrinter(string name, int emissions, int speed, string
     printers.push_back(newPrinter);
 }
 
+/**
+ * Create a new job and put it in the queue with jobs
+ * @param jobnumber jobnumber
+ * @param pagecount page count
+ * @param username username
+ * @param type type of job
+ */
 void PrintingSystem::createJob(int jobnumber, int pagecount, string username, string type){
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     Job* newJob = new Job(jobnumber, pagecount, username, type);
@@ -31,6 +50,11 @@ void PrintingSystem::createJob(int jobnumber, int pagecount, string username, st
     jobs.enqueue(newJob);
 }
 
+/**
+ * Let an XML be read in and then process the output
+ * @param filename the filename of the XML
+ * @param xmlp the processor to read in the XML
+ */
 void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
     string fname = filename;
     string ftype;
@@ -76,6 +100,9 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
     }
 }
 
+/**
+ * Assign jobs from the queue to printers from the vector
+ */
 void PrintingSystem::assignJob() {
     if (printers.size() == 0) {
         cout << "No printers to assign job\n";
@@ -96,6 +123,10 @@ void PrintingSystem::assignJob() {
     }
 }
 
+/**
+ * Let the printers that have jobs assigned to them process those jobs
+ * @param outputstream
+ */
 void PrintingSystem::proccesJob(std::ostream& outputstream) {
     for (auto p: printers) {
         if (!p->isReady()) {
@@ -104,6 +135,10 @@ void PrintingSystem::proccesJob(std::ostream& outputstream) {
     }
 }
 
+/**
+ * Automatically let jobs be assigned and processed until the queue with jobs is empty
+ * @param outputstream
+ */
 void PrintingSystem::automatedJob(std::ostream& outputstream) {
     while(not isQueueEmpty()){
         assignJob();
@@ -111,6 +146,9 @@ void PrintingSystem::automatedJob(std::ostream& outputstream) {
     }
 }
 
+/**
+ * Write a status report to a textfile
+ */
 void PrintingSystem::simpleOutput() {
     ofstream outputFile("status_report" + to_string(reportIndex) + ".txt");
     reportIndex += 1;
@@ -153,6 +191,10 @@ void PrintingSystem::simpleOutput() {
     outputFile.close();
 }
 
+/**
+ * Check if the queue with jobs is empty
+ * @return true if the queue with jobs is empty, false if not
+ */
 bool PrintingSystem::isQueueEmpty() {
     return jobs.isEmpty();
 }

@@ -1,0 +1,97 @@
+\doxysection{XMLprocessor Class Reference}
+\hypertarget{class_x_m_lprocessor}{}\label{class_x_m_lprocessor}\index{XMLprocessor@{XMLprocessor}}
+
+
+{\ttfamily \#include $<$XMLprocessor.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_x_m_lprocessor_a7c0998982f99abc9f68f1b063ede71f5}{XMLprocessor}} ()
+\item 
+bool \mbox{\hyperlink{class_x_m_lprocessor_ade9c342566247e774eb6efda7cb9643f}{properly\+Initialized}} () const
+\item 
+bool \mbox{\hyperlink{class_x_m_lprocessor_af1ae98d29acdd7f1a576567e8f713ff0}{check\+String\+Is\+Positive\+Int}} (string s) const
+\item 
+vector$<$ map$<$ string, string $>$ $>$ \mbox{\hyperlink{class_x_m_lprocessor_acf1433b6c562728355be2b07f872cdff}{read\+XML}} (const char \texorpdfstring{$\ast$}{*}filename, ostream \&outputstream=cout)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_x_m_lprocessor_8h_source_l00011}{11}} of file \mbox{\hyperlink{_x_m_lprocessor_8h_source}{XMLprocessor.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_x_m_lprocessor_a7c0998982f99abc9f68f1b063ede71f5}\label{class_x_m_lprocessor_a7c0998982f99abc9f68f1b063ede71f5} 
+\index{XMLprocessor@{XMLprocessor}!XMLprocessor@{XMLprocessor}}
+\index{XMLprocessor@{XMLprocessor}!XMLprocessor@{XMLprocessor}}
+\doxysubsubsection{\texorpdfstring{XMLprocessor()}{XMLprocessor()}}
+{\footnotesize\ttfamily XMLprocessor\+::\+XMLprocessor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialize \doxylink{class_x_m_lprocessor}{XMLprocessor}\+: create pointer to self to check for proper initialization 
+
+Definition at line \mbox{\hyperlink{_x_m_lprocessor_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_x_m_lprocessor_8cpp_source}{XMLprocessor.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_x_m_lprocessor_af1ae98d29acdd7f1a576567e8f713ff0}\label{class_x_m_lprocessor_af1ae98d29acdd7f1a576567e8f713ff0} 
+\index{XMLprocessor@{XMLprocessor}!checkStringIsPositiveInt@{checkStringIsPositiveInt}}
+\index{checkStringIsPositiveInt@{checkStringIsPositiveInt}!XMLprocessor@{XMLprocessor}}
+\doxysubsubsection{\texorpdfstring{checkStringIsPositiveInt()}{checkStringIsPositiveInt()}}
+{\footnotesize\ttfamily bool XMLprocessor\+::check\+String\+Is\+Positive\+Int (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption}) const}
+
+Checks if an input string can be converted to a positive integer 
+\begin{DoxyParams}{Parameters}
+{\em s} & input string that will be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the string is a positive integer, false if not 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_x_m_lprocessor_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{_x_m_lprocessor_8cpp_source}{XMLprocessor.\+cpp}}.
+
+\Hypertarget{class_x_m_lprocessor_ade9c342566247e774eb6efda7cb9643f}\label{class_x_m_lprocessor_ade9c342566247e774eb6efda7cb9643f} 
+\index{XMLprocessor@{XMLprocessor}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!XMLprocessor@{XMLprocessor}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool XMLprocessor\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Check if the \doxylink{class_x_m_lprocessor}{XMLprocessor} is properly inialized by checking if the pointer assigned in the constructor points to itself \begin{DoxyReturn}{Returns}
+true if properly initialzed, false if not 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_x_m_lprocessor_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_x_m_lprocessor_8cpp_source}{XMLprocessor.\+cpp}}.
+
+\Hypertarget{class_x_m_lprocessor_acf1433b6c562728355be2b07f872cdff}\label{class_x_m_lprocessor_acf1433b6c562728355be2b07f872cdff} 
+\index{XMLprocessor@{XMLprocessor}!readXML@{readXML}}
+\index{readXML@{readXML}!XMLprocessor@{XMLprocessor}}
+\doxysubsubsection{\texorpdfstring{readXML()}{readXML()}}
+{\footnotesize\ttfamily vector$<$ map$<$ string, string $>$ $>$ XMLprocessor\+::read\+XML (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{ostream \&}]{outputstream = {\ttfamily cout} }\end{DoxyParamCaption})}
+
+Read an XML file and convert it into a vector of maps containing pairs of keywords and values (eg. "{}type"{} = "{}scanner"{}) 
+\begin{DoxyParams}{Parameters}
+{\em filename} & the filename of the xml that needs to be read \\
+\hline
+{\em outputstream} & the outputstream in which any errors will be written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the vector containing maps 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_x_m_lprocessor_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_x_m_lprocessor_8cpp_source}{XMLprocessor.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Jasper/\+CLion\+Projects/\+Project Software Engineering/\+Project/src/\mbox{\hyperlink{_x_m_lprocessor_8h}{XMLprocessor.\+h}}\item 
+C\+:/\+Users/\+Jasper/\+CLion\+Projects/\+Project Software Engineering/\+Project/src/\mbox{\hyperlink{_x_m_lprocessor_8cpp}{XMLprocessor.\+cpp}}\end{DoxyCompactItemize}

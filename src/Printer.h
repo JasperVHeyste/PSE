@@ -18,6 +18,8 @@ public:
     Printer(std::string n, int e, int s, std::string t = "unspecified", int c = -1); //if cost is -1 it means cost should be ignored
     //ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
 
+    ~Printer() {};
+
     bool properlyInitialized() const;
 
     void setJob(Job* j);
@@ -43,12 +45,15 @@ public:
 
     const std::string &getUsername() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    //REQUIRE(hasJob(), "Printer does not have a job assigned to it");
 
     int getJobnumber() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    //REQUIRE(hasJob(), "Printer does not have a job assigned to it");
 
     int getPagecount() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    //REQUIRE(hasJob(), "Printer does not have a job assigned to it");
 
     int getCost() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");

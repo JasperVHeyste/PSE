@@ -1,0 +1,83 @@
+\doxysection{Queue.\+cpp}
+\hypertarget{_queue_8cpp_source}{}\label{_queue_8cpp_source}\index{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/Queue.cpp@{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/Queue.cpp}}
+\mbox{\hyperlink{_queue_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_queue_8h}{Queue.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00004}\mbox{\hyperlink{class_queue_a7cfca3637d57c4a9e37351b3426ffd40}{00004}}\ \mbox{\hyperlink{class_queue_a7cfca3637d57c4a9e37351b3426ffd40}{Queue::Queue}}()\{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00005}00005\ \ \ \ \ initcheck\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00006}00006\ \ \ \ \ ENSURE(\mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}constructor\ must\ end\ in\ properlyinitialized\ state"{}});}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00007}00007\ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00009}\mbox{\hyperlink{class_queue_a00d119db8fa3050da37746e82cbcf94f}{00009}}\ \mbox{\hyperlink{class_queue_a00d119db8fa3050da37746e82cbcf94f}{Queue::\string~Queue}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00011}\mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{00011}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{Queue::properlyInitialized}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{return}\ initcheck\ ==\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00013}00013\ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00015}\mbox{\hyperlink{class_queue_a65d9b23c23c917faa44981539bc34be7}{00015}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_queue_a65d9b23c23c917faa44981539bc34be7}{Queue::isEmpty}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00016}00016\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Queue\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00023}\mbox{\hyperlink{class_queue_a0aee085252e289d4d8d1db84064dbe1c}{00023}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_queue_a0aee085252e289d4d8d1db84064dbe1c}{Queue::enqueue}}(\mbox{\hyperlink{class_job}{Job}}*\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00024}00024\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Queue\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ newNode\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_queue_node}{QueueNode}}(p);}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ this-\/>head\ =\ newNode;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ this-\/>tail\ =\ newNode;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ this-\/>size++;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00031}00031\ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ this-\/>tail-\/>\mbox{\hyperlink{class_queue_node_aec849c05b7d01b75e460b861ed72d109}{next}}\ =\ newNode;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ this-\/>tail\ =\ newNode;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ this-\/>size++;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00039}\mbox{\hyperlink{class_queue_a94f8621d270dd91f401d51f0d378f1f7}{00039}}\ \mbox{\hyperlink{class_job}{Job}}*\ \mbox{\hyperlink{class_queue_a94f8621d270dd91f401d51f0d378f1f7}{Queue::dequeue}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00040}00040\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Queue\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00041}00041\ \ \ \ \ REQUIRE(!\mbox{\hyperlink{class_queue_a65d9b23c23c917faa44981539bc34be7}{isEmpty}}(),\ \textcolor{stringliteral}{"{}Queue\ is\ empty"{}});}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ headNode\ =\ this-\/>head;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ this-\/>head\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ this-\/>tail\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ this-\/>size\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ headNode-\/>\mbox{\hyperlink{class_queue_node_a9f22e28a99f218cd4e2582ba42b0cfdf}{item}};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ this-\/>head\ =\ headNode-\/>\mbox{\hyperlink{class_queue_node_aec849c05b7d01b75e460b861ed72d109}{next}};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ this-\/>head-\/>\mbox{\hyperlink{class_queue_node_a870c44f4adffc543ef915ea06fe6f1d7}{prev}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00053}00053\ \ \ \ \ \mbox{\hyperlink{class_job}{Job}}*\ j\ =\ headNode-\/>\mbox{\hyperlink{class_queue_node_a9f22e28a99f218cd4e2582ba42b0cfdf}{item}};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00054}00054\ \ \ \ \ this-\/>size\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ j;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00059}\mbox{\hyperlink{class_queue_a6b1a4846ba079f4f1dcf9c4c881bdd65}{00059}}\ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ \mbox{\hyperlink{class_queue_a6b1a4846ba079f4f1dcf9c4c881bdd65}{Queue::getHead}}()\{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00060}00060\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Queue\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ head;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00064}\mbox{\hyperlink{class_queue_a0ab62da50d9d795157018ca035ba8d6e}{00064}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_queue_a0ab62da50d9d795157018ca035ba8d6e}{Queue::getSize}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00065}00065\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Queue\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{return}\ size;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00069}\mbox{\hyperlink{class_queue_abd4171eb46e6c4087601ffaf03069da2}{00069}}\ \mbox{\hyperlink{class_job}{Job}}\ *\mbox{\hyperlink{class_queue_abd4171eb46e6c4087601ffaf03069da2}{Queue::getJob}}(\textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00070}00070\ \ \ \ \ REQUIRE(\mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{properlyInitialized}}(),\ \textcolor{stringliteral}{"{}Queue\ is\ not\ properly\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00071}00071\ \ \ \ \ REQUIRE(index\ <\ size,\ \textcolor{stringliteral}{"{}Queue\ does\ not\ have\ an\ item\ with\ the\ given\ index"{}});}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ temp\ =\ this-\/>head;}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ index;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>\mbox{\hyperlink{class_queue_node_aec849c05b7d01b75e460b861ed72d109}{next}};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{return}\ temp-\/>\mbox{\hyperlink{class_queue_node_a9f22e28a99f218cd4e2582ba42b0cfdf}{item}};}
+\DoxyCodeLine{\Hypertarget{_queue_8cpp_source_l00077}00077\ \}}
+
+\end{DoxyCode}

@@ -17,6 +17,8 @@ public:
     Job(int jn, int pc, std::string un, std::string t = "unspecified");
     //ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state")
 
+    ~Job() {};
+
     bool properlyInitialized() const;
 
     int getJobnumber() const;

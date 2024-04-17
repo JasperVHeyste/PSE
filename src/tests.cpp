@@ -4,6 +4,9 @@
 #include "XMLprocessor.h"
 #include "PrintingSystem.h"
 
+/**
+ * Tests for reading input
+ */
 class InputTest: public ::testing::Test {
 protected:
     // You should make the members protected s.t. they can be
@@ -24,6 +27,12 @@ protected:
     XMLprocessor xmlp;
 };
 
+/**
+ * function to test if two given files have the same contents
+ * @param leftFileName the first file
+ * @param rightFileName the second file to be compared with the first file
+ * @return true if both files have the same content, false if not
+ */
 bool FileCompare(const std::string leftFileName, const std::string rightFileName) { //van tictactoe14
     ifstream leftFile, rightFile;
     char leftRead, rightRead;
@@ -56,6 +65,11 @@ bool FileCompare(const std::string leftFileName, const std::string rightFileName
     return result;
 }
 
+/**
+ * Converts the vector from an xml that was already read in into a text file
+ * @param input the vector from the read-in xml
+ * @param outputfilename the filename of the textfile created from this vector
+ */
 void processedxmlToTextFile(vector<map<string,string>> input, const char* outputfilename){
     std::ofstream outputfile;
     outputfile.open(outputfilename);
@@ -179,6 +193,9 @@ TEST_F(InputTest, contracttests) {
     EXPECT_DEATH(xmlp.readXML("testnonxml"), "Assertion.*failed");
 }
 
+/**
+ * Tests for correct processing of data
+ */
 class PrintSysTest: public ::testing::Test {
 protected:
     // You should make the members protected s.t. they can be
@@ -285,7 +302,9 @@ TEST_F(PrintSysTest, NoPrinters) {
     EXPECT_TRUE(buffer.str() == expectedOutput);
 }
 
-
+/**
+ * tests for correct output
+ */
 class SimpleOutputTest: public ::testing::Test {
 protected:
     // You should make the members protected s.t. they can be
