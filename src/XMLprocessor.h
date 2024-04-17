@@ -11,6 +11,7 @@ using namespace std;
 class XMLprocessor {
 private:
    vector<int> previousjobnumbers;
+   vector<int> previouscompnumbers;
    XMLprocessor* initcheck;
 public:
     XMLprocessor();

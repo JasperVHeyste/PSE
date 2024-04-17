@@ -50,6 +50,7 @@ vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ost
     REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
     REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
     previousjobnumbers.clear();
+    previouscompnumbers.clear();
     vector<map<string, string>> output;
     vector<map<string, string>> emptyoutput;
     TiXmlDocument doc;
@@ -211,6 +212,66 @@ vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ost
             if (not newobject.count("userName")){
                 validinfo = false;
                 invalidinfomessage += "Missing username. ";
+            }
+
+            if (validinfo){
+                output.push_back(newobject);
+            }
+            else{
+                outputstream << invalidinfomessage << std::endl;
+            }
+        }
+
+        else if (objectType == "COMPENSATION"){
+            map<string, string> newobject;
+            newobject["objecttype"] = "compensation";
+
+            bool validinfo = true;
+            string invalidinfomessage = "Invalid information COMPENSATION: ";
+
+            for (TiXmlElement *elem = object->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
+                string specification = elem->Value();
+
+                for(TiXmlNode* e = elem->FirstChild(); e != NULL; e = e->NextSibling()){
+                    TiXmlText* text = e->ToText();
+                    if(text == NULL)
+                        continue;
+                    string element = text->Value();
+                    if (specification == "compNumber"){
+                        newobject["compNumber"] = element;
+                        if (not checkStringIsPositiveInt(element)){
+                            validinfo = false;
+                            invalidinfomessage += "The value of the compnumber element is not a positive integer. ";
+                        }
+                        else {
+                            int cn = stoi(element);
+                            for (unsigned int i = 0; i < previouscompnumbers.size(); i++){
+                                if (cn == previouscompnumbers[i]){
+                                    outputstream << "Inconsistent printing system" << std::endl;
+                                    doc.Clear();
+                                    return emptyoutput;
+                                }
+                            }
+                            previouscompnumbers.push_back(cn);
+                        }
+                    }
+                    else if (specification == "name"){
+                        newobject["name"] = element;
+                    }
+                    else{
+                        validinfo = false;
+                        invalidinfomessage += "Contains unrecognizeable parameter. ";
+                    }
+                }
+            }
+
+            if (not newobject.count("compNumber")){
+                validinfo = false;
+                invalidinfomessage += "Missing compnumber. ";
+            }
+            if (not newobject.count("name")){
+                validinfo = false;
+                invalidinfomessage += "Missing name. ";
             }
 
             if (validinfo){
