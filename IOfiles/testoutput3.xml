@@ -35,15 +35,29 @@
 		<emissions>0</emissions>
 		<speed>1</speed>
 	</DEVICE>
+	<COMPENSATION>
+		<name>Students 4 Climate</name>
+		<compNumber>1</compNumber>
+	</COMPENSATION>
+	<COMPENSATION>
+		<name>Students 5 Climate</name>
+		<compNumber>2</compNumber>
+	</COMPENSATION>
+	<COMPENSATION>
+		<name>Students 6 Climate</name>
+		<compNumber>3</compNumber>
+	</COMPENSATION>
 	<JOB>
 		<jobNumber>1</jobNumber>
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
+		<compNumber>1</compNumber>
 	</JOB>
 	<JOB>
 		<jobNumber>2</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
+		<compNumber>3</compNumber>
 	</JOB>
 	<JOB>
 		<jobNumber>3</jobNumber>
@@ -59,11 +73,13 @@
 		<jobNumber>5</jobNumber>
 		<pageCount>32</pageCount>
 		<userName>Jens</userName>
+		<compNumber>2</compNumber>
 	</JOB>
 	<JOB>
 		<jobNumber>6</jobNumber>
 		<pageCount>6</pageCount>
 		<userName>Kyrill</userName>
+		<compNumber>3</compNumber>
 	</JOB>
 	<JOB>
 		<jobNumber>7</jobNumber>

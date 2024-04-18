@@ -99,8 +99,8 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
                 type = object["type"];
             }
 
-            if (input[i].count("compensation")){
-                compensation = stoi(object["compensation"]);
+            if (input[i].count("compNumber")){
+                compensation = stoi(object["compNumber"]);
             }
 
             createJob(jobnumber, pagecount, username, type, compensation);
@@ -146,6 +146,7 @@ void PrintingSystem::assignJob() {
 void PrintingSystem::proccesJob(std::ostream& outputstream) {
     for (auto p: printers) {
         if (!p->isReady()) {
+            totalemissions += p->getJobEmissions();
             p->work(outputstream);
         }
     }
@@ -213,4 +214,9 @@ void PrintingSystem::simpleOutput() {
  */
 bool PrintingSystem::isQueueEmpty() {
     return jobs.isEmpty();
+}
+
+int PrintingSystem::getEmissions() {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+    return totalemissions;
 }

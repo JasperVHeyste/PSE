@@ -5,29 +5,6 @@
 #include "PrintingSystem.h"
 
 /**
- * Tests for reading input
- */
-class InputTest: public ::testing::Test {
-protected:
-    // You should make the members protected s.t. they can be
-    // accessed from subclasses.
-
-    // virtual void SetUp() will be called before each test is run.  You
-    // should define it if you need to initialize the variables.
-    // Otherwise, this can be skipped.
-    virtual void SetUp() {
-    }
-
-    // virtual void TearDown() will be called after each test is run.
-    // You should define it if there is cleanup work to do.  Otherwise,
-    // you don't have to provide it.
-    virtual void TearDown() {
-    }
-
-    XMLprocessor xmlp;
-};
-
-/**
  * function to test if two given files have the same contents
  * @param leftFileName the first file
  * @param rightFileName the second file to be compared with the first file
@@ -92,14 +69,40 @@ void processedxmlToTextFile(vector<map<string,string>> input, const char* output
             if (input[i].count("type")){
                 outputfile << input[i]["type"] << endl;
             }
-            if (input[i].count("compensation")){
-                outputfile << input[i]["compensation"] << endl;
+            if (input[i].count("compNumber")){
+                outputfile << input[i]["compNumber"] << endl;
             }
+            outputfile << endl;
+        }
+        if (objecttype == "compensation"){
+            outputfile << objecttype << endl << input[i]["name"] << endl << input[i]["compNumber"] << endl;
             outputfile << endl;
         }
     }
 }
 
+/**
+ * Tests for reading input
+ */
+class InputTest: public ::testing::Test {
+protected:
+    // You should make the members protected s.t. they can be
+    // accessed from subclasses.
+
+    // virtual void SetUp() will be called before each test is run.  You
+    // should define it if you need to initialize the variables.
+    // Otherwise, this can be skipped.
+    virtual void SetUp() {
+    }
+
+    // virtual void TearDown() will be called after each test is run.
+    // You should define it if there is cleanup work to do.  Otherwise,
+    // you don't have to provide it.
+    virtual void TearDown() {
+    }
+
+    XMLprocessor xmlp;
+};
 
 TEST_F(InputTest, correctemptyxml) {
     std::vector<std::map<std::string, std::string>> input;
@@ -152,6 +155,7 @@ TEST_F(InputTest, testinvalidinfoxml) {
     //JOB: non-int jobnumber and pagecount
     //JOB: negative pagecount, unrecognized type
     //DEVICE: non-int cost, unrecognized type
+    //COMPENSATION: non-int compnumber
     xmlp.readXML("testinvalidinfo2.xml", errorfile);
     //DEVICE: missing emissions element
     //JOB: missing jobnumber and username
@@ -167,6 +171,9 @@ TEST_F(InputTest, testinconsistentprintingsystem) {
     std::vector<std::map<std::string, std::string>> input;
     input = xmlp.readXML("testrepeatjobnr.xml", errorfile); //two jobs with same jobNumber
     int objectamount = input.size();
+    EXPECT_EQ(0, objectamount);
+    input = xmlp.readXML("testrepeatcompnr.xml", errorfile); //two compensations with same compNumber
+    objectamount = input.size();
     EXPECT_EQ(0, objectamount);
     EXPECT_TRUE(FileCompare("testinconsistentprintsys.txt", "testinconsistentprintsys_expected.txt"));
 }
@@ -233,6 +240,7 @@ TEST_F(PrintSysTest, OutputTest1) {
     std::cout.rdbuf(oldCout);
     std::string expectedOutput = "Printer 'Office_Printer1' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 4\n    Submitted by 'anonymous_user'\n    3 pages\n";
     EXPECT_TRUE(buffer.str() == expectedOutput);
+    EXPECT_EQ(ps.getEmissions(), 33);
 }
 
 TEST_F(PrintSysTest, OutputTest2) {
@@ -243,6 +251,7 @@ TEST_F(PrintSysTest, OutputTest2) {
     std::cout.rdbuf(oldCout);
     std::string expectedOutput = "Printer 'Office_Printer1' finished job:\n    Number: 1\n    Submitted by 'SergeDemeyer'\n    2 pages\nPrinter 'Office_Printer2' finished job:\n    Number: 2\n    Submitted by 'anonymous_user'\n    3 pages\nPrinter 'Office_Printer1' finished job:\n    Number: 3\n    Submitted by 'anonymous_user'\n    3 pages\n";
     EXPECT_TRUE(buffer.str() == expectedOutput);
+    EXPECT_EQ(ps.getEmissions(), 24);
 }
 
 TEST_F(PrintSysTest, OutputTest3) {
@@ -250,7 +259,9 @@ TEST_F(PrintSysTest, OutputTest3) {
     outputfile.open("testoutput3.txt");
     ps.implementXML("testoutput3.xml", xmlp);
     ps.automatedJob(outputfile);
+    outputfile << "Total CO2 emissions: " << ps.getEmissions() << " gram." << endl;
     EXPECT_TRUE(FileCompare("testoutput3.txt", "testoutput3_expected.txt"));
+    EXPECT_EQ(ps.getEmissions(), 7503);
 }
 
 TEST_F(PrintSysTest, OnePrinterMultipleJobs) {

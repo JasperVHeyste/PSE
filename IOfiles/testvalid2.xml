@@ -10,4 +10,8 @@
 		<pageCount>1</pageCount>
 		<userName>SergeDemeyer</userName>
 	</JOB>
+	<COMPENSATION>
+		<name>Students 4 Climate</name>
+		<compNumber>1234</compNumber>
+	</COMPENSATION>
 </SYSTEM>

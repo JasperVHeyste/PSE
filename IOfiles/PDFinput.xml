@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SYSTEM>
+	<COMPENSATION>
+		<name>Students 4 Climate</name>
+		<compNumber>1234</compNumber>
+	</COMPENSATION>
 	<DEVICE>
 		<name>Office_Printer1</name>
 		<emissions>3</emissions>
@@ -14,6 +18,7 @@
 		<jobNumber>1</jobNumber>
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
+		<compNumber>1234</compNumber>
 	</JOB>
 	<JOB>
 		<jobNumber>2</jobNumber>

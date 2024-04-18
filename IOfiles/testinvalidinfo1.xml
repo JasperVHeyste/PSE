@@ -24,4 +24,8 @@
 		<cost>-12</cost>
 		<type>6</type>
 	</DEVICE>
+	<COMPENSATION>
+		<name>Students 4 Climate</name>
+		<compNumber>abc</compNumber>
+	</COMPENSATION>
 </SYSTEM>

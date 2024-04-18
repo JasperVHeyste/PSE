@@ -2,6 +2,7 @@ Invalid information DEVICE: The value of the emissions element is not a positive
 Invalid information JOB: The value of the jobnumber element is not a positive integer. The value of the pagecount element is not a positive integer. 
 Invalid information JOB: The value of the pagecount element is not a positive integer. The type of the job is not a valid option. 
 Invalid information DEVICE: The value of the cost element is not a positive integer. The type of the device is not a valid option. 
+Invalid information COMPENSATION: The value of the compnumber element is not a positive integer. 
 Invalid information DEVICE: Missing emissions value. 
 Invalid information JOB: Missing jobnumber. Missing username. 
 Invalid information DEVICE: Contains unrecognizeable parameter. 

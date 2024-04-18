@@ -55,6 +55,9 @@ bool Printer::work(ostream& outputstream) {
     outputstream << "Printer " << "'" << name << "'" << " finished job:" << "\n    Number: "
          << job->getJobnumber() << "\n    Submitted by '" <<
          job->getUsername() << "'" << endl << "    " << job->getPagecount() << " pages" << endl;
+    if (job->hasCompensation()){
+        outputstream << "Job " << job->getJobnumber() << " was made CO2 neutral with the support of " << job->getCompensation() << "." << endl;
+    }
     ready = true;
     job = nullptr;
     ENSURE(isReady(), "Printer must be ready after work is done");
@@ -143,6 +146,12 @@ std::string Printer::getType() const {
 Job *Printer::getJob() const {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return job;
+}
+
+int Printer::getJobEmissions() const {
+    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
+    return emission*getPagecount();
 }
 
 

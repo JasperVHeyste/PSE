@@ -2,10 +2,12 @@ Printer 'Office_Printer1' finished job:
     Number: 1
     Submitted by 'SergeDemeyer'
     2 pages
+Job 1 was made CO2 neutral with the support of Students 4 Climate.
 Printer 'Office_Printer2' finished job:
     Number: 2
     Submitted by 'anonymous_user'
     3 pages
+Job 2 was made CO2 neutral with the support of Students 6 Climate.
 Printer 'Office_Printer3' finished job:
     Number: 3
     Submitted by 'anonymous_user'
@@ -18,10 +20,12 @@ Printer 'Office_Printer5' finished job:
     Number: 5
     Submitted by 'Jens'
     32 pages
+Job 5 was made CO2 neutral with the support of Students 5 Climate.
 Printer 'Office_Printer6' finished job:
     Number: 6
     Submitted by 'Kyrill'
     6 pages
+Job 6 was made CO2 neutral with the support of Students 6 Climate.
 Printer 'Office_Printer7' finished job:
     Number: 7
     Submitted by 'SergeDemeyer'
@@ -38,3 +42,4 @@ Printer 'Office_Printer3' finished job:
     Number: 10
     Submitted by 'unknown'
     53 pages
+Total CO2 emissions: 7503 gram.

@@ -12,6 +12,8 @@ int main() {
     s.automatedJob();
     s.simpleOutput();
 
+    cout << "Total CO2 emissions: " << s.getEmissions() << " gram." << endl;
+
     /*while(not s.isQueueEmpty()){
         s.simpleOutput();
         s.assignJob();

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SYSTEM>
+	<COMPENSATION>
+		<name>a</name>
+		<compNumber>1</compNumber>
+	</COMPENSATION>
+	<COMPENSATION>
+		<name>b</name>
+		<compNumber>1</compNumber>
+	</COMPENSATION>
+</SYSTEM>

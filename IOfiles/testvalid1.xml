@@ -7,11 +7,16 @@
 		<cost>12</cost>
 		<type>bw</type>
 	</DEVICE>
+	<COMPENSATION>
+		<name>Students 4 Climate</name>
+		<compNumber>1234</compNumber>
+	</COMPENSATION>
 	<JOB>
 		<jobNumber>89751</jobNumber>
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
 		<type>scan</type>
+		<compNumber>1234</compNumber>
 	</JOB>
 	<JOB>
 		<jobNumber>2189</jobNumber>

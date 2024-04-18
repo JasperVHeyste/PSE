@@ -63,6 +63,10 @@ public:
 
     Job *getJob() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+
+    int getJobEmissions() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    //REQUIRE(hasJob(), "Printer does not have a job assigned to it");
 };
 
 

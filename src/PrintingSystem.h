@@ -13,6 +13,7 @@
 class PrintingSystem {
 private:
     int reportIndex = 0;
+    int totalemissions = 0;
     std::vector<Printer*> printers;
     Queue jobs;
     std::map<int,std::string> compensationmap;
@@ -48,6 +49,9 @@ public:
     bool isQueueEmpty();
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     //REQUIRE(jobs.properlyInitialized(), "Queue is not properly initialized");
+
+    int getEmissions();
+    //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
 };
 
 
