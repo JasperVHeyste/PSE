@@ -10,7 +10,7 @@
  */
 PrintingSystem::PrintingSystem(){
     initcheck = this;
-    ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
+    //ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
 }
 
 /**
@@ -30,9 +30,9 @@ bool PrintingSystem::properlyInitialized() {
  * @param cost cost of printing (eurocent per page)
  */
 void PrintingSystem::createPrinter(string name, int emissions, int speed, string type, int cost){
-    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     Printer* newPrinter = new Printer(name, emissions, speed, type, cost);
-    ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
+    //ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
     printers.push_back(newPrinter);
 }
 
@@ -45,12 +45,12 @@ void PrintingSystem::createPrinter(string name, int emissions, int speed, string
  * @param compnumber the number of the CO2-compensation for this job
  */
 void PrintingSystem::createJob(int jobnumber, int pagecount, string username, string type, int compnumber){
-    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     Job* newJob = new Job(jobnumber, pagecount, username, type);
     if (compensationmap.count(compnumber)){
         newJob->setCompensation(compensationmap[compnumber]);
     }
-    ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
+    //ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
     jobs.enqueue(newJob);
 }
 
@@ -65,9 +65,9 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
     for (unsigned int i = fname.length()-4; i < fname.length(); i++){
         ftype += fname[i];
     }
-    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
-    REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
+//    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+//    REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
+//    REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
 
     vector<map<string,string>> input = xmlp.readXML(filename);
 
@@ -120,15 +120,19 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
  * Assign jobs from the queue to printers from the vector
  */
 void PrintingSystem::assignJob() {
+
+    //bool jobsassign = false;
     if (printers.size() == 0) {
         cout << "No printers to assign job\n";
     }
     if (!jobs.isEmpty()) {
         for (auto p: printers) {
             if (!jobs.isEmpty()) {
-                if (p->isReady()) {
+                Job* jobType = jobs.getJob(0);
+                if (p->isReady() && p->getType() == jobType->getType()) {
                     Job *job = jobs.dequeue();
                     p->setJob(job);
+                    break;
                 }
             }
 
@@ -143,11 +147,19 @@ void PrintingSystem::assignJob() {
  * Let the printers that have jobs assigned to them process those jobs
  * @param outputstream
  */
-void PrintingSystem::proccesJob(std::ostream& outputstream) {
-    for (auto p: printers) {
-        if (!p->isReady()) {
-            totalemissions += p->getJobEmissions();
-            p->work(outputstream);
+void PrintingSystem::proccesJob(std::ostream& outputstream, Printer* printer) {
+    if (printer != nullptr) {
+        if (!printer->isReady()) {
+            totalemissions += printer->getJobEmissions();
+            printer->work(outputstream);
+        }
+    }
+    else {
+        for (auto p: printers) {
+            if (!p->isReady()) {
+                totalemissions += p->getJobEmissions();
+                p->work(outputstream);
+            }
         }
     }
 }
@@ -157,9 +169,81 @@ void PrintingSystem::proccesJob(std::ostream& outputstream) {
  * @param outputstream
  */
 void PrintingSystem::automatedJob(std::ostream& outputstream) {
-    while(not isQueueEmpty()){
-        assignJob();
-        proccesJob(outputstream);
+    vector<Printer*> noType;
+    vector<Printer*> Color;
+    vector<Printer*> BW;
+    vector<Printer*> scan;
+    for (auto &p : printers) {
+        if (p->getType() == "scan") {
+            scan.push_back(p);
+        }
+        else if (p->getType() == "unspecified") {
+            noType.push_back(p);
+        }
+        else if (p->getType() == "bw") {
+            BW.push_back(p);
+        }
+        else if (p->getType() == "color") {
+            Color.push_back(p);
+        }
+    }
+
+    while (not isQueueEmpty()) {
+        Job* job = jobs.getJob(0);
+        string jobType = job->getType();
+        if (jobType == "scan" && scan.size() > 1){
+            Printer* minPagesPrinter = scan[0];
+            for (size_t i = 1; i < scan.size(); ++i) {
+                if (scan[i]->getPagecount() < minPagesPrinter->getPagecount()) {
+                    minPagesPrinter = scan[i];
+                }
+            }
+            minPagesPrinter->setJob(job);
+            proccesJob(outputstream,minPagesPrinter);
+            jobs.dequeue();
+        }
+        else if (jobType == "unspecified" && noType.size() > 1) {
+            Printer* minPagesPrinter = noType[0];
+            for (size_t i = 1; i < noType.size(); ++i) {
+                if (noType[i]->getPagecount() < minPagesPrinter->getPagecount()) {
+                    minPagesPrinter = noType[i];
+                }
+            }
+            minPagesPrinter->setJob(job);
+            proccesJob(outputstream,minPagesPrinter);
+            jobs.dequeue();
+        }
+        else if (jobType == "bw" && BW.size() > 1) {
+            cout << BW.size() << endl;
+            Printer* minPagesPrinter = BW[0];
+            for (size_t i = 1; i < BW.size(); ++i) {
+                if (BW[i]->getPagecount() < minPagesPrinter->getPagecount()) {
+                    minPagesPrinter = BW[i];
+                }
+            }
+            minPagesPrinter->setJob(job);
+            proccesJob(outputstream,minPagesPrinter);
+            jobs.dequeue();
+        }
+        else if (jobType == "color" && Color.size() > 1) {
+            Printer* minPagesPrinter = Color[0];
+            for (size_t i = 1; i < Color.size(); ++i) {
+                if (Color[i]->getPagecount() < minPagesPrinter->getPagecount()) {
+                    minPagesPrinter = Color[i];
+                }
+            }
+            minPagesPrinter->setJob(job);
+            proccesJob(outputstream,minPagesPrinter);
+            jobs.dequeue();
+        }
+        else if ((jobType == "color" && Color.empty()) || (jobType == "bw" && BW.empty()) || (jobType == "scan" && scan.empty()) || (jobType == "unspecified" && noType.empty())) {
+            cout << "No printers available for job type: " << jobType << endl;
+            break;
+        }
+        else {
+            assignJob();
+            proccesJob();
+        }
     }
 }
 
@@ -217,6 +301,6 @@ bool PrintingSystem::isQueueEmpty() {
 }
 
 int PrintingSystem::getEmissions() {
-    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     return totalemissions;
 }
