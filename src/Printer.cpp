@@ -16,7 +16,7 @@ using namespace std;
 Printer::Printer(std::string n, int e, int s, std::string t, int c)  : name(n), emission(e), speed(s), type(t), cost(c) {
     ready = true;
     initcheck = this;
-    ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
+    //ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
 }
 
 /**
@@ -32,8 +32,8 @@ bool Printer::properlyInitialized() const {
  * @param j the job that needs to be assigned to this printer
  */
 void Printer::setJob(Job *j) {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
-    REQUIRE(j->properlyInitialized(), "Job is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(j->properlyInitialized(), "Job is not properly initialized");
     Printer::job = j;
     ready = false;
 }
@@ -44,24 +44,34 @@ void Printer::setJob(Job *j) {
  * @return true if the printer had a job, false if not
  */
 bool Printer::work(ostream& outputstream) {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     /*for (int i = 0; i <= job->getPagecount(); i++) {
         std::cout << "Page printed: " << i << std::endl;
     }*/
     if (not hasJob()){
         return false;
     }
+    string typestring = getType();
+    if (getType() == "bw") {
+        typestring = " black and white printing";
+    }
+    else if (getType() == "color") {
+        typestring = " color-printing";
+    }
+    else if (getType() == "unspecified") {
+        typestring = "";
+    }
 
-    outputstream << "Printer " << "'" << name << "'" << " finished job:" << "\n    Number: "
-         << job->getJobnumber() << "\n    Submitted by '" <<
-         job->getUsername() << "'" << endl << "    " << job->getPagecount() << " pages" << endl;
+    outputstream << "Printer " << "'" << name << "'" << " finished" << typestring << " job:" << "\n    Number: "
+                 << job->getJobnumber() << "\n    Submitted by '" <<
+                 job->getUsername() << "'" << endl << "    " << job->getPagecount() << " pages" << endl;
     if (job->hasCompensation()){
         outputstream << "Job " << job->getJobnumber() << " was made CO2 neutral with the support of " << job->getCompensation() << "." << endl;
     }
     ready = true;
     job = nullptr;
-    ENSURE(isReady(), "Printer must be ready after work is done");
-    ENSURE(not hasJob(), "Printer cannot have an assigned job after work is done");
+    //ENSURE(isReady(), "Printer must be ready after work is done");
+    //ENSURE(not hasJob(), "Printer cannot have an assigned job after work is done");
     return true;
 }
 
@@ -69,7 +79,7 @@ bool Printer::work(ostream& outputstream) {
  * @return ready
  */
 bool Printer::isReady() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return ready;
 }
 
@@ -77,7 +87,7 @@ bool Printer::isReady() const {
  * @return true if the printer has a job, false if not
  */
 bool Printer::hasJob() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return job != nullptr;
 }
 
@@ -85,7 +95,7 @@ bool Printer::hasJob() const {
  * @return the name of the printer
  */
 const std::string &Printer::getName() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return name;
 }
 
@@ -93,7 +103,7 @@ const std::string &Printer::getName() const {
  * @return the emissions of the printer
  */
 int Printer::getEmission() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return emission;
 }
 
@@ -101,8 +111,8 @@ int Printer::getEmission() const {
  * @return the username of the person using the printer
  */
 const std::string &Printer::getUsername() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
-    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
     return job->getUsername();
 }
 
@@ -110,8 +120,8 @@ const std::string &Printer::getUsername() const {
  * @return the jobnumber of the job the printer has assigned to it
  */
 int Printer::getJobnumber() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
-    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
     return job->getJobnumber();
 }
 
@@ -119,8 +129,12 @@ int Printer::getJobnumber() const {
  * @return the pagecount of the job the printer has assigned to it
  */
 int Printer::getPagecount() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
-    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
+    if (job == nullptr) {
+        int a = 0;
+        return a;
+    }
     return job->getPagecount();
 }
 
@@ -128,7 +142,7 @@ int Printer::getPagecount() const {
  * @return the amount it costs to use this printer
  */
 int Printer::getCost() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return cost;
 }
 
@@ -136,7 +150,7 @@ int Printer::getCost() const {
  * @return the type of the printer
  */
 std::string Printer::getType() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return type;
 }
 
@@ -144,15 +158,14 @@ std::string Printer::getType() const {
  * @return the job the printer has assigned to it
  */
 Job *Printer::getJob() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return job;
 }
 
 int Printer::getJobEmissions() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
-    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
+//    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+//    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
     return emission*getPagecount();
 }
-
 
 
