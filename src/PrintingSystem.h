@@ -2,7 +2,7 @@
 #define UNTITLED_PRINTINGSYSTEM_H
 #include <vector>
 #include <string>
-
+#include <algorithm>
 #include "Printer.h"
 #include "Job.h"
 #include "Queue.h"
@@ -39,7 +39,7 @@ public:
     //REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
     //REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
 
-    void proccesJob(std::ostream& outputstream = std::cout);
+    void proccesJob(std::ostream& outputstream = std::cout, Printer* printer = nullptr);
     void assignJob();
     void automatedJob(std::ostream& outputstream = std::cout);
 
