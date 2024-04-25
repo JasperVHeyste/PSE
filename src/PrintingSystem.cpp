@@ -173,16 +173,12 @@ void PrintingSystem::proccesJob(std::ostream& outputstream, Printer* printer) {
  * @param outputstream
  */
 void PrintingSystem::automatedJob(std::ostream& outputstream) {
-    vector<Printer*> noType;
     vector<Printer*> Color;
     vector<Printer*> BW;
     vector<Printer*> scan;
     for (auto &p : printers) {
         if (p->getType() == "scan") {
             scan.push_back(p);
-        }
-        else if (p->getType() == "unspecified") {
-            noType.push_back(p);
         }
         else if (p->getType() == "bw") {
             BW.push_back(p);
@@ -197,20 +193,9 @@ void PrintingSystem::automatedJob(std::ostream& outputstream) {
         string jobType = job->getType();
         if (jobType == "scan" && scan.size() > 1){
             Printer* minPagesPrinter = scan[0];
-            for (size_t i = 1; i < scan.size(); ++i) {
-                if (scan[i]->getPagecount() < minPagesPrinter->getPagecount()) {
-                    minPagesPrinter = scan[i];
-                }
-            }
-            minPagesPrinter->setJob(job);
-            proccesJob(outputstream,minPagesPrinter);
-            jobs.dequeue();
-        }
-        else if (jobType == "unspecified" && noType.size() > 1) {
-            Printer* minPagesPrinter = noType[0];
-            for (size_t i = 1; i < noType.size(); ++i) {
-                if (noType[i]->getPagecount() < minPagesPrinter->getPagecount()) {
-                    minPagesPrinter = noType[i];
+            for (vector<Printer*>::iterator scanit = scan.begin(); scanit != scan.end(); scanit++){
+                if ((*scanit)->getJobAmount() < minPagesPrinter->getJobAmount()){
+                    minPagesPrinter = *scanit;
                 }
             }
             minPagesPrinter->setJob(job);
@@ -220,9 +205,9 @@ void PrintingSystem::automatedJob(std::ostream& outputstream) {
         else if (jobType == "bw" && BW.size() > 1) {
             cout << BW.size() << endl;
             Printer* minPagesPrinter = BW[0];
-            for (size_t i = 1; i < BW.size(); ++i) {
-                if (BW[i]->getPagecount() < minPagesPrinter->getPagecount()) {
-                    minPagesPrinter = BW[i];
+            for (vector<Printer*>::iterator bwit = BW.begin(); bwit != scan.end(); bwit++){
+                if ((*bwit)->getJobAmount() < minPagesPrinter->getJobAmount()){
+                    minPagesPrinter = *bwit;
                 }
             }
             minPagesPrinter->setJob(job);
@@ -231,16 +216,16 @@ void PrintingSystem::automatedJob(std::ostream& outputstream) {
         }
         else if (jobType == "color" && Color.size() > 1) {
             Printer* minPagesPrinter = Color[0];
-            for (size_t i = 1; i < Color.size(); ++i) {
-                if (Color[i]->getPagecount() < minPagesPrinter->getPagecount()) {
-                    minPagesPrinter = Color[i];
+            for (vector<Printer*>::iterator colorit = Color.begin(); colorit != scan.end(); colorit++){
+                if ((*colorit)->getJobAmount() < minPagesPrinter->getJobAmount()){
+                    minPagesPrinter = *colorit;
                 }
             }
             minPagesPrinter->setJob(job);
             proccesJob(outputstream,minPagesPrinter);
             jobs.dequeue();
         }
-        else if ((jobType == "color" && Color.empty()) || (jobType == "bw" && BW.empty()) || (jobType == "scan" && scan.empty()) || (jobType == "unspecified" && noType.empty())) {
+        else if ((jobType == "color" && Color.empty()) || (jobType == "bw" && BW.empty()) || (jobType == "scan" && scan.empty())) {
             cout << "No printers available for job type: " << jobType << endl;
             break;
         }

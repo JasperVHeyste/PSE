@@ -2,6 +2,8 @@
 #define UNTITLED_PRINTER_H
 #include <string>
 #include <iostream>
+#include <queue>
+
 class Job;
 class Printer {
 private:
@@ -12,7 +14,8 @@ private:
     int cost;
 
     bool ready = true;
-    Job* job = nullptr;
+    std::queue<Job*> jobs;
+    //Job* job = nullptr;
     Printer* initcheck;
 public:
     Printer(std::string n, int e, int s, std::string t = "unspecified", int c = -1); //if cost is -1 it means cost should be ignored
@@ -67,6 +70,9 @@ public:
     int getJobEmissions() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     //REQUIRE(hasJob(), "Printer does not have a job assigned to it");
+
+    int getJobAmount() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 };
 
 
