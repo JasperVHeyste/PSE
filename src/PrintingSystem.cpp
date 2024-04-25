@@ -10,7 +10,7 @@
  */
 PrintingSystem::PrintingSystem(){
     initcheck = this;
-    //ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
+    ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
 }
 
 /**
@@ -30,9 +30,9 @@ bool PrintingSystem::properlyInitialized() {
  * @param cost cost of printing (eurocent per page)
  */
 void PrintingSystem::createPrinter(string name, int emissions, int speed, string type, int cost){
-//    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     Printer* newPrinter = new Printer(name, emissions, speed, type, cost);
-    //ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
+    ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
     printers.push_back(newPrinter);
 }
 
@@ -45,12 +45,12 @@ void PrintingSystem::createPrinter(string name, int emissions, int speed, string
  * @param compnumber the number of the CO2-compensation for this job
  */
 void PrintingSystem::createJob(int jobnumber, int pagecount, string username, string type, int compnumber){
-//    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     Job* newJob = new Job(jobnumber, pagecount, username, type);
     if (compensationmap.count(compnumber)){
         newJob->setCompensation(compensationmap[compnumber]);
     }
-    //ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
+    ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
     jobs.enqueue(newJob);
 }
 
@@ -65,9 +65,9 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
     for (unsigned int i = fname.length()-4; i < fname.length(); i++){
         ftype += fname[i];
     }
-//    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-//    REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
-//    REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+    REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
+    REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
 
     vector<map<string,string>> input = xmlp.readXML(filename);
 
@@ -301,6 +301,6 @@ bool PrintingSystem::isQueueEmpty() {
 }
 
 int PrintingSystem::getEmissions() {
-//    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     return totalemissions;
 }
