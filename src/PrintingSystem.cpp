@@ -86,6 +86,10 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
                 type = object["type"];
             }
 
+            if (input[i].count("cost")){
+                cost = stoi(object["cost"]);
+            }
+
             createPrinter(name, emissions, speed, type, cost);
             //cout << "created printer with name " << name << endl;
         }
