@@ -251,3 +251,7 @@ $RECYCLE.BIN/
 /IOfiles/status_report15txt
 /IOfiles/temp.txt
 /IOfiles/testoutput3.txt
+/IOfiles/testoutput1.txt
+/IOfiles/testoutput2.txt
+/IOfiles/testoneprintermultiplejobs.txt
+/IOfiles/testmultipleprintersonejob.txt

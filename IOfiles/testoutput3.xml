@@ -4,36 +4,50 @@
 		<name>Office_Printer1</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<cost>10</cost>
+		<type>color</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer2</name>
 		<emissions>2</emissions>
 		<speed>30</speed>
+		<cost>4</cost>
+		<type>color</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer3</name>
 		<emissions>5</emissions>
 		<speed>40</speed>
+		<cost>11</cost>
+		<type>scan</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer4</name>
 		<emissions>100</emissions>
 		<speed>40</speed>
+		<cost>3</cost>
+		<type>scan</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer5</name>
 		<emissions>3</emissions>
 		<speed>4000</speed>
+		<cost>7</cost>
+		<type>bw</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer6</name>
 		<emissions>300</emissions>
 		<speed>4000</speed>
+		<cost>6</cost>
+		<type>bw</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer7</name>
 		<emissions>0</emissions>
 		<speed>1</speed>
+		<cost>12</cost>
+		<type>bw</type>
 	</DEVICE>
 	<COMPENSATION>
 		<name>Students 4 Climate</name>
@@ -52,53 +66,63 @@
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
 		<compNumber>1</compNumber>
+		<type>scan</type>
 	</JOB>
 	<JOB>
 		<jobNumber>2</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
 		<compNumber>3</compNumber>
+		<type>scan</type>
 	</JOB>
 	<JOB>
 		<jobNumber>3</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
+		<type>color</type>
 	</JOB>
 	<JOB>
 		<jobNumber>4</jobNumber>
 		<pageCount>53</pageCount>
 		<userName>Jasper</userName>
+		<type>bw</type>
 	</JOB>
 	<JOB>
 		<jobNumber>5</jobNumber>
 		<pageCount>32</pageCount>
 		<userName>Jens</userName>
 		<compNumber>2</compNumber>
+		<type>color</type>
 	</JOB>
 	<JOB>
 		<jobNumber>6</jobNumber>
 		<pageCount>6</pageCount>
 		<userName>Kyrill</userName>
 		<compNumber>3</compNumber>
+		<type>scan</type>
 	</JOB>
 	<JOB>
 		<jobNumber>7</jobNumber>
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
+		<type>color</type>
 	</JOB>
 	<JOB>
 		<jobNumber>8</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
+		<type>bw</type>
 	</JOB>
 	<JOB>
 		<jobNumber>9</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
+		<type>bw</type>
 	</JOB>
 	<JOB>
 		<jobNumber>10</jobNumber>
 		<pageCount>53</pageCount>
 		<userName>unknown</userName>
+		<type>scan</type>
 	</JOB>
 </SYSTEM>

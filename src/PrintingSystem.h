@@ -15,6 +15,9 @@ private:
     int reportIndex = 0;
     int totalemissions = 0;
     std::vector<Printer*> printers;
+    std::vector<Printer*> scanners;
+    std::vector<Printer*> bwprinters;
+    std::vector<Printer*> colorprinters;
     Queue jobs;
     std::map<int,std::string> compensationmap;
     PrintingSystem* initcheck;
@@ -40,7 +43,10 @@ public:
     //REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
 
     void proccesJob(std::ostream& outputstream = std::cout, Printer* printer = nullptr);
-    void assignJob();
+
+    void assignSingleJob();
+    void assignAllJobs();
+
     void automatedJob(std::ostream& outputstream = std::cout);
 
     // use case 2.1

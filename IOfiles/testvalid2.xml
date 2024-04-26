@@ -4,11 +4,14 @@
 		<name>Office_Printer5</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<cost>12</cost>
+		<type>color</type>
 	</DEVICE>
 	<JOB>
 		<jobNumber>1</jobNumber>
 		<pageCount>1</pageCount>
 		<userName>SergeDemeyer</userName>
+		<type>color</type>
 	</JOB>
 	<COMPENSATION>
 		<name>Students 4 Climate</name>

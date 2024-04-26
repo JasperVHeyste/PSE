@@ -4,20 +4,18 @@
 		<jobNumber>1</jobNumber>
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
+		<type>bw</type>
 	</JOB>
 	<JOB>
 		<jobNumber>2</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
+		<type>color</type>
 	</JOB>
 	<JOB>
 		<jobNumber>3</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
-	</JOB>
-	<JOB>
-		<jobNumber>4</jobNumber>
-		<pageCount>3</pageCount>
-		<userName>anonymous_user</userName>
+		<type>scan</type>
 	</JOB>
 </SYSTEM>

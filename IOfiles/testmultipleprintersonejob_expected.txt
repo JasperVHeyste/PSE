@@ -1,0 +1,4 @@
+Printer 'Office_Printer2' finished black and white printing job:
+    Number: 1
+    Submitted by 'SergeDemeyer'
+    2 pages

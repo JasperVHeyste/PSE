@@ -34,6 +34,15 @@ void PrintingSystem::createPrinter(string name, int emissions, int speed, string
     Printer* newPrinter = new Printer(name, emissions, speed, type, cost);
     ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
     printers.push_back(newPrinter);
+    if (type == "bw"){
+        bwprinters.push_back(newPrinter);
+    }
+    else if (type == "color"){
+        colorprinters.push_back(newPrinter);
+    }
+    else if (type == "scan"){
+        scanners.push_back(newPrinter);
+    }
 }
 
 /**
@@ -73,22 +82,14 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
 
     for (unsigned int i = 0; i < input.size(); i++){
         map<string, string> object = input[i];
-        string type = "unspecified";
         int compensation = -1;
 
         if (object["objecttype"] == "device"){
             string name = object["name"];
-            int cost = -1;
+            int cost = stoi(object["cost"]);
             int emissions = stoi(object["emissions"]);
             int speed = stoi(object["speed"]);
-
-            if (input[i].count("type")){
-                type = object["type"];
-            }
-
-            if (input[i].count("cost")){
-                cost = stoi(object["cost"]);
-            }
+            string type = object["type"];
 
             createPrinter(name, emissions, speed, type, cost);
             //cout << "created printer with name " << name << endl;
@@ -98,10 +99,7 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
             int jobnumber = stoi(object["jobNumber"]);
             int pagecount = stoi(object["pageCount"]);
             string username = object["userName"];
-
-            if (input[i].count("type")){
-                type = object["type"];
-            }
+            string type = object["type"];
 
             if (input[i].count("compNumber")){
                 compensation = stoi(object["compNumber"]);
@@ -121,29 +119,80 @@ void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
 }
 
 /**
- * Assign jobs from the queue to printers from the vector
+ * Assign one job from the queue to an available matching printer from the vector
  */
-void PrintingSystem::assignJob() {
-
-    //bool jobsassign = false;
+void PrintingSystem::assignSingleJob() {
     if (printers.size() == 0) {
         cout << "No printers to assign job\n";
     }
+    bool assigned = false;
     if (!jobs.isEmpty()) {
+        Job* job = jobs.getJob(0);
         for (auto p: printers) {
-            if (!jobs.isEmpty()) {
-                Job* jobType = jobs.getJob(0);
-                if (p->isReady() && p->getType() == jobType->getType()) {
-                    Job *job = jobs.dequeue();
-                    p->setJob(job);
-                    break;
-                }
+            if (p->getType() == job->getType()) {
+                jobs.dequeue();
+                p->setJob(job);
+                assigned = true;
+                break;
             }
-
+        }
+        if (not assigned){
+            cout << "No printers available for job type: " << job->getType() << endl;
         }
     }
     else {
         cout << "All jobs ready" << endl;
+    }
+}
+
+/**
+ * Assign one job from the queue to an available matching printer from the vector
+ */
+void PrintingSystem::assignAllJobs() {
+    if (printers.size() == 0) {
+        cout << "No printers to assign job" << endl;
+    }
+    if (isQueueEmpty()){
+        cout << "All jobs ready" << endl;
+    }
+
+    while (not isQueueEmpty()) {
+        Job *job = jobs.getJob(0);
+        string jobType = job->getType();
+        if (jobType == "scan" && scanners.size() != 0) {
+            Printer *minPagesPrinter = scanners[0];
+            for (vector<Printer *>::iterator scanit = scanners.begin(); scanit != scanners.end(); scanit++) {
+                if ((*scanit)->getJobAmount() < minPagesPrinter->getJobAmount()) {
+                    minPagesPrinter = *scanit;
+                }
+            }
+            minPagesPrinter->setJob(job);
+            jobs.dequeue();
+        }
+        else if (jobType == "bw" && bwprinters.size() != 0) {
+            Printer *minPagesPrinter = bwprinters[0];
+            for (vector<Printer *>::iterator bwit = bwprinters.begin(); bwit != bwprinters.end(); bwit++) {
+                if ((*bwit)->getJobAmount() < minPagesPrinter->getJobAmount()) {
+                    minPagesPrinter = *bwit;
+                }
+            }
+            minPagesPrinter->setJob(job);
+            jobs.dequeue();
+        }
+        else if (jobType == "color" && colorprinters.size() != 0) {
+            Printer* minPagesPrinter = colorprinters[0];
+            for (vector<Printer *>::iterator colorit = colorprinters.begin(); colorit != colorprinters.end(); colorit++) {
+                if ((*colorit)->getJobAmount() < minPagesPrinter->getJobAmount()) {
+                    minPagesPrinter = *colorit;
+                }
+            }
+            minPagesPrinter->setJob(job);
+            jobs.dequeue();
+        }
+        else {
+            cout << "No printers available for job type: " << jobType << endl;
+            jobs.dequeue();
+        }
     }
 }
 
@@ -153,14 +202,14 @@ void PrintingSystem::assignJob() {
  */
 void PrintingSystem::proccesJob(std::ostream& outputstream, Printer* printer) {
     if (printer != nullptr) {
-        if (!printer->isReady()) {
+        if (!printer->hasJob()) {
             totalemissions += printer->getJobEmissions();
             printer->work(outputstream);
         }
     }
     else {
         for (auto p: printers) {
-            if (!p->isReady()) {
+            if (p->hasJob()) {
                 totalemissions += p->getJobEmissions();
                 p->work(outputstream);
             }
@@ -173,65 +222,20 @@ void PrintingSystem::proccesJob(std::ostream& outputstream, Printer* printer) {
  * @param outputstream
  */
 void PrintingSystem::automatedJob(std::ostream& outputstream) {
-    vector<Printer*> Color;
-    vector<Printer*> BW;
-    vector<Printer*> scan;
-    for (auto &p : printers) {
-        if (p->getType() == "scan") {
-            scan.push_back(p);
-        }
-        else if (p->getType() == "bw") {
-            BW.push_back(p);
-        }
-        else if (p->getType() == "color") {
-            Color.push_back(p);
-        }
-    }
+    assignAllJobs();
 
-    while (not isQueueEmpty()) {
-        Job* job = jobs.getJob(0);
-        string jobType = job->getType();
-        if (jobType == "scan" && scan.size() > 1){
-            Printer* minPagesPrinter = scan[0];
-            for (vector<Printer*>::iterator scanit = scan.begin(); scanit != scan.end(); scanit++){
-                if ((*scanit)->getJobAmount() < minPagesPrinter->getJobAmount()){
-                    minPagesPrinter = *scanit;
+    bool jobsleft = true;
+
+    while (jobsleft){
+        jobsleft = false;
+        for (vector<Printer*>::iterator it = printers.begin(); it != printers.end(); it++){
+            if ((*it)->hasJob()){
+                totalemissions += (*it)->getJobEmissions();
+                (*it)->work(outputstream);
+                if ((*it)->hasJob()){
+                    jobsleft = true;
                 }
             }
-            minPagesPrinter->setJob(job);
-            proccesJob(outputstream,minPagesPrinter);
-            jobs.dequeue();
-        }
-        else if (jobType == "bw" && BW.size() > 1) {
-            cout << BW.size() << endl;
-            Printer* minPagesPrinter = BW[0];
-            for (vector<Printer*>::iterator bwit = BW.begin(); bwit != scan.end(); bwit++){
-                if ((*bwit)->getJobAmount() < minPagesPrinter->getJobAmount()){
-                    minPagesPrinter = *bwit;
-                }
-            }
-            minPagesPrinter->setJob(job);
-            proccesJob(outputstream,minPagesPrinter);
-            jobs.dequeue();
-        }
-        else if (jobType == "color" && Color.size() > 1) {
-            Printer* minPagesPrinter = Color[0];
-            for (vector<Printer*>::iterator colorit = Color.begin(); colorit != scan.end(); colorit++){
-                if ((*colorit)->getJobAmount() < minPagesPrinter->getJobAmount()){
-                    minPagesPrinter = *colorit;
-                }
-            }
-            minPagesPrinter->setJob(job);
-            proccesJob(outputstream,minPagesPrinter);
-            jobs.dequeue();
-        }
-        else if ((jobType == "color" && Color.empty()) || (jobType == "bw" && BW.empty()) || (jobType == "scan" && scan.empty())) {
-            cout << "No printers available for job type: " << jobType << endl;
-            break;
-        }
-        else {
-            assignJob();
-            proccesJob();
         }
     }
 }
@@ -255,14 +259,13 @@ void PrintingSystem::simpleOutput() {
     for (auto& p: printers){
         outputFile << "NEW-Printer (" << p->getName() << ": " << p->getEmission() << "g/page):\n";
 
-        if (p->isReady()) {
-            if (p->getJob() == nullptr) {
-                outputFile << "printer has no job\n";
-            }
-        }
-        if (!p->isReady()){
+
+        if (p->hasJob()){
             outputFile << "     * Current:\n";
             outputFile << "[#" << p->getJobnumber() << "|" << p->getUsername() << "]\n";
+        }
+        else {
+            outputFile << "printer has no job\n";
         }
         // queue
         outputFile << "     * Queue:\n";

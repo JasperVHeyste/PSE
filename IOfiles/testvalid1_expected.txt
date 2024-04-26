@@ -20,10 +20,12 @@ job
 2189
 3
 anonymous_user
+bw
 
 device
 Office_Printer6
 2
 30
 color
+4
 

@@ -4,25 +4,34 @@
 		<name>Office_Printer4</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<cost>1</cost>
+		<type>color</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer3</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<cost>1</cost>
+		<type>scan</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer2</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<cost>1</cost>
+		<type>bw</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer1</name>
 		<emissions>3</emissions>
-		<speed>40</speed>
+		<speed>40</speed><cost>1</cost>
+		<type>bw</type>
+		<cost>1</cost>
 	</DEVICE>
 	<JOB>
 		<jobNumber>1</jobNumber>
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
+		<type>bw</type>
 	</JOB>
 </SYSTEM>

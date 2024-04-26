@@ -2,11 +2,14 @@ device
 Office_Printer5
 3
 40
+color
+12
 
 job
 1
 1
 SergeDemeyer
+color
 
 compensation
 Students 4 Climate

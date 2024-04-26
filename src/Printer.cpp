@@ -14,7 +14,6 @@ using namespace std;
  * @param c cost of printing (eurocent per page)
  */
 Printer::Printer(std::string n, int e, int s, std::string t, int c)  : name(n), emission(e), speed(s), type(t), cost(c) {
-    ready = true;
     initcheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
 }
@@ -35,7 +34,6 @@ void Printer::setJob(Job *j) {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     REQUIRE(j->properlyInitialized(), "Job is not properly initialized");
     jobs.push(j);
-    ready = false;
 }
 
 /**
@@ -56,8 +54,8 @@ bool Printer::work(ostream& outputstream) {
     else if (getType() == "color") {
         typestring = " color-printing";
     }
-    else if (getType() == "unspecified") {
-        typestring = "";
+    else if (getType() == "scan") {
+        typestring = " scanning";
     }
 
     Job* currentjob = jobs.front();
@@ -67,19 +65,8 @@ bool Printer::work(ostream& outputstream) {
     if (currentjob->hasCompensation()){
         outputstream << "Job " << currentjob->getJobnumber() << " was made CO2 neutral with the support of " << currentjob->getCompensation() << "." << endl;
     }
-    ready = true;
     jobs.pop();
-    ENSURE(isReady(), "Printer must be ready after work is done");
-    ENSURE(not hasJob(), "Printer cannot have an assigned job after work is done");
     return true;
-}
-
-/**
- * @return ready
- */
-bool Printer::isReady() const {
-    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
-    return ready;
 }
 
 /**

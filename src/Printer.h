@@ -12,11 +12,9 @@ private:
     int speed; // pages per minute
     std::string type;
     int cost;
-
-    bool ready = true;
     std::queue<Job*> jobs;
-    //Job* job = nullptr;
     Printer* initcheck;
+
 public:
     Printer(std::string n, int e, int s, std::string t = "unspecified", int c = -1); //if cost is -1 it means cost should be ignored
     //ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
@@ -31,8 +29,6 @@ public:
 
     bool work(std::ostream& outputstream = std::cout);
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
-    //ENSURE(isReady(), "Printer must be ready after work is done");
-    //ENSURE(not hasJob(), "Printer cannot have an assigned job after work is done");
 
     bool isReady() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");

@@ -4,25 +4,31 @@
 		<name>Office_Printer1</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<cost>4</cost>
+		<type>color</type>
 	</DEVICE>
 	<JOB>
 		<jobNumber>1</jobNumber>
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
+		<type>color</type>
 	</JOB>
 	<JOB>
 		<jobNumber>2</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
+		<type>color</type>
 	</JOB>
 	<JOB>
 		<jobNumber>3</jobNumber>
 		<pageCount>4</pageCount>
 		<userName>anonymous_user</userName>
+		<type>color</type>
 	</JOB>
 	<JOB>
 		<jobNumber>4</jobNumber>
 		<pageCount>5</pageCount>
 		<userName>anonymous_user</userName>
+		<type>color</type>
 	</JOB>
 </SYSTEM>
