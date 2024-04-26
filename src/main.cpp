@@ -6,7 +6,7 @@ int main() {
     TiXmlDocument doc;
     XMLprocessor xmlp = XMLprocessor();
     PrintingSystem s = PrintingSystem();
-    s.implementXML("PDFinput.xml", xmlp);
+    xmlp.implementXML("PDFinput.xml", s);
 
     s.simpleOutput();
     s.automatedJob();

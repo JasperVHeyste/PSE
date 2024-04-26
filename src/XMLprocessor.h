@@ -2,12 +2,14 @@
 #define PROJECT_XMLPROCESSOR_H
 #include "tinyxml.h"
 #include "ContractManager.h"
+#include "PrintingSystem.h"
 #include <vector>
 #include <map>
 #include <string>
 #include <iostream>
 using namespace std;
 
+class PrintingSystem;
 class XMLprocessor {
 private:
    vector<int> previousjobnumbers;
@@ -23,6 +25,11 @@ public:
     //REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
 
     vector<map<string, string>> readXML(const char* filename, ostream& outputstream = cout);
+    //REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
+    //REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
+
+    void implementXML(const char* filename, PrintingSystem& ps);
+    //REQUIRE(ps.properlyInitialized(), "Printingsystem is not properly initialized");
     //REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
     //REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
 };

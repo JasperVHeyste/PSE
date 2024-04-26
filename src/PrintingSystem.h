@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <map>
 #include "Printer.h"
 #include "Job.h"
 #include "Queue.h"
@@ -37,10 +38,8 @@ public:
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     //ENSURE(newJob->properlyInitialized(), "Job must be properly initialized");
 
-    void implementXML(const char* filename, XMLprocessor& xmlp);
+    void createCompensation(int compnumber, string name);
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    //REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
-    //REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
 
     void proccesJob(std::ostream& outputstream = std::cout, Printer* printer = nullptr);
 

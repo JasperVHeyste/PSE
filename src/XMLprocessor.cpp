@@ -297,6 +297,58 @@ vector<map<string, string>> XMLprocessor::readXML(const char* filename, std::ost
     return output;
 }
 
+/**
+ * Let an XML be read in and then process the output
+ * @param filename the filename of the XML
+ * @param ps the system where the input needs to be sent to
+ */
+void XMLprocessor::implementXML(const char* filename, PrintingSystem& ps) {
+    string fname = filename;
+    string ftype;
+    for (unsigned int i = fname.length()-4; i < fname.length(); i++){
+        ftype += fname[i];
+    }
+    REQUIRE(ps.properlyInitialized(), "Printingsystem is not properly initialized");
+    REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
+    REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
+
+    vector<map<string,string>> input = readXML(filename);
+
+    for (unsigned int i = 0; i < input.size(); i++){
+        map<string, string> object = input[i];
+        int compensation = -1;
+
+        if (object["objecttype"] == "device"){
+            string name = object["name"];
+            int cost = stoi(object["cost"]);
+            int emissions = stoi(object["emissions"]);
+            int speed = stoi(object["speed"]);
+            string type = object["type"];
+
+            ps.createPrinter(name, emissions, speed, type, cost);
+        }
+
+        if (object["objecttype"] == "job"){
+            int jobnumber = stoi(object["jobNumber"]);
+            int pagecount = stoi(object["pageCount"]);
+            string username = object["userName"];
+            string type = object["type"];
+
+            if (input[i].count("compNumber")){
+                compensation = stoi(object["compNumber"]);
+            }
+
+            ps.createJob(jobnumber, pagecount, username, type, compensation);
+        }
+
+        if (object["objecttype"] == "compensation"){
+            int compnumber = stoi(object["compNumber"]);
+            string name = object["name"];
+
+            ps.createCompensation(compnumber, name);
+        }
+    }
+}
 
 
 

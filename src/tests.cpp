@@ -219,13 +219,13 @@ protected:
 
 TEST_F(PrintSysTest, contracttests) {
     EXPECT_TRUE(ps.properlyInitialized());
-    EXPECT_DEATH(ps.implementXML("testnonxml.txt", xmlp), "Assertion.*failed");
+    EXPECT_DEATH(xmlp.implementXML("testnonxml.txt", ps), "Assertion.*failed");
 }
 
 TEST_F(PrintSysTest, OutputTest1) {
     std::ofstream outputfile;
     outputfile.open("testoutput1.txt");
-    ps.implementXML("testoutput1.xml", xmlp);
+    xmlp.implementXML("testoutput1.xml", ps);
     ps.automatedJob(outputfile);
     EXPECT_TRUE(FileCompare("testoutput1.txt", "testoutput1_expected.txt"));
     EXPECT_EQ(ps.getEmissions(), 33);
@@ -234,7 +234,7 @@ TEST_F(PrintSysTest, OutputTest1) {
 TEST_F(PrintSysTest, OutputTest2) {
     std::ofstream outputfile;
     outputfile.open("testoutput2.txt");
-    ps.implementXML("testoutput2.xml", xmlp);
+    xmlp.implementXML("testoutput2.xml", ps);
     ps.automatedJob(outputfile);
     EXPECT_TRUE(FileCompare("testoutput2.txt", "testoutput2_expected.txt"));
     EXPECT_EQ(ps.getEmissions(), 24);
@@ -243,7 +243,7 @@ TEST_F(PrintSysTest, OutputTest2) {
 TEST_F(PrintSysTest, OutputTest3) {
     std::ofstream outputfile;
     outputfile.open("testoutput3.txt");
-    ps.implementXML("testoutput3.xml", xmlp);
+    xmlp.implementXML("testoutput3.xml", ps);
     ps.automatedJob(outputfile);
     EXPECT_TRUE(FileCompare("testoutput3.txt", "testoutput3_expected.txt"));
     EXPECT_EQ(ps.getEmissions(), 6778);
@@ -252,7 +252,7 @@ TEST_F(PrintSysTest, OutputTest3) {
 TEST_F(PrintSysTest, OnePrinterMultipleJobs) {
     std::ofstream outputfile;
     outputfile.open("testoneprintermultiplejobs.txt");
-    ps.implementXML("testoneprintermultiplejobs.xml", xmlp);
+    xmlp.implementXML("testoneprintermultiplejobs.xml", ps);
     ps.automatedJob(outputfile);
     EXPECT_TRUE(FileCompare("testoneprintermultiplejobs.txt", "testoneprintermultiplejobs_expected.txt"));
 }
@@ -260,7 +260,7 @@ TEST_F(PrintSysTest, OnePrinterMultipleJobs) {
 TEST_F(PrintSysTest, MultiplePrintersOneJob) {
     std::ofstream outputfile;
     outputfile.open("testmultipleprintersonejob.txt");
-    ps.implementXML("testmultipleprintersonejob.xml", xmlp);
+    xmlp.implementXML("testmultipleprintersonejob.xml", ps);
     ps.automatedJob(outputfile);
     EXPECT_TRUE(FileCompare("testmultipleprintersonejob.txt", "testmultipleprintersonejob_expected.txt"));
 }
@@ -268,7 +268,7 @@ TEST_F(PrintSysTest, MultiplePrintersOneJob) {
 TEST_F(PrintSysTest, NoJobs) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
-    ps.implementXML("testnojobs.xml", xmlp);
+    xmlp.implementXML("testnojobs.xml", ps);
     ps.assignAllJobs();
     ps.proccesJob();
     std::cout.rdbuf(oldCout);
@@ -279,7 +279,7 @@ TEST_F(PrintSysTest, NoJobs) {
 TEST_F(PrintSysTest, NoPrinters) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
-    ps.implementXML("testnoprinters.xml", xmlp);
+    xmlp.implementXML("testnoprinters.xml", ps);
     ps.assignAllJobs();
     ps.proccesJob();
     std::cout.rdbuf(oldCout);
@@ -313,7 +313,7 @@ protected:
 
 TEST_F(SimpleOutputTest, noprinters){
     TiXmlDocument doc;
-    ps.implementXML("testnoprinters.xml", xmlp);
+    xmlp.implementXML("testnoprinters.xml", ps);
     ps.simpleOutput();
     EXPECT_TRUE(FileCompare("status_report0.txt", "testnoprinters_expected.txt"));
 }
@@ -321,7 +321,7 @@ TEST_F(SimpleOutputTest, noprinters){
 // test with no jobs
 TEST_F(SimpleOutputTest, nojobs){
     TiXmlDocument doc;
-    ps.implementXML("testnojobs.xml", xmlp);
+    xmlp.implementXML("testnojobs.xml", ps);
     ps.simpleOutput();
     EXPECT_TRUE(FileCompare("status_report0.txt", "testnojobs_expected.txt"));
 }
@@ -329,7 +329,7 @@ TEST_F(SimpleOutputTest, nojobs){
 // test with normal case, 2 printers, 3 jobs
 TEST_F(SimpleOutputTest, normalcase){
     TiXmlDocument doc;
-    ps.implementXML("testnormalcase1.xml", xmlp);
+    xmlp.implementXML("testnormalcase1.xml", ps);
 
     std::ofstream outputfile;
     outputfile.open("temp.txt");
@@ -352,7 +352,7 @@ TEST_F(SimpleOutputTest, normalcase){
 
 // test with normal case, 1 printer, 2 jobs
 TEST_F(SimpleOutputTest, normalcase2) {
-    ps.implementXML("testnormalcase2.xml", xmlp);
+    xmlp.implementXML("testnormalcase2.xml", ps);
 
     std::ofstream outputfile;
     outputfile.open("temp.txt");

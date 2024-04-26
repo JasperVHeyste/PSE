@@ -64,58 +64,13 @@ void PrintingSystem::createJob(int jobnumber, int pagecount, string username, st
 }
 
 /**
- * Let an XML be read in and then process the output
- * @param filename the filename of the XML
- * @param xmlp the processor to read in the XML
+ * Create a new compensation in the compensation map
+ * @param compnumber number of the compensation
+ * @param name name of the compensation
  */
-void PrintingSystem::implementXML(const char* filename, XMLprocessor& xmlp) {
-    string fname = filename;
-    string ftype;
-    for (unsigned int i = fname.length()-4; i < fname.length(); i++){
-        ftype += fname[i];
-    }
+void PrintingSystem::createCompensation(int compnumber, std::string name) {
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    REQUIRE(properlyInitialized(), "XMLprocessor is not properly initialized");
-    REQUIRE(ftype == ".xml", "Inputfile has to be an xml file");
-
-    vector<map<string,string>> input = xmlp.readXML(filename);
-
-    for (unsigned int i = 0; i < input.size(); i++){
-        map<string, string> object = input[i];
-        int compensation = -1;
-
-        if (object["objecttype"] == "device"){
-            string name = object["name"];
-            int cost = stoi(object["cost"]);
-            int emissions = stoi(object["emissions"]);
-            int speed = stoi(object["speed"]);
-            string type = object["type"];
-
-            createPrinter(name, emissions, speed, type, cost);
-            //cout << "created printer with name " << name << endl;
-        }
-
-        if (object["objecttype"] == "job"){
-            int jobnumber = stoi(object["jobNumber"]);
-            int pagecount = stoi(object["pageCount"]);
-            string username = object["userName"];
-            string type = object["type"];
-
-            if (input[i].count("compNumber")){
-                compensation = stoi(object["compNumber"]);
-            }
-
-            createJob(jobnumber, pagecount, username, type, compensation);
-            //cout << "created job with jobnumber " << jobnumber << endl;
-        }
-
-        if (object["objecttype"] == "compensation"){
-            int compnumber = stoi(object["compNumber"]);
-            string name = object["name"];
-
-            compensationmap[compnumber] = name;
-        }
-    }
+    compensationmap[compnumber] = name;
 }
 
 /**
@@ -292,6 +247,9 @@ bool PrintingSystem::isQueueEmpty() {
     return jobs.isEmpty();
 }
 
+/**
+ * @return the total amount of CO2 emissions after all jobs are finished
+ */
 int PrintingSystem::getEmissions() {
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     return totalemissions;
