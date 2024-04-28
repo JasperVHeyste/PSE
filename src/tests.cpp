@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 #include "XMLprocessor.h"
 #include "PrintingSystem.h"
+#include "Output.h"
 
 /**
  * function to test if two given files have the same contents
@@ -298,7 +299,7 @@ TEST_F(PrintSysTest, NoPrinters) {
 /**
  * tests for correct output
  */
-class SimpleOutputTest: public ::testing::Test {
+class OutputTest: public ::testing::Test {
 protected:
     // You should make the members protected s.t. they can be
     // accessed from subclasses.
@@ -317,68 +318,51 @@ protected:
 
     PrintingSystem ps;
     XMLprocessor xmlp;
+    Output o;
 };
 
-TEST_F(SimpleOutputTest, noprinters){
+TEST_F(OutputTest, noprinters){
     TiXmlDocument doc;
     xmlp.implementXML("testnoprinters.xml", ps);
-    ps.simpleOutput();
-    EXPECT_TRUE(FileCompare("status_report0.txt", "testnoprinters_expected.txt"));
+    o.simpleOutput(&ps);
+    o.advancedOutput(&ps);
+    EXPECT_TRUE(FileCompare("status_report0.txt", "simple_output_noprinterstest.txt"));
+    EXPECT_TRUE(FileCompare("advanced_status_report0.txt", "advanced_output_noprinterstest.txt"));
 }
 
 // test with no jobs
-TEST_F(SimpleOutputTest, nojobs){
+TEST_F(OutputTest, nojobs){
     TiXmlDocument doc;
     xmlp.implementXML("testnojobs.xml", ps);
-    ps.simpleOutput();
-    EXPECT_TRUE(FileCompare("status_report0.txt", "testnojobs_expected.txt"));
+    o.simpleOutput(&ps);
+    o.advancedOutput(&ps);
+    EXPECT_TRUE(FileCompare("status_report0.txt", "simple_output_nojobstest.txt"));
+    EXPECT_TRUE(FileCompare("advanced_status_report0.txt", "advanced_output_nojobstest.txt"));
 }
 
 // test with normal case, 2 printers, 3 jobs
-TEST_F(SimpleOutputTest, normalcase){
+TEST_F(OutputTest, normalcase){
     TiXmlDocument doc;
     xmlp.implementXML("testnormalcase1.xml", ps);
 
-    std::ofstream outputfile;
-    outputfile.open("temp.txt");
+    ps.assignAllJobs();
+    o.simpleOutput(&ps);
+    o.advancedOutput(&ps);
+    ps.proccesJob();
+    o.simpleOutput(&ps);
+    o.advancedOutput(&ps);
+    ps.proccesJob();
+    o.simpleOutput(&ps);
+    o.advancedOutput(&ps);
+    ps.proccesJob();
 
-    while(not ps.isQueueEmpty()){
-        ps.simpleOutput();
-        ps.assignSingleJob();
-        ps.simpleOutput();
-        ps.proccesJob(outputfile);
-        ps.simpleOutput();
-    }
+    EXPECT_TRUE(FileCompare("status_report0.txt", "simple_output_normalcase1.1.txt"));
+    EXPECT_TRUE(FileCompare("status_report1.txt", "simple_output_normalcase1.2.txt"));
+    EXPECT_TRUE(FileCompare("status_report2.txt", "simple_output_normalcase1.3.txt"));
 
-    EXPECT_TRUE(FileCompare("status_report0.txt", "testnormalcase1_expected1.txt"));
-    EXPECT_TRUE(FileCompare("status_report1.txt", "testnormalcase1_expected2.txt"));
-    EXPECT_TRUE(FileCompare("status_report2.txt", "testnormalcase1_expected3.txt"));
-    EXPECT_TRUE(FileCompare("status_report3.txt", "testnormalcase1_expected4.txt"));
-    EXPECT_TRUE(FileCompare("status_report4.txt", "testnormalcase1_expected5.txt"));
-    EXPECT_TRUE(FileCompare("status_report5.txt", "testnormalcase1_expected6.txt"));
-}
-
-// test with normal case, 1 printer, 2 jobs
-TEST_F(SimpleOutputTest, normalcase2) {
-    xmlp.implementXML("testnormalcase2.xml", ps);
-
-    std::ofstream outputfile;
-    outputfile.open("temp.txt");
-
-    while(not ps.isQueueEmpty()){
-        ps.simpleOutput();
-        ps.assignSingleJob();
-        ps.simpleOutput();
-        ps.proccesJob(outputfile);
-        ps.simpleOutput();
-    }
-
-    EXPECT_TRUE(FileCompare("status_report0.txt", "testnormalcase2_expected1.txt"));
-    EXPECT_TRUE(FileCompare("status_report1.txt", "testnormalcase2_expected2.txt"));
-    EXPECT_TRUE(FileCompare("status_report2.txt", "testnormalcase2_expected3.txt"));
-    EXPECT_TRUE(FileCompare("status_report3.txt", "testnormalcase2_expected4.txt"));
-    EXPECT_TRUE(FileCompare("status_report4.txt", "testnormalcase2_expected5.txt"));
-    EXPECT_TRUE(FileCompare("status_report5.txt", "testnormalcase2_expected6.txt"));
+    EXPECT_TRUE(FileCompare("advanced_status_report0.txt", "advanced_output_normalcase1.1.txt"));
+    EXPECT_TRUE(FileCompare("advanced_status_report1.txt", "advanced_output_normalcase1.2.txt"));
+    EXPECT_TRUE(FileCompare("advanced_status_report2.txt", "advanced_output_normalcase1.3.txt"));
 }
 
 int main(int argc, char **argv) {
