@@ -1,0 +1,18 @@
+No printers available for job type: scan
+Printer 'Office_Printer1' finished color-printing job:
+    Number: 1
+    Submitted by 'SergeDemeyer'
+    2 pages
+Job 1 was made CO2 neutral with the support of Students 4 Climate.
+Printer 'Office_Printer2' finished black and white printing job:
+    Number: 2
+    Submitted by 'anonymous_user'
+    3 pages
+Printer 'Office_Printer1' finished color-printing job:
+    Number: 3
+    Submitted by 'anonymous_user'
+    3 pages
+Printer 'Office_Printer1' finished color-printing job:
+    Number: 4
+    Submitted by 'anonymous_user'
+    3 pages
