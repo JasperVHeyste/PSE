@@ -1,2 +1,0 @@
--=Queue=-
-No printers present in printingsystem

@@ -326,8 +326,8 @@ TEST_F(OutputTest, noprinters){
     xmlp.implementXML("testnoprinters.xml", ps);
     o.simpleOutput(&ps);
     o.advancedOutput(&ps);
-    EXPECT_TRUE(FileCompare("status_report0.txt", "simple_output_noprinterstest.txt"));
-    EXPECT_TRUE(FileCompare("advanced_status_report0.txt", "advanced_output_noprinterstest.txt"));
+    EXPECT_TRUE(FileCompare("status_report0.txt", "simple_output_noprinters_expected.txt"));
+    EXPECT_TRUE(FileCompare("advanced_status_report0.txt", "advanced_output_noprinters_expected.txt"));
 }
 
 // test with no jobs
@@ -336,7 +336,7 @@ TEST_F(OutputTest, nojobs){
     xmlp.implementXML("testnojobs.xml", ps);
     o.simpleOutput(&ps);
     o.advancedOutput(&ps);
-    EXPECT_TRUE(FileCompare("status_report0.txt", "simple_output_nojobstest.txt"));
+    EXPECT_TRUE(FileCompare("status_report0.txt", "simple_output_nojobs_expected.txt"));
     EXPECT_TRUE(FileCompare("advanced_status_report0.txt", "advanced_output_nojobstest.txt"));
 }
 

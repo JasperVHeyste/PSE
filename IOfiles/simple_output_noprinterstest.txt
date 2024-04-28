@@ -1,8 +1,0 @@
-# === [System Status] === #
-
---== Devices ==--
-No devices present in printingsystem.
-
---== Jobs ==--
---== Co2 Compensation initiatives ==--# ======================= #
-
