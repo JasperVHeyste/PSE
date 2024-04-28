@@ -14,6 +14,7 @@
 class PrintingSystem {
 private:
     int reportIndex = 0;
+    int advancedreportIndex = 0;
     int totalemissions = 0;
     std::vector<Printer*> printers;
     std::vector<Printer*> scanners;
@@ -48,15 +49,26 @@ public:
 
     void automatedJob(std::ostream& outputstream = std::cout);
 
-    // use case 2.1
-    void simpleOutput();
-
     bool isQueueEmpty();
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     //REQUIRE(jobs.properlyInitialized(), "Queue is not properly initialized");
 
     int getEmissions();
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+    
+    int getReportIndex() const;
+
+    int getAdvancedreportIndex() const;
+
+    void setReportIndex(int reportIndex);
+
+    void setAdvancedreportIndex(int advancedreportIndex);
+
+    const vector<Printer *> &getPrinters() const;
+
+    const map<int, std::string> &getCompensationmap() const;
+
+
 };
 
 
