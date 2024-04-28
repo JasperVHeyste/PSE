@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SYSTEM>
+	<COMPENSATION>
+		<name>Students 4 Climate</name>
+		<compNumber>1234</compNumber>
+	</COMPENSATION>
 	<DEVICE>
 		<name>Office_Printer1</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<cost>10</cost>
+		<type>color</type>
 	</DEVICE>
 	<DEVICE>
 		<name>Office_Printer2</name>
 		<emissions>3</emissions>
 		<speed>40</speed>
+		<cost>5</cost>
+		<type>bw</type>
 	</DEVICE>
 	<JOB>
 		<jobNumber>1</jobNumber>
 		<pageCount>2</pageCount>
 		<userName>SergeDemeyer</userName>
+		<compNumber>1234</compNumber>
+		<type>color</type>
 	</JOB>
 	<JOB>
 		<jobNumber>2</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
+		<type>bw</type>
 	</JOB>
 	<JOB>
 		<jobNumber>3</jobNumber>
 		<pageCount>3</pageCount>
 		<userName>anonymous_user</userName>
-	</JOB>
-	<JOB>
-		<jobNumber>4</jobNumber>
-		<pageCount>3</pageCount>
-		<userName>anonymous_user</userName>
+		<type>color</type>
 	</JOB>
 </SYSTEM>

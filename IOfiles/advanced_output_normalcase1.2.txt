@@ -1,0 +1,7 @@
+-=Queue=-
+*Office_Printer1
+[3] | [3]
+
+*Office_Printer2
+Is not processing a job | No jobs assigned.
+

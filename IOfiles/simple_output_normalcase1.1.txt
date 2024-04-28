@@ -1,0 +1,44 @@
+# === [System Status] === #
+
+--== Devices ==--
+Office_Printer1:
+* Type: color
+* CO2: 3g/page
+* 40pages / minute
+* 10cents / page
+
+Office_Printer2:
+* Type: bw
+* CO2: 3g/page
+* 40pages / minute
+* 5cents / page
+
+--== Jobs ==--
+[Job #2]
+* Owner: anonymous_user
+* Device: Office_Printer2
+* Status: 1/1
+* Total pages: 3 pages
+* Total C02: 9g C02
+* Total cost: 15cents
+
+[Job #1]
+* Owner: SergeDemeyer
+* Device: Office_Printer1
+* Status: 1/2
+* Total pages: 2 pages
+* Total C02: 6g C02
+* Total cost: 20cents
+* Compensation: Students 4 Climate
+
+[Job #3]
+* Owner: anonymous_user
+* Device: Office_Printer1
+* Status: 2/2
+* Total pages: 3 pages
+* Total C02: 9g C02
+* Total cost: 30cents
+
+--== Co2 Compensation initiatives ==--
+Students 4 Climate [*1234]
+# ======================= #

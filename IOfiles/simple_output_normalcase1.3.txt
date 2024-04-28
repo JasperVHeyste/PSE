@@ -1,0 +1,23 @@
+# === [System Status] === #
+
+--== Devices ==--
+Office_Printer1:
+* Type: color
+* CO2: 3g/page
+* 40pages / minute
+* 10cents / page
+
+Office_Printer2:
+* Type: bw
+* CO2: 3g/page
+* 40pages / minute
+* 5cents / page
+
+--== Jobs ==--
+Office_Printer2 doesnt have any jobs assigned.
+
+Office_Printer1 doesnt have any jobs assigned.
+
+--== Co2 Compensation initiatives ==--
+Students 4 Climate [*1234]
+# ======================= #
