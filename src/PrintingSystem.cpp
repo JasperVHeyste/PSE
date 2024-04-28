@@ -196,50 +196,6 @@ void PrintingSystem::automatedJob(std::ostream& outputstream) {
 }
 
 /**
- * Write a status report to a textfile
- */
-void PrintingSystem::simpleOutput() {
-    ofstream outputFile("status_report" + to_string(reportIndex) + ".txt");
-    reportIndex += 1;
-    if (!outputFile.is_open()) {
-        cout << "Can not open status_report." << endl;
-        return;
-    }
-
-    if (printers.empty()){
-        outputFile << "No printers present in Printingsystem\n" << endl;
-    }
-
-    // printers
-    for (auto& p: printers){
-        outputFile << "NEW-Printer (" << p->getName() << ": " << p->getEmission() << "g/page):\n";
-
-
-        if (p->hasJob()){
-            outputFile << "     * Current:\n";
-            outputFile << "[#" << p->getJobnumber() << "|" << p->getUsername() << "]\n";
-        }
-        else {
-            outputFile << "printer has no job\n";
-        }
-        // queue
-        outputFile << "     * Queue:\n";
-        if (jobs.isEmpty()){
-            outputFile << "         No current jobs in queue.\n";
-        }else{
-            QueueNode* temp = jobs.getHead();
-            for (int i = 0; i < jobs.getSize(); i++){
-                Job* current = temp->item;
-                outputFile << "         [#" << std::to_string(current->getJobnumber()) << "|" << current->getUsername() << "]\n";
-                temp = temp->next;
-            }
-        }
-    }
-
-    outputFile.close();
-}
-
-/**
  * Check if the queue with jobs is empty
  * @return true if the queue with jobs is empty, false if not
  */
@@ -253,4 +209,28 @@ bool PrintingSystem::isQueueEmpty() {
 int PrintingSystem::getEmissions() {
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     return totalemissions;
+}
+
+int PrintingSystem::getReportIndex() const {
+    return reportIndex;
+}
+
+int PrintingSystem::getAdvancedreportIndex() const {
+    return advancedreportIndex;
+}
+
+void PrintingSystem::setReportIndex(int index) {
+    PrintingSystem::reportIndex = index;
+}
+
+void PrintingSystem::setAdvancedreportIndex(int index) {
+    PrintingSystem::advancedreportIndex = index;
+}
+
+const vector<Printer *> &PrintingSystem::getPrinters() const {
+    return printers;
+}
+
+const map<int, std::string> &PrintingSystem::getCompensationmap() const {
+    return compensationmap;
 }
