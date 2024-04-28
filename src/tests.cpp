@@ -265,6 +265,14 @@ TEST_F(PrintSysTest, MultiplePrintersOneJob) {
     EXPECT_TRUE(FileCompare("testmultipleprintersonejob.txt", "testmultipleprintersonejob_expected.txt"));
 }
 
+TEST_F(PrintSysTest, NoPrinterAvailableForType) {
+    std::ofstream outputfile;
+    outputfile.open("NoPrinterAvailableForType.txt");
+    xmlp.implementXML("NoPrinterAvailableForType.xml", ps);
+    ps.automatedJob(outputfile);
+    EXPECT_TRUE(FileCompare("NoPrinterAvailableForType.txt", "NoPrinterAvailableForType_expected.txt"));
+}
+
 TEST_F(PrintSysTest, NoJobs) {
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
