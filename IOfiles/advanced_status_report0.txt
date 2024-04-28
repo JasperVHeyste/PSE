@@ -1,0 +1,7 @@
+-=Queue=-
+*Office_Printer1
+[1] | [1] [3] 
+
+*Office_Printer2
+[2] | [2] 
+

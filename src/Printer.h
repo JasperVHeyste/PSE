@@ -7,6 +7,10 @@
 class Job;
 class Printer {
 private:
+public:
+    int getSpeed() const;
+
+private:
     std::string name;
     int emission;
     int speed; // pages per minute
@@ -68,6 +72,8 @@ public:
     //REQUIRE(hasJob(), "Printer does not have a job assigned to it");
 
     int getJobAmount() const;
+
+    const std::queue<Job *> &getJobs() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 };
 

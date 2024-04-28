@@ -155,4 +155,12 @@ int Printer::getJobAmount() const {
     return jobs.size();
 }
 
+const queue<Job*>& Printer::getJobs() const {
+    return jobs;
+}
+
+int Printer::getSpeed() const {
+    return speed;
+}
+
 
