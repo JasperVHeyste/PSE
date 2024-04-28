@@ -1,16 +1,22 @@
-//
-// Created by Jens on 27/04/2024.
-//
-
 #include "Output.h"
 #include <fstream>
 #include <set>
+
+Output::Output() {
+    initcheck = this;
+    ENSURE(properlyInitialized(), "constructor must end in properlyinitialized state");
+}
+
+bool Output::properlyInitialized() {
+    return initcheck == this;
+}
 
 /**
  * Simple output of the current state of the system
  * @param system the system
  */
 void Output::simpleOutput(PrintingSystem* system) {
+    REQUIRE(properlyInitialized(), "Output is not properly initialized");
     set<Printer*> allPrinters;
     int index = system->getReportIndex();
     ofstream outputFile("status_report" + to_string(index) + ".txt");
@@ -88,6 +94,7 @@ void Output::simpleOutput(PrintingSystem* system) {
  * @param system the system
  */
 void Output::advancedOutput(PrintingSystem* system) {
+    REQUIRE(properlyInitialized(), "Output is not properly initialized");
     int index = system->getAdvancedreportIndex();
     ofstream outputFile("advanced_status_report" + to_string(index) + ".txt");
     index += 1;
