@@ -211,26 +211,46 @@ int PrintingSystem::getEmissions() {
     return totalemissions;
 }
 
+/**
+ * @return the index of the current simple report
+ */
 int PrintingSystem::getReportIndex() const {
     return reportIndex;
 }
 
+/**
+ * @return the index of the current advanced report
+ */
 int PrintingSystem::getAdvancedreportIndex() const {
     return advancedreportIndex;
 }
 
+/**
+ * Set the simple report index
+ * @param index the index it will be set to
+ */
 void PrintingSystem::setReportIndex(int index) {
     PrintingSystem::reportIndex = index;
 }
 
+/**
+ * Set the advanced report index
+ * @param index the index it will be set to
+ */
 void PrintingSystem::setAdvancedreportIndex(int index) {
     PrintingSystem::advancedreportIndex = index;
 }
 
+/**
+ * @return the printers in the system
+ */
 const vector<Printer *> &PrintingSystem::getPrinters() const {
     return printers;
 }
 
+/**
+ * @return the compensations in the system
+ */
 const map<int, std::string> &PrintingSystem::getCompensationmap() const {
     return compensationmap;
 }
