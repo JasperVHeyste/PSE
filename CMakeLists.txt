@@ -24,6 +24,7 @@ set(RELEASE_SOURCE_FILES
         src/Printer.cpp
         src/PrintingSystem.cpp
         src/Queue.cpp
+        src/Output.cpp
         src/XMLprocessor.cpp
         given_utility/tinystr.cpp
         given_utility/tinyxml.cpp
@@ -34,6 +35,7 @@ set(RELEASE_SOURCE_FILES
 # Set source files for DEBUG target
 # Only add cpp files, no h files!
 set(DEBUG_SOURCE_FILES
+        src/Output.cpp
         src/tests.cpp
         src/QueueNode.cpp
         src/Job.cpp
