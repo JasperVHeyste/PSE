@@ -21,10 +21,10 @@ void Output::simpleOutput(PrintingSystem* system) {
     // printers
     outputFile << "--== Devices ==--" << endl;
     if (system->getPrinters().empty()){
-        outputFile << "No devices present in Printingsystem\n" << endl;
+        outputFile << "No devices present in printingsystem.\n" << endl;
     }else {
         if (system->getPrinters().empty()){
-            outputFile << "No printers present in system.\n";
+            outputFile << "No printers present in printingsystem.\n";
         }else {
             for (auto p: system->getPrinters()) {
                 outputFile << p->getName() << ": \n";
@@ -64,7 +64,7 @@ void Output::simpleOutput(PrintingSystem* system) {
                 }
             }
         }else{
-            outputFile << "\n" << p->getName() << "Doesnt have any jobs assigned.\n";
+            outputFile << "\n" << p->getName() << " doesnt have any jobs assigned.\n";
         }
     }
 
