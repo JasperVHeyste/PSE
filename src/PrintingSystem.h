@@ -44,7 +44,7 @@ public:
     void proccesJob(std::ostream& outputstream = std::cout, Printer* printer = nullptr);
 
     void assignSingleJob();
-    void assignAllJobs();
+    void assignAllJobs(std::ostream& outputstream = std::cout);
 
     void automatedJob(std::ostream& outputstream = std::cout);
 
