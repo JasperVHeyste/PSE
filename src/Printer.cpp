@@ -144,21 +144,33 @@ Job *Printer::getJob() const {
     return jobs.front();
 }
 
+/**
+ * @return the emissions the printer emits during the job it handles currently
+ */
 int Printer::getJobEmissions() const {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     REQUIRE(hasJob(), "Printer does not have a job assigned to it");
     return emission*getPagecount();
 }
 
+/**
+ * @return the amount of jobs left in the queue of the printer
+ */
 int Printer::getJobAmount() const {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return jobs.size();
 }
 
+/**
+ * @return the queue with jobs
+ */
 const queue<Job*>& Printer::getJobs() const {
     return jobs;
 }
 
+/**
+ * @return the speed of the printer
+ */
 int Printer::getSpeed() const {
     return speed;
 }
