@@ -103,12 +103,12 @@ void PrintingSystem::assignSingleJob() {
 /**
  * Assign one job from the queue to an available matching printer from the vector
  */
-void PrintingSystem::assignAllJobs() {
+void PrintingSystem::assignAllJobs(std::ostream& outputstream) {
     if (printers.size() == 0) {
-        cout << "No printers to assign job" << endl;
+        outputstream << "No printers to assign job" << endl;
     }
     if (isQueueEmpty()){
-        cout << "All jobs ready" << endl;
+        outputstream << "All jobs ready" << endl;
     }
 
     while (not isQueueEmpty()) {
@@ -145,7 +145,7 @@ void PrintingSystem::assignAllJobs() {
             jobs.dequeue();
         }
         else {
-            cout << "No printers available for job type: " << jobType << endl;
+            outputstream << "No printers available for job type: " << jobType << endl;
             jobs.dequeue();
         }
     }
@@ -177,7 +177,7 @@ void PrintingSystem::proccesJob(std::ostream& outputstream, Printer* printer) {
  * @param outputstream
  */
 void PrintingSystem::automatedJob(std::ostream& outputstream) {
-    assignAllJobs();
+    assignAllJobs(outputstream);
 
     bool jobsleft = true;
 
