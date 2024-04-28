@@ -6,6 +6,10 @@
 #include <fstream>
 #include <set>
 
+/**
+ * Simple output of the current state of the system
+ * @param system the system
+ */
 void Output::simpleOutput(PrintingSystem* system) {
     set<Printer*> allPrinters;
     int index = system->getReportIndex();
@@ -79,6 +83,10 @@ void Output::simpleOutput(PrintingSystem* system) {
     outputFile.close();
 }
 
+/**
+ * A more advanced output of the current state of the system
+ * @param system the system
+ */
 void Output::advancedOutput(PrintingSystem* system) {
     int index = system->getAdvancedreportIndex();
     ofstream outputFile("advanced_status_report" + to_string(index) + ".txt");
