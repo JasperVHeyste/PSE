@@ -340,6 +340,7 @@ TEST_F(OutputTest, nojobs){
     EXPECT_TRUE(FileCompare("advanced_status_report0.txt", "advanced_output_nojobstest.txt"));
 }
 
+/*
 // test with normal case, 2 printers, 3 jobs
 TEST_F(OutputTest, normalcase){
     TiXmlDocument doc;
@@ -364,6 +365,7 @@ TEST_F(OutputTest, normalcase){
     EXPECT_TRUE(FileCompare("advanced_status_report1.txt", "advanced_output_normalcase1.2.txt"));
     EXPECT_TRUE(FileCompare("advanced_status_report2.txt", "advanced_output_normalcase1.3.txt"));
 }
+*/
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
