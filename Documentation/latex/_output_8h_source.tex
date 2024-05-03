@@ -1,0 +1,27 @@
+\doxysection{Output.\+h}
+\hypertarget{_output_8h_source}{}\label{_output_8h_source}\index{src/Output.h@{src/Output.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PSE\_MAIN\_OUTPUT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PSE\_MAIN\_OUTPUT\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}PrintingSystem.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_output}{Output}}\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00007\ \ \ \ \ \mbox{\hyperlink{class_output}{Output}}*\ initcheck;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_output}{Output}}();}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyinitialized\ state"{});}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_output_aaaf9a9cc21be2c75b36ac6f6c0c704a1}{simpleOutput}}(\mbox{\hyperlink{class_printing_system}{PrintingSystem}}*\ system);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Output\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_output_a00e1804425d10a74efd126a37d796904}{advancedOutput}}(\mbox{\hyperlink{class_printing_system}{PrintingSystem}}*\ system);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Output\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PSE\_MAIN\_OUTPUT\_H}}
+
+\end{DoxyCode}

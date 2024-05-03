@@ -34,6 +34,7 @@ void Printer::setJob(Job *j) {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     REQUIRE(j->properlyInitialized(), "Job is not properly initialized");
     jobs.push(j);
+    ENSURE(hasJob(), "Printer does not have a job assigned to it");
 }
 
 /**
@@ -44,9 +45,12 @@ void Printer::setJob(Job *j) {
 bool Printer::work(ostream& outputstream) {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
+    int jobsbeforework = getJobAmount();
+
     if (not hasJob()){
         return false;
     }
+
     string typestring = getType();
     if (getType() == "bw") {
         typestring = " black and white printing";
@@ -66,6 +70,8 @@ bool Printer::work(ostream& outputstream) {
         outputstream << "Job " << currentjob->getJobnumber() << " was made CO2 neutral with the support of " << currentjob->getCompensation() << "." << endl;
     }
     jobs.pop();
+
+    ENSURE(getJobAmount() < jobsbeforework, "Job has not successfully been processed");
     return true;
 }
 
@@ -141,6 +147,7 @@ std::string Printer::getType() const {
  */
 Job *Printer::getJob() const {
     REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    REQUIRE(hasJob(), "Printer does not have a job assigned to it");
     return jobs.front();
 }
 
@@ -165,6 +172,7 @@ int Printer::getJobAmount() const {
  * @return the queue with jobs
  */
 const queue<Job*>& Printer::getJobs() const {
+    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return jobs;
 }
 
@@ -172,6 +180,7 @@ const queue<Job*>& Printer::getJobs() const {
  * @return the speed of the printer
  */
 int Printer::getSpeed() const {
+    REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     return speed;
 }
 

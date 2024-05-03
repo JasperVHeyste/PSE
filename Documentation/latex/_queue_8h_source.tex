@@ -1,50 +1,50 @@
 \doxysection{Queue.\+h}
-\hypertarget{_queue_8h_source}{}\label{_queue_8h_source}\index{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/Queue.h@{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/Queue.h}}
-\mbox{\hyperlink{_queue_8h}{Go to the documentation of this file.}}
+\hypertarget{_queue_8h_source}{}\label{_queue_8h_source}\index{src/Queue.h@{src/Queue.h}}
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ UNTITLED\_QUEUE\_H}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ UNTITLED\_QUEUE\_H}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_queue_node_8h}{QueueNode.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_job_8h}{Job.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00006}\mbox{\hyperlink{class_queue}{00006}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_queue}{Queue}}\ \{}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00007}00007\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ head\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ tail\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_queue}{Queue}}*\ initcheck;}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00012}00012\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00013}00013\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_queue_a7cfca3637d57c4a9e37351b3426ffd40}{Queue}}();}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyinitialized\ state"{});}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00016}00016\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{properlyInitialized}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_queue_a65d9b23c23c917faa44981539bc34be7}{isEmpty}}();}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_queue_a0aee085252e289d4d8d1db84064dbe1c}{enqueue}}(\mbox{\hyperlink{class_job}{Job}}*\ p);}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{class_job}{Job}}*\ \mbox{\hyperlink{class_queue_a94f8621d270dd91f401d51f0d378f1f7}{dequeue}}();}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//REQUIRE(!isEmpty(),\ "{}Queue\ is\ empty"{});}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ \mbox{\hyperlink{class_queue_a6b1a4846ba079f4f1dcf9c4c881bdd65}{getHead}}();}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_queue_a0ab62da50d9d795157018ca035ba8d6e}{getSize}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{class_job}{Job}}*\ \mbox{\hyperlink{class_queue_abd4171eb46e6c4087601ffaf03069da2}{getJob}}(\textcolor{keywordtype}{int}\ index);}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//REQUIRE(index\ <\ size,\ "{}Queue\ does\ not\ have\ an\ item\ with\ the\ given\ index"{});}}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_queue_a00d119db8fa3050da37746e82cbcf94f}{\string~Queue}}();}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00041}00041\ \};}
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00042}00042\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00043}00043\ }
-\DoxyCodeLine{\Hypertarget{_queue_8h_source_l00044}00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//UNTITLED\_QUEUE\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UNTITLED\_QUEUE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UNTITLED\_QUEUE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}QueueNode.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Job.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_queue}{Queue}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ 0;}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ head\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ tail\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_queue}{Queue}}*\ initcheck;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_queue}{Queue}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyinitialized\ state"{});}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ properlyInitialized()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ isEmpty();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ enqueue(\mbox{\hyperlink{class_job}{Job}}*\ p);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_job}{Job}}*\ dequeue();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//REQUIRE(!isEmpty(),\ "{}Queue\ is\ empty"{});}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_queue_node}{QueueNode}}*\ getHead();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ getSize()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_job}{Job}}*\ getJob(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{})}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//REQUIRE(index\ <\ size,\ "{}Queue\ does\ not\ have\ an\ item\ with\ the\ given\ index"{});}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_queue}{\string~Queue}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//UNTITLED\_QUEUE\_H}}
 
 \end{DoxyCode}

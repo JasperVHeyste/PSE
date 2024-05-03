@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSE-Project: C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/QueueNode.h Source File</title>
+<title>My Project: src/QueueNode.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,9 +23,8 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">PSE-Project
+   <div id="projectname">My Project
    </div>
-   <div id="projectbrief">Printing</div>
   </td>
  </tr>
  </tbody>
@@ -84,10 +83,10 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">QueueNode.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_queue_node_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef UNTITLED_NODE_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef UNTITLED_NODE_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define UNTITLED_NODE_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_job_8h.html">Job.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Job.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
@@ -96,27 +95,21 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_queue_node.html">QueueNode</a>* initcheck;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_queue_node.html#a9f22e28a99f218cd4e2582ba42b0cfdf">   12</a></span>    <a class="code hl_class" href="class_job.html">Job</a>* <a class="code hl_variable" href="class_queue_node.html#a9f22e28a99f218cd4e2582ba42b0cfdf">item</a>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_queue_node.html#aec849c05b7d01b75e460b861ed72d109">   13</a></span>    <a class="code hl_class" href="class_queue_node.html">QueueNode</a>* <a class="code hl_variable" href="class_queue_node.html#aec849c05b7d01b75e460b861ed72d109">next</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_queue_node.html#a870c44f4adffc543ef915ea06fe6f1d7">   14</a></span>    <a class="code hl_class" href="class_queue_node.html">QueueNode</a>* <a class="code hl_variable" href="class_queue_node.html#a870c44f4adffc543ef915ea06fe6f1d7">prev</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="class_job.html">Job</a>* item;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="class_queue_node.html">QueueNode</a>* next = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_queue_node.html">QueueNode</a>* prev = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_queue_node.html#ad2bbf96aebc9953a5531b6589f7d1213">QueueNode</a>(<a class="code hl_class" href="class_job.html">Job</a> *<a class="code hl_variable" href="class_queue_node.html#a9f22e28a99f218cd4e2582ba42b0cfdf">item</a>);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_queue_node.html">QueueNode</a>(<a class="code hl_class" href="class_job.html">Job</a> *item);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">//ENSURE(properlyInitialized(), &quot;constructor must end in properlyinitialized state&quot;);</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_queue_node.html#aaddc2d6d0dba0384117973ea41edee74">properlyInitialized</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> properlyInitialized() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
 </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif </span><span class="comment">//UNTITLED_NODE_H</span></div>
-<div class="ttc" id="a_job_8h_html"><div class="ttname"><a href="_job_8h.html">Job.h</a></div></div>
-<div class="ttc" id="aclass_job_html"><div class="ttname"><a href="class_job.html">Job</a></div><div class="ttdef"><b>Definition</b> <a href="_job_8h_source.html#l00007">Job.h:7</a></div></div>
-<div class="ttc" id="aclass_queue_node_html"><div class="ttname"><a href="class_queue_node.html">QueueNode</a></div><div class="ttdef"><b>Definition</b> <a href="#l00008">QueueNode.h:8</a></div></div>
-<div class="ttc" id="aclass_queue_node_html_a870c44f4adffc543ef915ea06fe6f1d7"><div class="ttname"><a href="class_queue_node.html#a870c44f4adffc543ef915ea06fe6f1d7">QueueNode::prev</a></div><div class="ttdeci">QueueNode * prev</div><div class="ttdef"><b>Definition</b> <a href="#l00014">QueueNode.h:14</a></div></div>
-<div class="ttc" id="aclass_queue_node_html_a9f22e28a99f218cd4e2582ba42b0cfdf"><div class="ttname"><a href="class_queue_node.html#a9f22e28a99f218cd4e2582ba42b0cfdf">QueueNode::item</a></div><div class="ttdeci">Job * item</div><div class="ttdef"><b>Definition</b> <a href="#l00012">QueueNode.h:12</a></div></div>
-<div class="ttc" id="aclass_queue_node_html_aaddc2d6d0dba0384117973ea41edee74"><div class="ttname"><a href="class_queue_node.html#aaddc2d6d0dba0384117973ea41edee74">QueueNode::properlyInitialized</a></div><div class="ttdeci">bool properlyInitialized() const</div><div class="ttdef"><b>Definition</b> <a href="_queue_node_8cpp_source.html#l00008">QueueNode.cpp:8</a></div></div>
-<div class="ttc" id="aclass_queue_node_html_ad2bbf96aebc9953a5531b6589f7d1213"><div class="ttname"><a href="class_queue_node.html#ad2bbf96aebc9953a5531b6589f7d1213">QueueNode::QueueNode</a></div><div class="ttdeci">QueueNode(Job *item)</div><div class="ttdef"><b>Definition</b> <a href="_queue_node_8cpp_source.html#l00003">QueueNode.cpp:3</a></div></div>
-<div class="ttc" id="aclass_queue_node_html_aec849c05b7d01b75e460b861ed72d109"><div class="ttname"><a href="class_queue_node.html#aec849c05b7d01b75e460b861ed72d109">QueueNode::next</a></div><div class="ttdeci">QueueNode * next</div><div class="ttdef"><b>Definition</b> <a href="#l00013">QueueNode.h:13</a></div></div>
+<div class="ttc" id="aclass_job_html"><div class="ttname"><a href="class_job.html">Job</a></div><div class="ttdef"><b>Definition</b> Job.h:7</div></div>
+<div class="ttc" id="aclass_queue_node_html"><div class="ttname"><a href="class_queue_node.html">QueueNode</a></div><div class="ttdef"><b>Definition</b> QueueNode.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PSE-Project: XMLprocessor Class Reference</title>
+<title>My Project: XMLprocessor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,9 +23,8 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">PSE-Project
+   <div id="projectname">My Project
    </div>
-   <div id="projectbrief">Printing</div>
   </td>
  </tr>
  </tbody>
@@ -78,8 +77,6 @@ $(function() {
   <div class="headertitle"><div class="title">XMLprocessor Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="_x_m_lprocessor_8h_source.html">XMLprocessor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -91,11 +88,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af1ae98d29acdd7f1a576567e8f713ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf1433b6c562728355be2b07f872cdff" id="r_acf1433b6c562728355be2b07f872cdff"><td class="memItemLeft" align="right" valign="top">vector&lt; map&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf1433b6c562728355be2b07f872cdff">readXML</a> (const char *filename, ostream &amp;outputstream=cout)</td></tr>
 <tr class="separator:acf1433b6c562728355be2b07f872cdff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e378975ef7115117c83bdd40bd6203" id="r_a88e378975ef7115117c83bdd40bd6203"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88e378975ef7115117c83bdd40bd6203">implementXML</a> (const char *filename, <a class="el" href="class_printing_system.html">PrintingSystem</a> &amp;ps)</td></tr>
+<tr class="separator:a88e378975ef7115117c83bdd40bd6203"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_x_m_lprocessor_8h_source.html#l00011">11</a> of file <a class="el" href="_x_m_lprocessor_8h_source.html">XMLprocessor.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7c0998982f99abc9f68f1b063ede71f5" name="a7c0998982f99abc9f68f1b063ede71f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7c0998982f99abc9f68f1b063ede71f5">&#9670;&#160;</a></span>XMLprocessor()</h2>
 
@@ -111,8 +107,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Initialize <a class="el" href="class_x_m_lprocessor.html">XMLprocessor</a>: create pointer to self to check for proper initialization </p>
-
-<p class="definition">Definition at line <a class="el" href="_x_m_lprocessor_8cpp_source.html#l00007">7</a> of file <a class="el" href="_x_m_lprocessor_8cpp_source.html">XMLprocessor.cpp</a>.</p>
 
 </div>
 </div>
@@ -139,7 +133,33 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the string is a positive integer, false if not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_x_m_lprocessor_8cpp_source.html#l00025">25</a> of file <a class="el" href="_x_m_lprocessor_8cpp_source.html">XMLprocessor.cpp</a>.</p>
+</div>
+</div>
+<a id="a88e378975ef7115117c83bdd40bd6203" name="a88e378975ef7115117c83bdd40bd6203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e378975ef7115117c83bdd40bd6203">&#9670;&#160;</a></span>implementXML()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XMLprocessor::implementXML </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_printing_system.html">PrintingSystem</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ps</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Let an XML be read in and then process the output </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the filename of the XML </td></tr>
+    <tr><td class="paramname">ps</td><td>the system where the input needs to be sent to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -158,8 +178,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Check if the <a class="el" href="class_x_m_lprocessor.html">XMLprocessor</a> is properly inialized by checking if the pointer assigned in the constructor points to itself </p><dl class="section return"><dt>Returns</dt><dd>true if properly initialzed, false if not </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_x_m_lprocessor_8cpp_source.html#l00016">16</a> of file <a class="el" href="_x_m_lprocessor_8cpp_source.html">XMLprocessor.cpp</a>.</p>
 
 </div>
 </div>
@@ -190,13 +208,11 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the vector containing maps </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_x_m_lprocessor_8cpp_source.html#l00044">44</a> of file <a class="el" href="_x_m_lprocessor_8cpp_source.html">XMLprocessor.cpp</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/<a class="el" href="_x_m_lprocessor_8h_source.html">XMLprocessor.h</a></li>
-<li>C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/<a class="el" href="_x_m_lprocessor_8cpp_source.html">XMLprocessor.cpp</a></li>
+<li>src/<a class="el" href="_x_m_lprocessor_8h_source.html">XMLprocessor.h</a></li>
+<li>src/<b>XMLprocessor.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

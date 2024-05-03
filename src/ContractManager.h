@@ -4,4 +4,4 @@
 #include "DesignByContract.h"
 //#include "DesignByContract_windows.h"
 
-#endif //PROJECT_CONTRACTMANAGER_H
+#endif

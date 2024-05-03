@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['filecompare_0',['FileCompare',['../tests_8cpp.html#a7e429f636217210c61bb4f2cdfe74871',1,'tests.cpp']]]
+  ['implementxml_0',['implementXML',['../class_x_m_lprocessor.html#a88e378975ef7115117c83bdd40bd6203',1,'XMLprocessor']]],
+  ['isqueueempty_1',['isQueueEmpty',['../class_printing_system.html#adf9da36000dc9a3088fdc13cf32e2294',1,'PrintingSystem']]]
 ];

@@ -76,6 +76,7 @@ const std::string Job::getCompensation() const {
  * @return true if this job has a compensation, false if not
  */
 bool Job::hasCompensation() const {
+    REQUIRE(properlyInitialized(), "Job is not properly initialized");
     return hascomp;
 }
 

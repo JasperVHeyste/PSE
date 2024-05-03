@@ -1,38 +1,46 @@
 \doxysection{XMLprocessor.\+h}
-\hypertarget{_x_m_lprocessor_8h_source}{}\label{_x_m_lprocessor_8h_source}\index{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/XMLprocessor.h@{C:/Users/Jasper/CLionProjects/Project Software Engineering/Project/src/XMLprocessor.h}}
-\mbox{\hyperlink{_x_m_lprocessor_8h}{Go to the documentation of this file.}}
+\hypertarget{_x_m_lprocessor_8h_source}{}\label{_x_m_lprocessor_8h_source}\index{src/XMLprocessor.h@{src/XMLprocessor.h}}
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ PROJECT\_XMLPROCESSOR\_H}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ PROJECT\_XMLPROCESSOR\_H}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}tinyxml.h"{}}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_contract_manager_8h}{ContractManager.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <map>}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00009}00009\ \textcolor{keyword}{using\ namespace\ }std;}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00011}\mbox{\hyperlink{class_x_m_lprocessor}{00011}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_x_m_lprocessor}{XMLprocessor}}\ \{}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00012}00012\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00013}00013\ \ \ \ vector<int>\ previousjobnumbers;}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00014}00014\ \ \ \ \mbox{\hyperlink{class_x_m_lprocessor}{XMLprocessor}}*\ initcheck;}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00015}00015\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{class_x_m_lprocessor_a7c0998982f99abc9f68f1b063ede71f5}{XMLprocessor}}();}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00017}00017\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyInitialized\ state"{});}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_x_m_lprocessor_ade9c342566247e774eb6efda7cb9643f}{properlyInitialized}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_x_m_lprocessor_af1ae98d29acdd7f1a576567e8f713ff0}{checkStringIsPositiveInt}}(\textcolor{keywordtype}{string}\ s)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}XMLprocessor\ is\ not\ properly\ initialized"{});}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00024}00024\ \ \ \ \ vector<map<string,\ string>>\ \mbox{\hyperlink{class_x_m_lprocessor_acf1433b6c562728355be2b07f872cdff}{readXML}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ ostream\&\ outputstream\ =\ cout);}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}XMLprocessor\ is\ not\ properly\ initialized"{});}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//REQUIRE(ftype\ ==\ "{}.xml"{},\ "{}Inputfile\ has\ to\ be\ an\ xml\ file"{});}}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00027}00027\ \};}
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00030}00030\ }
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{_x_m_lprocessor_8h_source_l00032}00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECT\_XMLPROCESSOR\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJECT\_XMLPROCESSOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJECT\_XMLPROCESSOR\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}tinyxml.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}ContractManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}PrintingSystem.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_printing_system}{PrintingSystem}};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_x_m_lprocessor}{XMLprocessor}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ vector<int>\ previousjobnumbers;}
+\DoxyCodeLine{00016\ \ \ \ vector<int>\ previouscompnumbers;}
+\DoxyCodeLine{00017\ \ \ \ \mbox{\hyperlink{class_x_m_lprocessor}{XMLprocessor}}*\ initcheck;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_x_m_lprocessor_a7c0998982f99abc9f68f1b063ede71f5}{XMLprocessor}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyInitialized\ state"{});}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_x_m_lprocessor_ade9c342566247e774eb6efda7cb9643f}{properlyInitialized}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_x_m_lprocessor_af1ae98d29acdd7f1a576567e8f713ff0}{checkStringIsPositiveInt}}(\textcolor{keywordtype}{string}\ s)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}XMLprocessor\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ vector<map<string,\ string>>\ \mbox{\hyperlink{class_x_m_lprocessor_acf1433b6c562728355be2b07f872cdff}{readXML}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ ostream\&\ outputstream\ =\ cout);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}XMLprocessor\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//REQUIRE(ftype\ ==\ "{}.xml"{},\ "{}Inputfile\ has\ to\ be\ an\ xml\ file"{});}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_x_m_lprocessor_a88e378975ef7115117c83bdd40bd6203}{implementXML}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ \mbox{\hyperlink{class_printing_system}{PrintingSystem}}\&\ ps);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//REQUIRE(ps.properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}XMLprocessor\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//REQUIRE(ftype\ ==\ "{}.xml"{},\ "{}Inputfile\ has\ to\ be\ an\ xml\ file"{});}}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECT\_XMLPROCESSOR\_H}}
 
 \end{DoxyCode}

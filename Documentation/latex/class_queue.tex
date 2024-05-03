@@ -1,136 +1,32 @@
 \doxysection{Queue Class Reference}
 \hypertarget{class_queue}{}\label{class_queue}\index{Queue@{Queue}}
-
-
-{\ttfamily \#include $<$Queue.\+h$>$}
-
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_queue_a7cfca3637d57c4a9e37351b3426ffd40}{Queue}} ()
-\item 
-bool \mbox{\hyperlink{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}{properly\+Initialized}} () const
-\item 
-bool \mbox{\hyperlink{class_queue_a65d9b23c23c917faa44981539bc34be7}{is\+Empty}} ()
-\item 
-bool \mbox{\hyperlink{class_queue_a0aee085252e289d4d8d1db84064dbe1c}{enqueue}} (\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*}p)
-\item 
-\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_queue_a94f8621d270dd91f401d51f0d378f1f7}{dequeue}} ()
-\item 
-\mbox{\hyperlink{class_queue_node}{Queue\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_queue_a6b1a4846ba079f4f1dcf9c4c881bdd65}{get\+Head}} ()
-\item 
-int \mbox{\hyperlink{class_queue_a0ab62da50d9d795157018ca035ba8d6e}{get\+Size}} () const
-\item 
-\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_queue_abd4171eb46e6c4087601ffaf03069da2}{get\+Job}} (int index)
-\item 
-virtual \mbox{\hyperlink{class_queue_a00d119db8fa3050da37746e82cbcf94f}{\texorpdfstring{$\sim$}{\string~}\+Queue}} ()
-\end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-
-
-Definition at line \mbox{\hyperlink{_queue_8h_source_l00006}{6}} of file \mbox{\hyperlink{_queue_8h_source}{Queue.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_queue_a7cfca3637d57c4a9e37351b3426ffd40}\label{class_queue_a7cfca3637d57c4a9e37351b3426ffd40} 
-\index{Queue@{Queue}!Queue@{Queue}}
-\index{Queue@{Queue}!Queue@{Queue}}
-\doxysubsubsection{\texorpdfstring{Queue()}{Queue()}}
-{\footnotesize\ttfamily Queue\+::\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_queue_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_queue_8cpp_source}{Queue.\+cpp}}.
-
-\Hypertarget{class_queue_a00d119db8fa3050da37746e82cbcf94f}\label{class_queue_a00d119db8fa3050da37746e82cbcf94f} 
-\index{Queue@{Queue}!````~Queue@{\texorpdfstring{$\sim$}{\string~}Queue}}
-\index{````~Queue@{\texorpdfstring{$\sim$}{\string~}Queue}!Queue@{Queue}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Queue()}{\string~Queue()}}
-{\footnotesize\ttfamily Queue\+::\texorpdfstring{$\sim$}{\string~}\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-
-
-Definition at line \mbox{\hyperlink{_queue_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_queue_8cpp_source}{Queue.\+cpp}}.
-
-
-
-\doxysubsection{Member Function Documentation}
-\Hypertarget{class_queue_a94f8621d270dd91f401d51f0d378f1f7}\label{class_queue_a94f8621d270dd91f401d51f0d378f1f7} 
-\index{Queue@{Queue}!dequeue@{dequeue}}
-\index{dequeue@{dequeue}!Queue@{Queue}}
-\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} Queue\+::dequeue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_queue_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_queue_8cpp_source}{Queue.\+cpp}}.
-
-\Hypertarget{class_queue_a0aee085252e289d4d8d1db84064dbe1c}\label{class_queue_a0aee085252e289d4d8d1db84064dbe1c} 
-\index{Queue@{Queue}!enqueue@{enqueue}}
-\index{enqueue@{enqueue}!Queue@{Queue}}
-\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
-{\footnotesize\ttfamily bool Queue\+::enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_queue_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_queue_8cpp_source}{Queue.\+cpp}}.
-
-\Hypertarget{class_queue_a6b1a4846ba079f4f1dcf9c4c881bdd65}\label{class_queue_a6b1a4846ba079f4f1dcf9c4c881bdd65} 
-\index{Queue@{Queue}!getHead@{getHead}}
-\index{getHead@{getHead}!Queue@{Queue}}
-\doxysubsubsection{\texorpdfstring{getHead()}{getHead()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_queue_node}{Queue\+Node}} \texorpdfstring{$\ast$}{*} Queue\+::get\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_queue_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{_queue_8cpp_source}{Queue.\+cpp}}.
-
-\Hypertarget{class_queue_abd4171eb46e6c4087601ffaf03069da2}\label{class_queue_abd4171eb46e6c4087601ffaf03069da2} 
-\index{Queue@{Queue}!getJob@{getJob}}
-\index{getJob@{getJob}!Queue@{Queue}}
-\doxysubsubsection{\texorpdfstring{getJob()}{getJob()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} Queue\+::get\+Job (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_queue_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{_queue_8cpp_source}{Queue.\+cpp}}.
-
-\Hypertarget{class_queue_a0ab62da50d9d795157018ca035ba8d6e}\label{class_queue_a0ab62da50d9d795157018ca035ba8d6e} 
-\index{Queue@{Queue}!getSize@{getSize}}
-\index{getSize@{getSize}!Queue@{Queue}}
-\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
-{\footnotesize\ttfamily int Queue\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{_queue_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{_queue_8cpp_source}{Queue.\+cpp}}.
-
-\Hypertarget{class_queue_a65d9b23c23c917faa44981539bc34be7}\label{class_queue_a65d9b23c23c917faa44981539bc34be7} 
-\index{Queue@{Queue}!isEmpty@{isEmpty}}
-\index{isEmpty@{isEmpty}!Queue@{Queue}}
-\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
-{\footnotesize\ttfamily bool Queue\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_queue_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_queue_8cpp_source}{Queue.\+cpp}}.
-
 \Hypertarget{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6}\label{class_queue_aa7ebc4a54cb6002b94402290ea0c9af6} 
-\index{Queue@{Queue}!properlyInitialized@{properlyInitialized}}
-\index{properlyInitialized@{properlyInitialized}!Queue@{Queue}}
-\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
-{\footnotesize\ttfamily bool Queue\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Definition at line \mbox{\hyperlink{_queue_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_queue_8cpp_source}{Queue.\+cpp}}.
-
+bool {\bfseries properly\+Initialized} () const
+\item 
+\Hypertarget{class_queue_a65d9b23c23c917faa44981539bc34be7}\label{class_queue_a65d9b23c23c917faa44981539bc34be7} 
+bool {\bfseries is\+Empty} ()
+\item 
+\Hypertarget{class_queue_a0aee085252e289d4d8d1db84064dbe1c}\label{class_queue_a0aee085252e289d4d8d1db84064dbe1c} 
+bool {\bfseries enqueue} (\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*}p)
+\item 
+\Hypertarget{class_queue_a94f8621d270dd91f401d51f0d378f1f7}\label{class_queue_a94f8621d270dd91f401d51f0d378f1f7} 
+\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} {\bfseries dequeue} ()
+\item 
+\Hypertarget{class_queue_a6b1a4846ba079f4f1dcf9c4c881bdd65}\label{class_queue_a6b1a4846ba079f4f1dcf9c4c881bdd65} 
+\mbox{\hyperlink{class_queue_node}{Queue\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Head} ()
+\item 
+\Hypertarget{class_queue_a0ab62da50d9d795157018ca035ba8d6e}\label{class_queue_a0ab62da50d9d795157018ca035ba8d6e} 
+int {\bfseries get\+Size} () const
+\item 
+\Hypertarget{class_queue_abd4171eb46e6c4087601ffaf03069da2}\label{class_queue_abd4171eb46e6c4087601ffaf03069da2} 
+\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Job} (int index)
+\end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Jasper/\+CLion\+Projects/\+Project Software Engineering/\+Project/src/\mbox{\hyperlink{_queue_8h}{Queue.\+h}}\item 
-C\+:/\+Users/\+Jasper/\+CLion\+Projects/\+Project Software Engineering/\+Project/src/\mbox{\hyperlink{_queue_8cpp}{Queue.\+cpp}}\end{DoxyCompactItemize}
+src/Queue.\+h\item 
+src/Queue.\+cpp\end{DoxyCompactItemize}

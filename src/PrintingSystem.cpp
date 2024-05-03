@@ -17,7 +17,7 @@ PrintingSystem::PrintingSystem(){
  * Check if the printingsystem is properly inialized by checking if the pointer assigned in the constructor points to itself
  * @return true if properly initialzed, false if not
  */
-bool PrintingSystem::properlyInitialized() {
+bool PrintingSystem::properlyInitialized() const{
     return initcheck == this;
 }
 
@@ -70,13 +70,17 @@ void PrintingSystem::createJob(int jobnumber, int pagecount, string username, st
  */
 void PrintingSystem::createCompensation(int compnumber, std::string name) {
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
+    int amountofcompensationsbefore = compensationmap.size();
     compensationmap[compnumber] = name;
+    int amountofcompensationsafter = compensationmap.size();
+    ENSURE(amountofcompensationsafter > amountofcompensationsbefore, "Compensation has not been successfully added");
 }
 
 /**
  * Assign one job from the queue to an available matching printer from the vector
  */
 void PrintingSystem::assignSingleJob() {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     if (printers.size() == 0) {
         cout << "No printers to assign job\n";
     }
@@ -104,6 +108,7 @@ void PrintingSystem::assignSingleJob() {
  * Assign one job from the queue to an available matching printer from the vector
  */
 void PrintingSystem::assignAllJobs(std::ostream& outputstream) {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     if (printers.size() == 0) {
         outputstream << "No printers to assign job" << endl;
     }
@@ -149,6 +154,8 @@ void PrintingSystem::assignAllJobs(std::ostream& outputstream) {
             jobs.dequeue();
         }
     }
+
+    ENSURE(isQueueEmpty(), "There are still jobs left in the queue while all should have been assigned");
 }
 
 /**
@@ -156,6 +163,7 @@ void PrintingSystem::assignAllJobs(std::ostream& outputstream) {
  * @param outputstream
  */
 void PrintingSystem::proccesJob(std::ostream& outputstream, Printer* printer) {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     if (printer != nullptr) {
         if (!printer->hasJob()) {
             totalemissions += printer->getJobEmissions();
@@ -177,6 +185,7 @@ void PrintingSystem::proccesJob(std::ostream& outputstream, Printer* printer) {
  * @param outputstream
  */
 void PrintingSystem::automatedJob(std::ostream& outputstream) {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     assignAllJobs(outputstream);
 
     bool jobsleft = true;
@@ -200,6 +209,7 @@ void PrintingSystem::automatedJob(std::ostream& outputstream) {
  * @return true if the queue with jobs is empty, false if not
  */
 bool PrintingSystem::isQueueEmpty() {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     return jobs.isEmpty();
 }
 
@@ -215,6 +225,7 @@ int PrintingSystem::getEmissions() {
  * @return the index of the current simple report
  */
 int PrintingSystem::getReportIndex() const {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     return reportIndex;
 }
 
@@ -222,6 +233,7 @@ int PrintingSystem::getReportIndex() const {
  * @return the index of the current advanced report
  */
 int PrintingSystem::getAdvancedreportIndex() const {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     return advancedreportIndex;
 }
 
@@ -230,6 +242,7 @@ int PrintingSystem::getAdvancedreportIndex() const {
  * @param index the index it will be set to
  */
 void PrintingSystem::setReportIndex(int index) {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     PrintingSystem::reportIndex = index;
 }
 
@@ -238,6 +251,7 @@ void PrintingSystem::setReportIndex(int index) {
  * @param index the index it will be set to
  */
 void PrintingSystem::setAdvancedreportIndex(int index) {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     PrintingSystem::advancedreportIndex = index;
 }
 
@@ -245,6 +259,7 @@ void PrintingSystem::setAdvancedreportIndex(int index) {
  * @return the printers in the system
  */
 const vector<Printer *> &PrintingSystem::getPrinters() const {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     return printers;
 }
 
@@ -252,5 +267,6 @@ const vector<Printer *> &PrintingSystem::getPrinters() const {
  * @return the compensations in the system
  */
 const map<int, std::string> &PrintingSystem::getCompensationmap() const {
+    REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     return compensationmap;
 }

@@ -7,10 +7,6 @@
 class Job;
 class Printer {
 private:
-public:
-    int getSpeed() const;
-
-private:
     std::string name;
     int emission;
     int speed; // pages per minute
@@ -30,23 +26,22 @@ public:
     void setJob(Job* j);
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     //REQUIRE(j->properlyInitialized(), "Job is not properly initialized");
+    //ENSURE(hasJob(), "Printer does not have a job assigned to it");
 
     bool work(std::ostream& outputstream = std::cout);
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
-
-    bool isReady() const;
-    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    //ENSURE(getJobAmount() < jobsbeforework, "Job has not successfully been processed");
 
     bool hasJob() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
-    const std::string &getName() const;
+    const std::string& getName() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
     int getEmission() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
-    const std::string &getUsername() const;
+    const std::string& getUsername() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     //REQUIRE(hasJob(), "Printer does not have a job assigned to it");
 
@@ -64,18 +59,23 @@ public:
     std::string getType() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
-    Job *getJob() const;
+    Job* getJob() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+    //REQUIRE(hasJob(), "Printer does not have a job assigned to it");
 
     int getJobEmissions() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
     //REQUIRE(hasJob(), "Printer does not have a job assigned to it");
 
     int getJobAmount() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 
-    const std::queue<Job *> &getJobs() const;
+    const std::queue<Job *>& getJobs() const;
+    //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
+
+    int getSpeed() const;
     //REQUIRE(properlyInitialized(), "Printer is not properly initialized");
 };
 
 
-#endif //UNTITLED_PRINTER_H
+#endif

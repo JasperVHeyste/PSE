@@ -41,10 +41,10 @@ public:
 
     const std::string getCompensation() const;
     //REQUIRE(properlyInitialized(), "Job is not properly initialized")
+    //REQUIRE(hasCompensation(), "Job does not have a compensation assigned to it")
 
     bool hasCompensation() const;
-    //REQUIRE(hasCompensation(), "Job does not have a compensation assigned to it")
+    //REQUIRE(properlyInitialized(), "Job is not properly initialized")
 };
 
-
-#endif //UNTITLED_JOB_H
+#endif

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hasjob_0',['hasJob',['../class_printer.html#a40ac22c809109fa315bb86895e5adb73',1,'Printer']]]
+  ['output_0',['Output',['../class_output.html',1,'']]],
+  ['outputtest_1',['OutputTest',['../class_output_test.html',1,'']]]
 ];
