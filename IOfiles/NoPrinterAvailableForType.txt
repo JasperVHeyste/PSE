@@ -4,7 +4,7 @@ Printer 'Office_Printer1' finished color-printing job:
     Submitted by 'SergeDemeyer'
     2 pages
 Job 1 was made CO2 neutral with the support of Students 4 Climate.
-Printer 'Office_Printer2' finished black and white printing job:
+Printer 'Office_Printer2' finished black-and-white job:
     Number: 2
     Submitted by 'anonymous_user'
     3 pages

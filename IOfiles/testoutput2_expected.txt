@@ -2,11 +2,11 @@ Printer 'Office_Printer1' finished scanning job:
     Number: 2
     Submitted by 'anonymous_user'
     3 pages
-Printer 'Office_Printer2' finished black and white printing job:
+Printer 'Office_Printer2' finished black-and-white job:
     Number: 1
     Submitted by 'SergeDemeyer'
     2 pages
-Printer 'Office_Printer2' finished black and white printing job:
+Printer 'Office_Printer2' finished black-and-white job:
     Number: 3
     Submitted by 'anonymous_user'
     3 pages

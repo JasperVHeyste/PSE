@@ -17,7 +17,7 @@ bool Output::properlyInitialized() {
  */
 void Output::simpleOutput(PrintingSystem* system) {
     REQUIRE(properlyInitialized(), "Output is not properly initialized");
-    set<Printer*> allPrinters;
+    set<Device*> allPrinters;
     int index = system->getReportIndex();
     ofstream outputFile("status_report" + to_string(index) + ".txt");
     index += 1;
@@ -30,13 +30,13 @@ void Output::simpleOutput(PrintingSystem* system) {
 
     // printers
     outputFile << "--== Devices ==--" << endl;
-    if (system->getPrinters().empty()){
+    if (system->getDevices().empty()){
         outputFile << "No devices present in printingsystem.\n" << endl;
     }else {
-        if (system->getPrinters().empty()){
+        if (system->getDevices().empty()){
             outputFile << "No printers present in printingsystem.\n";
         }else {
-            for (auto p: system->getPrinters()) {
+            for (auto p: system->getDevices()) {
                 outputFile << p->getName() << ": \n";
                 outputFile << "* Type: " << p->getType() << "\n";
                 outputFile << "* CO2: " << p->getEmission() << "g/page\n";
@@ -106,11 +106,11 @@ void Output::advancedOutput(PrintingSystem* system) {
 
     outputFile << "-=Queue=-\n";
 
-    vector<Printer*> printers = system->getPrinters();
+    vector<Device*> printers = system->getDevices();
     if (printers.empty()){
         outputFile << "No printers present in printingsystem\n";
     }else {
-        for (auto p: system->getPrinters()) {
+        for (auto p: system->getDevices()) {
             outputFile << "*" << p->getName() << "\n";
             queue<Job *> jobs = p->getJobs();
             queue<Job *> copyjobs = jobs;

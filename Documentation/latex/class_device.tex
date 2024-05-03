@@ -1,0 +1,253 @@
+\doxysection{Device Class Reference}
+\hypertarget{class_device}{}\label{class_device}\index{Device@{Device}}
+Inheritance diagram for Device\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_device}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_device_a86ecbe2b465dbb5d8823f0462825979e}{Device}} (std\+::string n, int e, int s, int c=-\/1)
+\item 
+bool \mbox{\hyperlink{class_device_a423853918d537b2d1516c680e41862d4}{properly\+Initialized}} () const
+\item 
+void \mbox{\hyperlink{class_device_a6e6015913a81d59a805cb358cf247df7}{set\+Job}} (\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*}j)
+\item 
+virtual bool \mbox{\hyperlink{class_device_ae4544fc702013c845634ba256f489315}{work}} (std\+::ostream \&outputstream=std\+::cout)
+\item 
+bool \mbox{\hyperlink{class_device_a74e087dcea56fed6fa740935f950db77}{has\+Job}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_device_a9f305b10cae8deba2acceaf3bd93f397}{get\+Name}} () const
+\item 
+int \mbox{\hyperlink{class_device_a4f6e5d6b00c21ad48f8821b439071165}{get\+Emission}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_device_a9062ba6fc1e4fe8dd2366a524c71cc73}{get\+Username}} () const
+\item 
+int \mbox{\hyperlink{class_device_abf6fe23cc52aa538540b4470330a0694}{get\+Jobnumber}} () const
+\item 
+int \mbox{\hyperlink{class_device_a65a6ee4d311a65d534464230d58cf8dd}{get\+Pagecount}} () const
+\item 
+int \mbox{\hyperlink{class_device_a93b2ea0a2bccbea0f98d22930fe41c17}{get\+Cost}} () const
+\item 
+virtual std\+::string \mbox{\hyperlink{class_device_a85b8c4dec5c5c28d682b7ba661543935}{get\+Type}} () const
+\item 
+\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_device_a91ee3f7414b8230a5624be0d70bc132d}{get\+Job}} () const
+\item 
+int \mbox{\hyperlink{class_device_a5d94c5e4197398da21d97c9b87675d47}{get\+Job\+Emissions}} () const
+\item 
+int \mbox{\hyperlink{class_device_a88eaac1f0af4661be4d48eb20c01bac1}{get\+Job\+Amount}} () const
+\item 
+const std\+::queue$<$ \mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_device_a08b397661e6bf91334f82a43a77f0bc9}{get\+Jobs}} () const
+\item 
+int \mbox{\hyperlink{class_device_acded5be85a4c7eb65596caa4c2619613}{get\+Speed}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_device_ae779f5ee618677629b71287f3f77f8e8}\label{class_device_ae779f5ee618677629b71287f3f77f8e8} 
+std\+::string {\bfseries name}
+\item 
+\Hypertarget{class_device_aecd2422df4a4f09363a6e416f4bffbc8}\label{class_device_aecd2422df4a4f09363a6e416f4bffbc8} 
+int {\bfseries emission}
+\item 
+\Hypertarget{class_device_afd34b1c915c41ae2f97efe894387d84e}\label{class_device_afd34b1c915c41ae2f97efe894387d84e} 
+int {\bfseries speed}
+\item 
+\Hypertarget{class_device_a53883c0b94ccd6e5a076486cea065016}\label{class_device_a53883c0b94ccd6e5a076486cea065016} 
+int {\bfseries cost}
+\item 
+\Hypertarget{class_device_a1d4dfcb5096c04a27ed8c3c07911a9ab}\label{class_device_a1d4dfcb5096c04a27ed8c3c07911a9ab} 
+std\+::queue$<$ \mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries jobs}
+\item 
+\Hypertarget{class_device_a7d8b0fd71ef7d725539138774a5ef2ac}\label{class_device_a7d8b0fd71ef7d725539138774a5ef2ac} 
+\mbox{\hyperlink{class_device}{Device}} \texorpdfstring{$\ast$}{*} {\bfseries initcheck}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_device_a86ecbe2b465dbb5d8823f0462825979e}\label{class_device_a86ecbe2b465dbb5d8823f0462825979e} 
+\index{Device@{Device}!Device@{Device}}
+\index{Device@{Device}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{Device()}{Device()}}
+{\footnotesize\ttfamily Device\+::\+Device (\begin{DoxyParamCaption}\item[{std\+::string}]{n,  }\item[{int}]{e,  }\item[{int}]{s,  }\item[{int}]{c = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Constructor for a device 
+\begin{DoxyParams}{Parameters}
+{\em n} & name of the device \\
+\hline
+{\em e} & emissions the device emits (gram of C02 per page) \\
+\hline
+{\em s} & speed of the device (pages per minute) \\
+\hline
+{\em t} & type of the device \\
+\hline
+{\em c} & cost of device (eurocent per page) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_device_a93b2ea0a2bccbea0f98d22930fe41c17}\label{class_device_a93b2ea0a2bccbea0f98d22930fe41c17} 
+\index{Device@{Device}!getCost@{getCost}}
+\index{getCost@{getCost}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily int Device\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the amount it costs to use this device 
+\end{DoxyReturn}
+\Hypertarget{class_device_a4f6e5d6b00c21ad48f8821b439071165}\label{class_device_a4f6e5d6b00c21ad48f8821b439071165} 
+\index{Device@{Device}!getEmission@{getEmission}}
+\index{getEmission@{getEmission}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getEmission()}{getEmission()}}
+{\footnotesize\ttfamily int Device\+::get\+Emission (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the emissions of the device 
+\end{DoxyReturn}
+\Hypertarget{class_device_a91ee3f7414b8230a5624be0d70bc132d}\label{class_device_a91ee3f7414b8230a5624be0d70bc132d} 
+\index{Device@{Device}!getJob@{getJob}}
+\index{getJob@{getJob}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getJob()}{getJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} Device\+::get\+Job (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the job the device has assigned to it 
+\end{DoxyReturn}
+\Hypertarget{class_device_a88eaac1f0af4661be4d48eb20c01bac1}\label{class_device_a88eaac1f0af4661be4d48eb20c01bac1} 
+\index{Device@{Device}!getJobAmount@{getJobAmount}}
+\index{getJobAmount@{getJobAmount}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getJobAmount()}{getJobAmount()}}
+{\footnotesize\ttfamily int Device\+::get\+Job\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the amount of jobs left in the queue of the device 
+\end{DoxyReturn}
+\Hypertarget{class_device_a5d94c5e4197398da21d97c9b87675d47}\label{class_device_a5d94c5e4197398da21d97c9b87675d47} 
+\index{Device@{Device}!getJobEmissions@{getJobEmissions}}
+\index{getJobEmissions@{getJobEmissions}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getJobEmissions()}{getJobEmissions()}}
+{\footnotesize\ttfamily int Device\+::get\+Job\+Emissions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the emissions the device emits during the job it handles currently 
+\end{DoxyReturn}
+\Hypertarget{class_device_abf6fe23cc52aa538540b4470330a0694}\label{class_device_abf6fe23cc52aa538540b4470330a0694} 
+\index{Device@{Device}!getJobnumber@{getJobnumber}}
+\index{getJobnumber@{getJobnumber}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getJobnumber()}{getJobnumber()}}
+{\footnotesize\ttfamily int Device\+::get\+Jobnumber (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the jobnumber of the job the device has assigned to it 
+\end{DoxyReturn}
+\Hypertarget{class_device_a08b397661e6bf91334f82a43a77f0bc9}\label{class_device_a08b397661e6bf91334f82a43a77f0bc9} 
+\index{Device@{Device}!getJobs@{getJobs}}
+\index{getJobs@{getJobs}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getJobs()}{getJobs()}}
+{\footnotesize\ttfamily const queue$<$ \mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} $>$ \& Device\+::get\+Jobs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the queue with jobs 
+\end{DoxyReturn}
+\Hypertarget{class_device_a9f305b10cae8deba2acceaf3bd93f397}\label{class_device_a9f305b10cae8deba2acceaf3bd93f397} 
+\index{Device@{Device}!getName@{getName}}
+\index{getName@{getName}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& Device\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the name of the device 
+\end{DoxyReturn}
+\Hypertarget{class_device_a65a6ee4d311a65d534464230d58cf8dd}\label{class_device_a65a6ee4d311a65d534464230d58cf8dd} 
+\index{Device@{Device}!getPagecount@{getPagecount}}
+\index{getPagecount@{getPagecount}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getPagecount()}{getPagecount()}}
+{\footnotesize\ttfamily int Device\+::get\+Pagecount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the pagecount of the job the device has assigned to it 
+\end{DoxyReturn}
+\Hypertarget{class_device_acded5be85a4c7eb65596caa4c2619613}\label{class_device_acded5be85a4c7eb65596caa4c2619613} 
+\index{Device@{Device}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily int Device\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the speed of the device 
+\end{DoxyReturn}
+\Hypertarget{class_device_a85b8c4dec5c5c28d682b7ba661543935}\label{class_device_a85b8c4dec5c5c28d682b7ba661543935} 
+\index{Device@{Device}!getType@{getType}}
+\index{getType@{getType}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily string Device\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_b_wprinter_a2fc2a860dd0c9f91b23278dd442af837}{BWprinter}}, \mbox{\hyperlink{class_colorprinter_a23acb4d4eb3f5700e986552255ad36cc}{Colorprinter}}, and \mbox{\hyperlink{class_scanner_afce11fbe8c6caf78952f203f33d87746}{Scanner}}.
+
+\Hypertarget{class_device_a9062ba6fc1e4fe8dd2366a524c71cc73}\label{class_device_a9062ba6fc1e4fe8dd2366a524c71cc73} 
+\index{Device@{Device}!getUsername@{getUsername}}
+\index{getUsername@{getUsername}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getUsername()}{getUsername()}}
+{\footnotesize\ttfamily const std\+::string \& Device\+::get\+Username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the username of the person using the device 
+\end{DoxyReturn}
+\Hypertarget{class_device_a74e087dcea56fed6fa740935f950db77}\label{class_device_a74e087dcea56fed6fa740935f950db77} 
+\index{Device@{Device}!hasJob@{hasJob}}
+\index{hasJob@{hasJob}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{hasJob()}{hasJob()}}
+{\footnotesize\ttfamily bool Device\+::has\+Job (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true if the device has a job, false if not 
+\end{DoxyReturn}
+\Hypertarget{class_device_a423853918d537b2d1516c680e41862d4}\label{class_device_a423853918d537b2d1516c680e41862d4} 
+\index{Device@{Device}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Device\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Check if the device is properly inialized by checking if the pointer assigned in the constructor points to itself \begin{DoxyReturn}{Returns}
+true if properly initialzed, false if not 
+\end{DoxyReturn}
+\Hypertarget{class_device_a6e6015913a81d59a805cb358cf247df7}\label{class_device_a6e6015913a81d59a805cb358cf247df7} 
+\index{Device@{Device}!setJob@{setJob}}
+\index{setJob@{setJob}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{setJob()}{setJob()}}
+{\footnotesize\ttfamily void Device\+::set\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*}}]{j }\end{DoxyParamCaption})}
+
+Assign a job to the device 
+\begin{DoxyParams}{Parameters}
+{\em j} & the job that needs to be assigned to this device \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_ae4544fc702013c845634ba256f489315}\label{class_device_ae4544fc702013c845634ba256f489315} 
+\index{Device@{Device}!work@{work}}
+\index{work@{work}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{work()}{work()}}
+{\footnotesize\ttfamily bool Device\+::work (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outputstream = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+If this device has a job assigned to it, process that job 
+\begin{DoxyParams}{Parameters}
+{\em outputstream} & the outputstream where any messages about the progress are sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the device had a job, false if not 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_b_wprinter_a42f0c640102c236b799197169d8eef9e}{BWprinter}}, \mbox{\hyperlink{class_colorprinter_af3c3eed97dfba221360f79cc75883080}{Colorprinter}}, and \mbox{\hyperlink{class_scanner_a895dbf6466c7476ac2896ff47ce1b4ce}{Scanner}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Device.\+h\item 
+src/Device.\+cpp\end{DoxyCompactItemize}

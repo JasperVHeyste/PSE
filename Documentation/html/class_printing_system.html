@@ -82,16 +82,16 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a593f9e98ee9ffa44950035264b9e8a2c" id="r_a593f9e98ee9ffa44950035264b9e8a2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a593f9e98ee9ffa44950035264b9e8a2c">PrintingSystem</a> ()</td></tr>
 <tr class="separator:a593f9e98ee9ffa44950035264b9e8a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a086e37e0bb372e0a8c5c8ba3cc4072fd" id="r_a086e37e0bb372e0a8c5c8ba3cc4072fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a086e37e0bb372e0a8c5c8ba3cc4072fd">properlyInitialized</a> ()</td></tr>
-<tr class="separator:a086e37e0bb372e0a8c5c8ba3cc4072fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac078589993d447ab8c2c0c12cef47c2f" id="r_ac078589993d447ab8c2c0c12cef47c2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac078589993d447ab8c2c0c12cef47c2f">createPrinter</a> (std::string name, int emissions, int speed, string type, int cost)</td></tr>
-<tr class="separator:ac078589993d447ab8c2c0c12cef47c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81c0518ae5fb8065998addfe9b60803" id="r_ac81c0518ae5fb8065998addfe9b60803"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac81c0518ae5fb8065998addfe9b60803">properlyInitialized</a> () const</td></tr>
+<tr class="separator:ac81c0518ae5fb8065998addfe9b60803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8df1e700c899198b7b8d37195a5fa51a" id="r_a8df1e700c899198b7b8d37195a5fa51a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8df1e700c899198b7b8d37195a5fa51a">createDevice</a> (std::string name, int emissions, int speed, string type, int cost)</td></tr>
+<tr class="separator:a8df1e700c899198b7b8d37195a5fa51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bc97dd40d04ae8bcf12938b2f14051c" id="r_a4bc97dd40d04ae8bcf12938b2f14051c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bc97dd40d04ae8bcf12938b2f14051c">createJob</a> (int jobnumber, int pagecount, string username, string type, int compensation)</td></tr>
 <tr class="separator:a4bc97dd40d04ae8bcf12938b2f14051c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1eb2e94bc2b628674e50ba1baeba4b7" id="r_ad1eb2e94bc2b628674e50ba1baeba4b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1eb2e94bc2b628674e50ba1baeba4b7">createCompensation</a> (int compnumber, string name)</td></tr>
 <tr class="separator:ad1eb2e94bc2b628674e50ba1baeba4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6952bc120dde401e0ab500090333b283" id="r_a6952bc120dde401e0ab500090333b283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6952bc120dde401e0ab500090333b283">proccesJob</a> (std::ostream &amp;outputstream=std::cout, <a class="el" href="class_printer.html">Printer</a> *printer=nullptr)</td></tr>
-<tr class="separator:a6952bc120dde401e0ab500090333b283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dd9923fe0dfb584e4fed4ff52c980cb" id="r_a7dd9923fe0dfb584e4fed4ff52c980cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7dd9923fe0dfb584e4fed4ff52c980cb">proccesJob</a> (std::ostream &amp;outputstream=std::cout, <a class="el" href="class_device.html">Device</a> *printer=nullptr)</td></tr>
+<tr class="separator:a7dd9923fe0dfb584e4fed4ff52c980cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b266f4788033c7609d90309a0e3c875" id="r_a1b266f4788033c7609d90309a0e3c875"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b266f4788033c7609d90309a0e3c875">assignSingleJob</a> ()</td></tr>
 <tr class="separator:a1b266f4788033c7609d90309a0e3c875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a227c704dec4bb552d85e100e2235d3c3" id="r_a227c704dec4bb552d85e100e2235d3c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a227c704dec4bb552d85e100e2235d3c3">assignAllJobs</a> (std::ostream &amp;outputstream=std::cout)</td></tr>
@@ -110,8 +110,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aad4dbb24343ae063d10a69cf4d4d6528"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7eea8598b2d4ad25952db41a619621a" id="r_af7eea8598b2d4ad25952db41a619621a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7eea8598b2d4ad25952db41a619621a">setAdvancedreportIndex</a> (int advancedreportIndex)</td></tr>
 <tr class="separator:af7eea8598b2d4ad25952db41a619621a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9ceb659e9cd8a3e369921a14ca09c53" id="r_ac9ceb659e9cd8a3e369921a14ca09c53"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="class_printer.html">Printer</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9ceb659e9cd8a3e369921a14ca09c53">getPrinters</a> () const</td></tr>
-<tr class="separator:ac9ceb659e9cd8a3e369921a14ca09c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae646bb9b3a7e9d3bfba21a2b33f40a06" id="r_ae646bb9b3a7e9d3bfba21a2b33f40a06"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="class_device.html">Device</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae646bb9b3a7e9d3bfba21a2b33f40a06">getDevices</a> () const</td></tr>
+<tr class="separator:ae646bb9b3a7e9d3bfba21a2b33f40a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab30281dd3b20f2f7ad245fcaee37ab4a" id="r_ab30281dd3b20f2f7ad245fcaee37ab4a"><td class="memItemLeft" align="right" valign="top">const map&lt; int, std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab30281dd3b20f2f7ad245fcaee37ab4a">getCompensationmap</a> () const</td></tr>
 <tr class="separator:ab30281dd3b20f2f7ad245fcaee37ab4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -222,6 +222,52 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a8df1e700c899198b7b8d37195a5fa51a" name="a8df1e700c899198b7b8d37195a5fa51a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8df1e700c899198b7b8d37195a5fa51a">&#9670;&#160;</a></span>createDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrintingSystem::createDevice </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>emissions</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cost</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a new printer and put it in the vector with printers </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>name of the printer </td></tr>
+    <tr><td class="paramname">emissions</td><td>emissions the printer emits (gram of C02 per page) </td></tr>
+    <tr><td class="paramname">speed</td><td>speed of the printer (pages per minute) </td></tr>
+    <tr><td class="paramname">type</td><td>type of the printer </td></tr>
+    <tr><td class="paramname">cost</td><td>cost of printing (eurocent per page) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a4bc97dd40d04ae8bcf12938b2f14051c" name="a4bc97dd40d04ae8bcf12938b2f14051c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4bc97dd40d04ae8bcf12938b2f14051c">&#9670;&#160;</a></span>createJob()</h2>
 
@@ -268,52 +314,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac078589993d447ab8c2c0c12cef47c2f" name="ac078589993d447ab8c2c0c12cef47c2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac078589993d447ab8c2c0c12cef47c2f">&#9670;&#160;</a></span>createPrinter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PrintingSystem::createPrinter </td>
-          <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>name</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>emissions</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cost</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Create a new printer and put it in the vector with printers </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>name of the printer </td></tr>
-    <tr><td class="paramname">emissions</td><td>emissions the printer emits (gram of C02 per page) </td></tr>
-    <tr><td class="paramname">speed</td><td>speed of the printer (pages per minute) </td></tr>
-    <tr><td class="paramname">type</td><td>type of the printer </td></tr>
-    <tr><td class="paramname">cost</td><td>cost of printing (eurocent per page) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a809f5194dc28afb6de90255a39d280e3" name="a809f5194dc28afb6de90255a39d280e3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a809f5194dc28afb6de90255a39d280e3">&#9670;&#160;</a></span>getAdvancedreportIndex()</h2>
 
@@ -350,6 +350,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae646bb9b3a7e9d3bfba21a2b33f40a06" name="ae646bb9b3a7e9d3bfba21a2b33f40a06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae646bb9b3a7e9d3bfba21a2b33f40a06">&#9670;&#160;</a></span>getDevices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const vector&lt; <a class="el" href="class_device.html">Device</a> * &gt; &amp; PrintingSystem::getDevices </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the printers in the system </dd></dl>
+
+</div>
+</div>
 <a id="a5b3cecb09fe9a50ec56c5802306526c7" name="a5b3cecb09fe9a50ec56c5802306526c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b3cecb09fe9a50ec56c5802306526c7">&#9670;&#160;</a></span>getEmissions()</h2>
 
@@ -365,24 +383,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the total amount of CO2 emissions after all jobs are finished </dd></dl>
-
-</div>
-</div>
-<a id="ac9ceb659e9cd8a3e369921a14ca09c53" name="ac9ceb659e9cd8a3e369921a14ca09c53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9ceb659e9cd8a3e369921a14ca09c53">&#9670;&#160;</a></span>getPrinters()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const vector&lt; <a class="el" href="class_printer.html">Printer</a> * &gt; &amp; PrintingSystem::getPrinters </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the printers in the system </dd></dl>
 
 </div>
 </div>
@@ -422,8 +422,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6952bc120dde401e0ab500090333b283" name="a6952bc120dde401e0ab500090333b283"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6952bc120dde401e0ab500090333b283">&#9670;&#160;</a></span>proccesJob()</h2>
+<a id="a7dd9923fe0dfb584e4fed4ff52c980cb" name="a7dd9923fe0dfb584e4fed4ff52c980cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dd9923fe0dfb584e4fed4ff52c980cb">&#9670;&#160;</a></span>proccesJob()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -436,7 +436,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_printer.html">Printer</a> *</td>          <td class="paramname"><span class="paramname"><em>printer</em><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="class_device.html">Device</a> *</td>          <td class="paramname"><span class="paramname"><em>printer</em><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -449,8 +449,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a086e37e0bb372e0a8c5c8ba3cc4072fd" name="a086e37e0bb372e0a8c5c8ba3cc4072fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a086e37e0bb372e0a8c5c8ba3cc4072fd">&#9670;&#160;</a></span>properlyInitialized()</h2>
+<a id="ac81c0518ae5fb8065998addfe9b60803" name="ac81c0518ae5fb8065998addfe9b60803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac81c0518ae5fb8065998addfe9b60803">&#9670;&#160;</a></span>properlyInitialized()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -459,7 +459,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">bool PrintingSystem::properlyInitialized </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">

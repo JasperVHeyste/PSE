@@ -1,5 +1,21 @@
 var searchData=
 [
-  ['hascompensation_0',['hasCompensation',['../class_job.html#ab457baebe114f647448c9db4453c3544',1,'Job']]],
-  ['hasjob_1',['hasJob',['../class_printer.html#a40ac22c809109fa315bb86895e5adb73',1,'Printer']]]
+  ['getadvancedreportindex_0',['getAdvancedreportIndex',['../class_printing_system.html#a809f5194dc28afb6de90255a39d280e3',1,'PrintingSystem']]],
+  ['getcompensation_1',['getCompensation',['../class_job.html#a4a15608518f793f016b43936c72c71db',1,'Job']]],
+  ['getcompensationmap_2',['getCompensationmap',['../class_printing_system.html#ab30281dd3b20f2f7ad245fcaee37ab4a',1,'PrintingSystem']]],
+  ['getcost_3',['getCost',['../class_device.html#a93b2ea0a2bccbea0f98d22930fe41c17',1,'Device']]],
+  ['getdevices_4',['getDevices',['../class_printing_system.html#ae646bb9b3a7e9d3bfba21a2b33f40a06',1,'PrintingSystem']]],
+  ['getemission_5',['getEmission',['../class_device.html#a4f6e5d6b00c21ad48f8821b439071165',1,'Device']]],
+  ['getemissions_6',['getEmissions',['../class_printing_system.html#a5b3cecb09fe9a50ec56c5802306526c7',1,'PrintingSystem']]],
+  ['getjob_7',['getJob',['../class_device.html#a91ee3f7414b8230a5624be0d70bc132d',1,'Device']]],
+  ['getjobamount_8',['getJobAmount',['../class_device.html#a88eaac1f0af4661be4d48eb20c01bac1',1,'Device']]],
+  ['getjobemissions_9',['getJobEmissions',['../class_device.html#a5d94c5e4197398da21d97c9b87675d47',1,'Device']]],
+  ['getjobnumber_10',['getJobnumber',['../class_device.html#abf6fe23cc52aa538540b4470330a0694',1,'Device::getJobnumber()'],['../class_job.html#ab62363deea2f3a7e13bf2fa06b2248e9',1,'Job::getJobnumber()']]],
+  ['getjobs_11',['getJobs',['../class_device.html#a08b397661e6bf91334f82a43a77f0bc9',1,'Device']]],
+  ['getname_12',['getName',['../class_device.html#a9f305b10cae8deba2acceaf3bd93f397',1,'Device']]],
+  ['getpagecount_13',['getPagecount',['../class_device.html#a65a6ee4d311a65d534464230d58cf8dd',1,'Device::getPagecount()'],['../class_job.html#adfb81bab719eeb341d0d1fa332da219c',1,'Job::getPagecount()']]],
+  ['getreportindex_14',['getReportIndex',['../class_printing_system.html#ac53f597b35cb3bec36d4856b96680d89',1,'PrintingSystem']]],
+  ['getspeed_15',['getSpeed',['../class_device.html#acded5be85a4c7eb65596caa4c2619613',1,'Device']]],
+  ['gettype_16',['getType',['../class_b_wprinter.html#a2fc2a860dd0c9f91b23278dd442af837',1,'BWprinter::getType()'],['../class_colorprinter.html#a23acb4d4eb3f5700e986552255ad36cc',1,'Colorprinter::getType()'],['../class_job.html#a86447cc930824b256f13aeee9b8c4ce6',1,'Job::getType()'],['../class_scanner.html#afce11fbe8c6caf78952f203f33d87746',1,'Scanner::getType()']]],
+  ['getusername_17',['getUsername',['../class_device.html#a9062ba6fc1e4fe8dd2366a524c71cc73',1,'Device::getUsername()'],['../class_job.html#a2fa95f6b7279f0a4466d7b27abf0e786',1,'Job::getUsername()']]]
 ];

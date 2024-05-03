@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputtest_0',['InputTest',['../class_input_test.html',1,'']]]
+  ['bwprinter_0',['BWprinter',['../class_b_wprinter.html',1,'']]]
 ];

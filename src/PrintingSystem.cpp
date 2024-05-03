@@ -29,19 +29,25 @@ bool PrintingSystem::properlyInitialized() const{
  * @param type type of the printer
  * @param cost cost of printing (eurocent per page)
  */
-void PrintingSystem::createPrinter(string name, int emissions, int speed, string type, int cost){
+void PrintingSystem::createDevice(string name, int emissions, int speed, string type, int cost){
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    Printer* newPrinter = new Printer(name, emissions, speed, type, cost);
-    ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
-    printers.push_back(newPrinter);
     if (type == "bw"){
-        bwprinters.push_back(newPrinter);
+        Device* newDevice = new BWprinter(name, emissions, speed, cost);
+        bwprinters.push_back(newDevice);
+        ENSURE(newDevice->properlyInitialized(), "Device must be properly initialized");
+        devices.push_back(newDevice);
     }
     else if (type == "color"){
-        colorprinters.push_back(newPrinter);
+        Device* newDevice = new Colorprinter(name, emissions, speed, cost);
+        colorprinters.push_back(newDevice);
+        ENSURE(newDevice->properlyInitialized(), "Device must be properly initialized");
+        devices.push_back(newDevice);
     }
     else if (type == "scan"){
-        scanners.push_back(newPrinter);
+        Device* newDevice = new Scanner(name, emissions, speed, cost);
+        scanners.push_back(newDevice);
+        ENSURE(newDevice->properlyInitialized(), "Device must be properly initialized");
+        devices.push_back(newDevice);
     }
 }
 
@@ -81,13 +87,13 @@ void PrintingSystem::createCompensation(int compnumber, std::string name) {
  */
 void PrintingSystem::assignSingleJob() {
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    if (printers.size() == 0) {
+    if (devices.size() == 0) {
         cout << "No printers to assign job\n";
     }
     bool assigned = false;
     if (!jobs.isEmpty()) {
         Job* job = jobs.getJob(0);
-        for (auto p: printers) {
+        for (auto p: devices) {
             if (p->getType() == job->getType()) {
                 jobs.dequeue();
                 p->setJob(job);
@@ -109,7 +115,7 @@ void PrintingSystem::assignSingleJob() {
  */
 void PrintingSystem::assignAllJobs(std::ostream& outputstream) {
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    if (printers.size() == 0) {
+    if (devices.size() == 0) {
         outputstream << "No printers to assign job" << endl;
     }
     if (isQueueEmpty()){
@@ -120,8 +126,8 @@ void PrintingSystem::assignAllJobs(std::ostream& outputstream) {
         Job *job = jobs.getJob(0);
         string jobType = job->getType();
         if (jobType == "scan" && scanners.size() != 0) {
-            Printer *minPagesPrinter = scanners[0];
-            for (vector<Printer *>::iterator scanit = scanners.begin(); scanit != scanners.end(); scanit++) {
+            Device *minPagesPrinter = scanners[0];
+            for (vector<Device *>::iterator scanit = scanners.begin(); scanit != scanners.end(); scanit++) {
                 if ((*scanit)->getJobAmount() < minPagesPrinter->getJobAmount()) {
                     minPagesPrinter = *scanit;
                 }
@@ -130,8 +136,8 @@ void PrintingSystem::assignAllJobs(std::ostream& outputstream) {
             jobs.dequeue();
         }
         else if (jobType == "bw" && bwprinters.size() != 0) {
-            Printer *minPagesPrinter = bwprinters[0];
-            for (vector<Printer *>::iterator bwit = bwprinters.begin(); bwit != bwprinters.end(); bwit++) {
+            Device *minPagesPrinter = bwprinters[0];
+            for (vector<Device *>::iterator bwit = bwprinters.begin(); bwit != bwprinters.end(); bwit++) {
                 if ((*bwit)->getJobAmount() < minPagesPrinter->getJobAmount()) {
                     minPagesPrinter = *bwit;
                 }
@@ -140,8 +146,8 @@ void PrintingSystem::assignAllJobs(std::ostream& outputstream) {
             jobs.dequeue();
         }
         else if (jobType == "color" && colorprinters.size() != 0) {
-            Printer* minPagesPrinter = colorprinters[0];
-            for (vector<Printer *>::iterator colorit = colorprinters.begin(); colorit != colorprinters.end(); colorit++) {
+            Device* minPagesPrinter = colorprinters[0];
+            for (vector<Device *>::iterator colorit = colorprinters.begin(); colorit != colorprinters.end(); colorit++) {
                 if ((*colorit)->getJobAmount() < minPagesPrinter->getJobAmount()) {
                     minPagesPrinter = *colorit;
                 }
@@ -162,7 +168,7 @@ void PrintingSystem::assignAllJobs(std::ostream& outputstream) {
  * Let the printers that have jobs assigned to them process those jobs
  * @param outputstream
  */
-void PrintingSystem::proccesJob(std::ostream& outputstream, Printer* printer) {
+void PrintingSystem::proccesJob(std::ostream& outputstream, Device* printer) {
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     if (printer != nullptr) {
         if (!printer->hasJob()) {
@@ -171,7 +177,7 @@ void PrintingSystem::proccesJob(std::ostream& outputstream, Printer* printer) {
         }
     }
     else {
-        for (auto p: printers) {
+        for (auto p: devices) {
             if (p->hasJob()) {
                 totalemissions += p->getJobEmissions();
                 p->work(outputstream);
@@ -192,7 +198,7 @@ void PrintingSystem::automatedJob(std::ostream& outputstream) {
 
     while (jobsleft){
         jobsleft = false;
-        for (vector<Printer*>::iterator it = printers.begin(); it != printers.end(); it++){
+        for (vector<Device*>::iterator it = devices.begin(); it != devices.end(); it++){
             if ((*it)->hasJob()){
                 totalemissions += (*it)->getJobEmissions();
                 (*it)->work(outputstream);
@@ -258,9 +264,9 @@ void PrintingSystem::setAdvancedreportIndex(int index) {
 /**
  * @return the printers in the system
  */
-const vector<Printer *> &PrintingSystem::getPrinters() const {
+const vector<Device *> &PrintingSystem::getDevices() const {
     REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    return printers;
+    return devices;
 }
 
 /**

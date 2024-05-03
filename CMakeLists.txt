@@ -21,7 +21,7 @@ set(RELEASE_SOURCE_FILES
         src/main.cpp
         src/QueueNode.cpp
         src/Job.cpp
-        src/Printer.cpp
+        src/Device.cpp
         src/PrintingSystem.cpp
         src/Queue.cpp
         src/Output.cpp
@@ -30,6 +30,12 @@ set(RELEASE_SOURCE_FILES
         given_utility/tinyxml.cpp
         given_utility/tinyxmlerror.cpp
         given_utility/tinyxmlparser.cpp
+        src/Scanner.cpp
+        src/Scanner.h
+        src/Colorprinter.cpp
+        src/Colorprinter.h
+        src/BWprinter.cpp
+        src/BWprinter.h
 )
 
 # Set source files for DEBUG target
@@ -39,7 +45,7 @@ set(DEBUG_SOURCE_FILES
         src/tests.cpp
         src/QueueNode.cpp
         src/Job.cpp
-        src/Printer.cpp
+        src/Device.cpp
         src/PrintingSystem.cpp
         src/Queue.cpp
         src/XMLprocessor.cpp
@@ -47,6 +53,12 @@ set(DEBUG_SOURCE_FILES
         given_utility/tinyxml.cpp
         given_utility/tinyxmlerror.cpp
         given_utility/tinyxmlparser.cpp
+        src/Scanner.cpp
+        src/Scanner.h
+        src/Colorprinter.cpp
+        src/Colorprinter.h
+        src/BWprinter.cpp
+        src/BWprinter.h
 )
 
 # Create RELEASE target

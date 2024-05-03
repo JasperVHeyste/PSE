@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['job_0',['Job',['../class_job.html#a0d0a581621afab7c0ec5c5a18ac1b5f9',1,'Job']]]
+  ['implementxml_0',['implementXML',['../class_x_m_lprocessor.html#a88e378975ef7115117c83bdd40bd6203',1,'XMLprocessor']]],
+  ['isqueueempty_1',['isQueueEmpty',['../class_printing_system.html#adf9da36000dc9a3088fdc13cf32e2294',1,'PrintingSystem']]]
 ];

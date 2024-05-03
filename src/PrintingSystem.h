@@ -4,7 +4,10 @@
 #include <string>
 #include <algorithm>
 #include <map>
-#include "Printer.h"
+#include "Device.h"
+#include "Colorprinter.h"
+#include "BWprinter.h"
+#include "Scanner.h"
 #include "Job.h"
 #include "Queue.h"
 #include "XMLprocessor.h"
@@ -16,10 +19,10 @@ private:
     int reportIndex = 0;
     int advancedreportIndex = 0;
     int totalemissions = 0;
-    std::vector<Printer*> printers;
-    std::vector<Printer*> scanners;
-    std::vector<Printer*> bwprinters;
-    std::vector<Printer*> colorprinters;
+    std::vector<Device*> devices;
+    std::vector<Device*> scanners;
+    std::vector<Device*> bwprinters;
+    std::vector<Device*> colorprinters;
     Queue jobs;
     std::map<int,std::string> compensationmap;
     PrintingSystem* initcheck;
@@ -31,9 +34,9 @@ public:
     bool properlyInitialized() const;
     //ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
 
-    void createPrinter(std::string name, int emissions, int speed, string type, int cost);
+    void createDevice(std::string name, int emissions, int speed, string type, int cost);
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
-    //ENSURE(newPrinter->properlyInitialized(), "Printer must be properly initialized");
+    //ENSURE(newPrinter->properlyInitialized(), "Device must be properly initialized");
 
     void createJob(int jobnumber, int pagecount, string username, string type, int compensation);
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
@@ -43,7 +46,7 @@ public:
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
     //ENSURE(amountofcompensationsafter > amountofcompensationsbefore, "Compensation has not been successfully added");
 
-    void proccesJob(std::ostream& outputstream = std::cout, Printer* printer = nullptr);
+    void proccesJob(std::ostream& outputstream = std::cout, Device* printer = nullptr);
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
 
     void assignSingleJob();
@@ -75,7 +78,7 @@ public:
     void setAdvancedreportIndex(int advancedreportIndex);
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
 
-    const vector<Printer *> &getPrinters() const;
+    const vector<Device *> &getDevices() const;
     //REQUIRE(properlyInitialized(), "Printingsystem is not properly initialized");
 
     const map<int, std::string> &getCompensationmap() const;

@@ -5,15 +5,15 @@
 \item 
 \mbox{\hyperlink{class_printing_system_a593f9e98ee9ffa44950035264b9e8a2c}{Printing\+System}} ()
 \item 
-bool \mbox{\hyperlink{class_printing_system_a086e37e0bb372e0a8c5c8ba3cc4072fd}{properly\+Initialized}} ()
+bool \mbox{\hyperlink{class_printing_system_ac81c0518ae5fb8065998addfe9b60803}{properly\+Initialized}} () const
 \item 
-void \mbox{\hyperlink{class_printing_system_ac078589993d447ab8c2c0c12cef47c2f}{create\+Printer}} (std\+::string name, int emissions, int speed, string type, int cost)
+void \mbox{\hyperlink{class_printing_system_a8df1e700c899198b7b8d37195a5fa51a}{create\+Device}} (std\+::string name, int emissions, int speed, string type, int cost)
 \item 
 void \mbox{\hyperlink{class_printing_system_a4bc97dd40d04ae8bcf12938b2f14051c}{create\+Job}} (int jobnumber, int pagecount, string username, string type, int compensation)
 \item 
 void \mbox{\hyperlink{class_printing_system_ad1eb2e94bc2b628674e50ba1baeba4b7}{create\+Compensation}} (int compnumber, string name)
 \item 
-void \mbox{\hyperlink{class_printing_system_a6952bc120dde401e0ab500090333b283}{procces\+Job}} (std\+::ostream \&outputstream=std\+::cout, \mbox{\hyperlink{class_printer}{Printer}} \texorpdfstring{$\ast$}{*}printer=nullptr)
+void \mbox{\hyperlink{class_printing_system_a7dd9923fe0dfb584e4fed4ff52c980cb}{procces\+Job}} (std\+::ostream \&outputstream=std\+::cout, \mbox{\hyperlink{class_device}{Device}} \texorpdfstring{$\ast$}{*}printer=nullptr)
 \item 
 void \mbox{\hyperlink{class_printing_system_a1b266f4788033c7609d90309a0e3c875}{assign\+Single\+Job}} ()
 \item 
@@ -33,7 +33,7 @@ void \mbox{\hyperlink{class_printing_system_aad4dbb24343ae063d10a69cf4d4d6528}{s
 \item 
 void \mbox{\hyperlink{class_printing_system_af7eea8598b2d4ad25952db41a619621a}{set\+Advancedreport\+Index}} (int advancedreport\+Index)
 \item 
-const vector$<$ \mbox{\hyperlink{class_printer}{Printer}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_printing_system_ac9ceb659e9cd8a3e369921a14ca09c53}{get\+Printers}} () const
+const vector$<$ \mbox{\hyperlink{class_device}{Device}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_printing_system_ae646bb9b3a7e9d3bfba21a2b33f40a06}{get\+Devices}} () const
 \item 
 const map$<$ int, std\+::string $>$ \& \mbox{\hyperlink{class_printing_system_ab30281dd3b20f2f7ad245fcaee37ab4a}{get\+Compensationmap}} () const
 \end{DoxyCompactItemize}
@@ -85,6 +85,25 @@ Create a new compensation in the compensation map
 {\em name} & name of the compensation \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_printing_system_a8df1e700c899198b7b8d37195a5fa51a}\label{class_printing_system_a8df1e700c899198b7b8d37195a5fa51a} 
+\index{PrintingSystem@{PrintingSystem}!createDevice@{createDevice}}
+\index{createDevice@{createDevice}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{createDevice()}{createDevice()}}
+{\footnotesize\ttfamily void Printing\+System\+::create\+Device (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{emissions,  }\item[{int}]{speed,  }\item[{string}]{type,  }\item[{int}]{cost }\end{DoxyParamCaption})}
+
+Create a new printer and put it in the vector with printers 
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the printer \\
+\hline
+{\em emissions} & emissions the printer emits (gram of C02 per page) \\
+\hline
+{\em speed} & speed of the printer (pages per minute) \\
+\hline
+{\em type} & type of the printer \\
+\hline
+{\em cost} & cost of printing (eurocent per page) \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_printing_system_a4bc97dd40d04ae8bcf12938b2f14051c}\label{class_printing_system_a4bc97dd40d04ae8bcf12938b2f14051c} 
 \index{PrintingSystem@{PrintingSystem}!createJob@{createJob}}
 \index{createJob@{createJob}!PrintingSystem@{PrintingSystem}}
@@ -102,25 +121,6 @@ Create a new job and put it in the queue with jobs
 {\em type} & type of job \\
 \hline
 {\em compnumber} & the number of the CO2-\/compensation for this job \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_printing_system_ac078589993d447ab8c2c0c12cef47c2f}\label{class_printing_system_ac078589993d447ab8c2c0c12cef47c2f} 
-\index{PrintingSystem@{PrintingSystem}!createPrinter@{createPrinter}}
-\index{createPrinter@{createPrinter}!PrintingSystem@{PrintingSystem}}
-\doxysubsubsection{\texorpdfstring{createPrinter()}{createPrinter()}}
-{\footnotesize\ttfamily void Printing\+System\+::create\+Printer (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{emissions,  }\item[{int}]{speed,  }\item[{string}]{type,  }\item[{int}]{cost }\end{DoxyParamCaption})}
-
-Create a new printer and put it in the vector with printers 
-\begin{DoxyParams}{Parameters}
-{\em name} & name of the printer \\
-\hline
-{\em emissions} & emissions the printer emits (gram of C02 per page) \\
-\hline
-{\em speed} & speed of the printer (pages per minute) \\
-\hline
-{\em type} & type of the printer \\
-\hline
-{\em cost} & cost of printing (eurocent per page) \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_printing_system_a809f5194dc28afb6de90255a39d280e3}\label{class_printing_system_a809f5194dc28afb6de90255a39d280e3} 
@@ -141,6 +141,15 @@ the index of the current advanced report
 \begin{DoxyReturn}{Returns}
 the compensations in the system 
 \end{DoxyReturn}
+\Hypertarget{class_printing_system_ae646bb9b3a7e9d3bfba21a2b33f40a06}\label{class_printing_system_ae646bb9b3a7e9d3bfba21a2b33f40a06} 
+\index{PrintingSystem@{PrintingSystem}!getDevices@{getDevices}}
+\index{getDevices@{getDevices}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{getDevices()}{getDevices()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{class_device}{Device}} \texorpdfstring{$\ast$}{*} $>$ \& Printing\+System\+::get\+Devices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the printers in the system 
+\end{DoxyReturn}
 \Hypertarget{class_printing_system_a5b3cecb09fe9a50ec56c5802306526c7}\label{class_printing_system_a5b3cecb09fe9a50ec56c5802306526c7} 
 \index{PrintingSystem@{PrintingSystem}!getEmissions@{getEmissions}}
 \index{getEmissions@{getEmissions}!PrintingSystem@{PrintingSystem}}
@@ -149,15 +158,6 @@ the compensations in the system
 
 \begin{DoxyReturn}{Returns}
 the total amount of CO2 emissions after all jobs are finished 
-\end{DoxyReturn}
-\Hypertarget{class_printing_system_ac9ceb659e9cd8a3e369921a14ca09c53}\label{class_printing_system_ac9ceb659e9cd8a3e369921a14ca09c53} 
-\index{PrintingSystem@{PrintingSystem}!getPrinters@{getPrinters}}
-\index{getPrinters@{getPrinters}!PrintingSystem@{PrintingSystem}}
-\doxysubsubsection{\texorpdfstring{getPrinters()}{getPrinters()}}
-{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{class_printer}{Printer}} \texorpdfstring{$\ast$}{*} $>$ \& Printing\+System\+::get\+Printers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-\begin{DoxyReturn}{Returns}
-the printers in the system 
 \end{DoxyReturn}
 \Hypertarget{class_printing_system_ac53f597b35cb3bec36d4856b96680d89}\label{class_printing_system_ac53f597b35cb3bec36d4856b96680d89} 
 \index{PrintingSystem@{PrintingSystem}!getReportIndex@{getReportIndex}}
@@ -177,22 +177,22 @@ the index of the current simple report
 Check if the queue with jobs is empty \begin{DoxyReturn}{Returns}
 true if the queue with jobs is empty, false if not 
 \end{DoxyReturn}
-\Hypertarget{class_printing_system_a6952bc120dde401e0ab500090333b283}\label{class_printing_system_a6952bc120dde401e0ab500090333b283} 
+\Hypertarget{class_printing_system_a7dd9923fe0dfb584e4fed4ff52c980cb}\label{class_printing_system_a7dd9923fe0dfb584e4fed4ff52c980cb} 
 \index{PrintingSystem@{PrintingSystem}!proccesJob@{proccesJob}}
 \index{proccesJob@{proccesJob}!PrintingSystem@{PrintingSystem}}
 \doxysubsubsection{\texorpdfstring{proccesJob()}{proccesJob()}}
-{\footnotesize\ttfamily void Printing\+System\+::procces\+Job (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outputstream = {\ttfamily std\+:\+:cout},  }\item[{\mbox{\hyperlink{class_printer}{Printer}} \texorpdfstring{$\ast$}{*}}]{printer = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Printing\+System\+::procces\+Job (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outputstream = {\ttfamily std\+:\+:cout},  }\item[{\mbox{\hyperlink{class_device}{Device}} \texorpdfstring{$\ast$}{*}}]{printer = {\ttfamily nullptr} }\end{DoxyParamCaption})}
 
 Let the printers that have jobs assigned to them process those jobs 
 \begin{DoxyParams}{Parameters}
 {\em outputstream} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_printing_system_a086e37e0bb372e0a8c5c8ba3cc4072fd}\label{class_printing_system_a086e37e0bb372e0a8c5c8ba3cc4072fd} 
+\Hypertarget{class_printing_system_ac81c0518ae5fb8065998addfe9b60803}\label{class_printing_system_ac81c0518ae5fb8065998addfe9b60803} 
 \index{PrintingSystem@{PrintingSystem}!properlyInitialized@{properlyInitialized}}
 \index{properlyInitialized@{properlyInitialized}!PrintingSystem@{PrintingSystem}}
 \doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
-{\footnotesize\ttfamily bool Printing\+System\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Printing\+System\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Check if the printingsystem is properly inialized by checking if the pointer assigned in the constructor points to itself \begin{DoxyReturn}{Returns}
 true if properly initialzed, false if not 

@@ -8,74 +8,88 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <algorithm>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Printer.h"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Job.h"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Queue.h"{}}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}XMLprocessor.h"{}}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_printing_system}{PrintingSystem}}\ \{}
-\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ reportIndex\ =\ 0;}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ advancedreportIndex\ =\ 0;}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ totalemissions\ =\ 0;}
-\DoxyCodeLine{00019\ \ \ \ \ std::vector<Printer*>\ printers;}
-\DoxyCodeLine{00020\ \ \ \ \ std::vector<Printer*>\ scanners;}
-\DoxyCodeLine{00021\ \ \ \ \ std::vector<Printer*>\ bwprinters;}
-\DoxyCodeLine{00022\ \ \ \ \ std::vector<Printer*>\ colorprinters;}
-\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_queue}{Queue}}\ jobs;}
-\DoxyCodeLine{00024\ \ \ \ \ std::map<int,std::string>\ compensationmap;}
-\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_printing_system}{PrintingSystem}}*\ initcheck;}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_printing_system_a593f9e98ee9ffa44950035264b9e8a2c}{PrintingSystem}}();}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_printing_system}{\string~PrintingSystem}}()\ \{\};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printing_system_a086e37e0bb372e0a8c5c8ba3cc4072fd}{properlyInitialized}}();}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyInitialized\ state"{});}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Device.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Colorprinter.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}BWprinter.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Scanner.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Job.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Queue.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}XMLprocessor.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_printing_system}{PrintingSystem}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ reportIndex\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ advancedreportIndex\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ totalemissions\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<Device*>\ devices;}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<Device*>\ scanners;}
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<Device*>\ bwprinters;}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<Device*>\ colorprinters;}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_queue}{Queue}}\ jobs;}
+\DoxyCodeLine{00027\ \ \ \ \ std::map<int,std::string>\ compensationmap;}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_printing_system}{PrintingSystem}}*\ initcheck;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_printing_system_a593f9e98ee9ffa44950035264b9e8a2c}{PrintingSystem}}();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_printing_system}{\string~PrintingSystem}}()\ \{\};}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_ac078589993d447ab8c2c0c12cef47c2f}{createPrinter}}(std::string\ name,\ \textcolor{keywordtype}{int}\ emissions,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{string}\ type,\ \textcolor{keywordtype}{int}\ cost);}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//ENSURE(newPrinter-\/>properlyInitialized(),\ "{}Printer\ must\ be\ properly\ initialized"{});}}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a4bc97dd40d04ae8bcf12938b2f14051c}{createJob}}(\textcolor{keywordtype}{int}\ jobnumber,\ \textcolor{keywordtype}{int}\ pagecount,\ \textcolor{keywordtype}{string}\ username,\ \textcolor{keywordtype}{string}\ type,\ \textcolor{keywordtype}{int}\ compensation);}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//ENSURE(newJob-\/>properlyInitialized(),\ "{}Job\ must\ be\ properly\ initialized"{});}}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_ad1eb2e94bc2b628674e50ba1baeba4b7}{createCompensation}}(\textcolor{keywordtype}{int}\ compnumber,\ \textcolor{keywordtype}{string}\ name);}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printing_system_ac81c0518ae5fb8065998addfe9b60803}{properlyInitialized}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyInitialized\ state"{});}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a8df1e700c899198b7b8d37195a5fa51a}{createDevice}}(std::string\ name,\ \textcolor{keywordtype}{int}\ emissions,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{string}\ type,\ \textcolor{keywordtype}{int}\ cost);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//ENSURE(newPrinter-\/>properlyInitialized(),\ "{}Device\ must\ be\ properly\ initialized"{});}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a4bc97dd40d04ae8bcf12938b2f14051c}{createJob}}(\textcolor{keywordtype}{int}\ jobnumber,\ \textcolor{keywordtype}{int}\ pagecount,\ \textcolor{keywordtype}{string}\ username,\ \textcolor{keywordtype}{string}\ type,\ \textcolor{keywordtype}{int}\ compensation);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//ENSURE(newJob-\/>properlyInitialized(),\ "{}Job\ must\ be\ properly\ initialized"{});}}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a6952bc120dde401e0ab500090333b283}{proccesJob}}(std::ostream\&\ outputstream\ =\ std::cout,\ \mbox{\hyperlink{class_printer}{Printer}}*\ printer\ =\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a1b266f4788033c7609d90309a0e3c875}{assignSingleJob}}();}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a227c704dec4bb552d85e100e2235d3c3}{assignAllJobs}}(std::ostream\&\ outputstream\ =\ std::cout);}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_ad7774c7bc7a03449f6d4eaa29da40019}{automatedJob}}(std::ostream\&\ outputstream\ =\ std::cout);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_ad1eb2e94bc2b628674e50ba1baeba4b7}{createCompensation}}(\textcolor{keywordtype}{int}\ compnumber,\ \textcolor{keywordtype}{string}\ name);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//ENSURE(amountofcompensationsafter\ >\ amountofcompensationsbefore,\ "{}Compensation\ has\ not\ been\ successfully\ added"{});}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a7dd9923fe0dfb584e4fed4ff52c980cb}{proccesJob}}(std::ostream\&\ outputstream\ =\ std::cout,\ \mbox{\hyperlink{class_device}{Device}}*\ printer\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printing_system_adf9da36000dc9a3088fdc13cf32e2294}{isQueueEmpty}}();}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a1b266f4788033c7609d90309a0e3c875}{assignSingleJob}}();}
 \DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//REQUIRE(jobs.properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{});}}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printing_system_a5b3cecb09fe9a50ec56c5802306526c7}{getEmissions}}();}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
-\DoxyCodeLine{00058\ \ \ \ \ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printing_system_ac53f597b35cb3bec36d4856b96680d89}{getReportIndex}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printing_system_a809f5194dc28afb6de90255a39d280e3}{getAdvancedreportIndex}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_aad4dbb24343ae063d10a69cf4d4d6528}{setReportIndex}}(\textcolor{keywordtype}{int}\ reportIndex);}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_af7eea8598b2d4ad25952db41a619621a}{setAdvancedreportIndex}}(\textcolor{keywordtype}{int}\ advancedreportIndex);}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{const}\ vector<Printer\ *>\ \&\mbox{\hyperlink{class_printing_system_ac9ceb659e9cd8a3e369921a14ca09c53}{getPrinters}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ map<int,\ std::string>\ \&\mbox{\hyperlink{class_printing_system_ab30281dd3b20f2f7ad245fcaee37ab4a}{getCompensationmap}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_a227c704dec4bb552d85e100e2235d3c3}{assignAllJobs}}(std::ostream\&\ outputstream\ =\ std::cout);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//ENSURE(isQueueEmpty(),\ "{}There\ are\ still\ jobs\ left\ in\ the\ queue\ while\ all\ should\ have\ been\ assigned"{});}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_ad7774c7bc7a03449f6d4eaa29da40019}{automatedJob}}(std::ostream\&\ outputstream\ =\ std::cout);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_printing_system_adf9da36000dc9a3088fdc13cf32e2294}{isQueueEmpty}}();}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//REQUIRE(jobs.properlyInitialized(),\ "{}Queue\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printing_system_a5b3cecb09fe9a50ec56c5802306526c7}{getEmissions}}();}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00068\ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printing_system_ac53f597b35cb3bec36d4856b96680d89}{getReportIndex}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \};}
-\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_printing_system_a809f5194dc28afb6de90255a39d280e3}{getAdvancedreportIndex}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//UNTITLED\_PRINTINGSYSTEM\_H}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_aad4dbb24343ae063d10a69cf4d4d6528}{setReportIndex}}(\textcolor{keywordtype}{int}\ reportIndex);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_printing_system_af7eea8598b2d4ad25952db41a619621a}{setAdvancedreportIndex}}(\textcolor{keywordtype}{int}\ advancedreportIndex);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{const}\ vector<Device\ *>\ \&\mbox{\hyperlink{class_printing_system_ae646bb9b3a7e9d3bfba21a2b33f40a06}{getDevices}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ map<int,\ std::string>\ \&\mbox{\hyperlink{class_printing_system_ab30281dd3b20f2f7ad245fcaee37ab4a}{getCompensationmap}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Printingsystem\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//UNTITLED\_PRINTINGSYSTEM\_H}}
 
 \end{DoxyCode}

@@ -1,0 +1,107 @@
+\doxysection{Colorprinter Class Reference}
+\hypertarget{class_colorprinter}{}\label{class_colorprinter}\index{Colorprinter@{Colorprinter}}
+Inheritance diagram for Colorprinter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_colorprinter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_colorprinter_ad911565c244461746fde44170a7277bb}\label{class_colorprinter_ad911565c244461746fde44170a7277bb} 
+{\bfseries Colorprinter} (std\+::string n, int e, int s, int c)
+\item 
+virtual bool \mbox{\hyperlink{class_colorprinter_af3c3eed97dfba221360f79cc75883080}{work}} (std\+::ostream \&outputstream=std\+::cout)
+\item 
+virtual std\+::string \mbox{\hyperlink{class_colorprinter_a23acb4d4eb3f5700e986552255ad36cc}{get\+Type}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_device}{Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_device_a86ecbe2b465dbb5d8823f0462825979e}{Device}} (std\+::string n, int e, int s, int c=-\/1)
+\item 
+bool \mbox{\hyperlink{class_device_a423853918d537b2d1516c680e41862d4}{properly\+Initialized}} () const
+\item 
+void \mbox{\hyperlink{class_device_a6e6015913a81d59a805cb358cf247df7}{set\+Job}} (\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*}j)
+\item 
+bool \mbox{\hyperlink{class_device_a74e087dcea56fed6fa740935f950db77}{has\+Job}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_device_a9f305b10cae8deba2acceaf3bd93f397}{get\+Name}} () const
+\item 
+int \mbox{\hyperlink{class_device_a4f6e5d6b00c21ad48f8821b439071165}{get\+Emission}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_device_a9062ba6fc1e4fe8dd2366a524c71cc73}{get\+Username}} () const
+\item 
+int \mbox{\hyperlink{class_device_abf6fe23cc52aa538540b4470330a0694}{get\+Jobnumber}} () const
+\item 
+int \mbox{\hyperlink{class_device_a65a6ee4d311a65d534464230d58cf8dd}{get\+Pagecount}} () const
+\item 
+int \mbox{\hyperlink{class_device_a93b2ea0a2bccbea0f98d22930fe41c17}{get\+Cost}} () const
+\item 
+\mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_device_a91ee3f7414b8230a5624be0d70bc132d}{get\+Job}} () const
+\item 
+int \mbox{\hyperlink{class_device_a5d94c5e4197398da21d97c9b87675d47}{get\+Job\+Emissions}} () const
+\item 
+int \mbox{\hyperlink{class_device_a88eaac1f0af4661be4d48eb20c01bac1}{get\+Job\+Amount}} () const
+\item 
+const std\+::queue$<$ \mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_device_a08b397661e6bf91334f82a43a77f0bc9}{get\+Jobs}} () const
+\item 
+int \mbox{\hyperlink{class_device_acded5be85a4c7eb65596caa4c2619613}{get\+Speed}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_device}{Device}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries name}
+\item 
+int {\bfseries emission}
+\item 
+int {\bfseries speed}
+\item 
+int {\bfseries cost}
+\item 
+std\+::queue$<$ \mbox{\hyperlink{class_job}{Job}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries jobs}
+\item 
+\mbox{\hyperlink{class_device}{Device}} \texorpdfstring{$\ast$}{*} {\bfseries initcheck}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_colorprinter_a23acb4d4eb3f5700e986552255ad36cc}\label{class_colorprinter_a23acb4d4eb3f5700e986552255ad36cc} 
+\index{Colorprinter@{Colorprinter}!getType@{getType}}
+\index{getType@{getType}!Colorprinter@{Colorprinter}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily string Colorprinter\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the type of this device, being "{}color"{} 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_device}{Device}}.
+
+\Hypertarget{class_colorprinter_af3c3eed97dfba221360f79cc75883080}\label{class_colorprinter_af3c3eed97dfba221360f79cc75883080} 
+\index{Colorprinter@{Colorprinter}!work@{work}}
+\index{work@{work}!Colorprinter@{Colorprinter}}
+\doxysubsubsection{\texorpdfstring{work()}{work()}}
+{\footnotesize\ttfamily bool Colorprinter\+::work (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{outputstream = {\ttfamily std\+:\+:cout} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+If this device has a job assigned to it, process that job 
+\begin{DoxyParams}{Parameters}
+{\em outputstream} & the outputstream where any messages about the progress are sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the device had a job, false if not 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_device_ae4544fc702013c845634ba256f489315}{Device}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Colorprinter.\+h\item 
+src/Colorprinter.\+cpp\end{DoxyCompactItemize}

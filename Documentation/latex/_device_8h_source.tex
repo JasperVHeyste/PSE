@@ -1,0 +1,86 @@
+\doxysection{Device.\+h}
+\hypertarget{_device_8h_source}{}\label{_device_8h_source}\index{src/Device.h@{src/Device.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UNTITLED\_PRINTER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UNTITLED\_PRINTER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_job}{Job}};}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ emission;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ speed;\ \textcolor{comment}{//\ pages\ per\ minute}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ cost;}
+\DoxyCodeLine{00014\ \ \ \ \ std::queue<Job*>\ jobs;}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_device}{Device}}*\ initcheck;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_device_a86ecbe2b465dbb5d8823f0462825979e}{Device}}(std::string\ n,\ \textcolor{keywordtype}{int}\ e,\ \textcolor{keywordtype}{int}\ s,\ \textcolor{keywordtype}{int}\ c\ =\ -\/1);\ \textcolor{comment}{//if\ cost\ is\ -\/1\ it\ means\ cost\ should\ be\ ignored}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//ENSURE(properlyInitialized(),\ "{}constructor\ must\ end\ in\ properlyinitialized\ state"{});}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_device}{\string~Device}}()\ \{\};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_device_a423853918d537b2d1516c680e41862d4}{properlyInitialized}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_device_a6e6015913a81d59a805cb358cf247df7}{setJob}}(\mbox{\hyperlink{class_job}{Job}}*\ j);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//REQUIRE(j-\/>properlyInitialized(),\ "{}Job\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//ENSURE(hasJob(),\ "{}Device\ does\ not\ have\ a\ job\ assigned\ to\ it"{});}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_device_ae4544fc702013c845634ba256f489315}{work}}(std::ostream\&\ outputstream\ =\ std::cout);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//ENSURE(getJobAmount()\ <\ jobsbeforework,\ "{}Job\ has\ not\ successfully\ been\ processed"{});}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_device_a74e087dcea56fed6fa740935f950db77}{hasJob}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_device_a9f305b10cae8deba2acceaf3bd93f397}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_device_a4f6e5d6b00c21ad48f8821b439071165}{getEmission}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_device_a9062ba6fc1e4fe8dd2366a524c71cc73}{getUsername}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//REQUIRE(hasJob(),\ "{}Device\ does\ not\ have\ a\ job\ assigned\ to\ it"{});}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_device_abf6fe23cc52aa538540b4470330a0694}{getJobnumber}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//REQUIRE(hasJob(),\ "{}Device\ does\ not\ have\ a\ job\ assigned\ to\ it"{});}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_device_a65a6ee4d311a65d534464230d58cf8dd}{getPagecount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//REQUIRE(hasJob(),\ "{}Device\ does\ not\ have\ a\ job\ assigned\ to\ it"{});}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_device_a93b2ea0a2bccbea0f98d22930fe41c17}{getCost}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ getType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_job}{Job}}*\ \mbox{\hyperlink{class_device_a91ee3f7414b8230a5624be0d70bc132d}{getJob}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//REQUIRE(hasJob(),\ "{}Device\ does\ not\ have\ a\ job\ assigned\ to\ it"{});}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_device_a5d94c5e4197398da21d97c9b87675d47}{getJobEmissions}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//REQUIRE(hasJob(),\ "{}Device\ does\ not\ have\ a\ job\ assigned\ to\ it"{});}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_device_a88eaac1f0af4661be4d48eb20c01bac1}{getJobAmount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{const}\ std::queue<Job\ *>\&\ \mbox{\hyperlink{class_device_a08b397661e6bf91334f82a43a77f0bc9}{getJobs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_device_acded5be85a4c7eb65596caa4c2619613}{getSpeed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//REQUIRE(properlyInitialized(),\ "{}Device\ is\ not\ properly\ initialized"{});}}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

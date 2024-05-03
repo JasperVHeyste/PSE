@@ -325,7 +325,7 @@ void XMLprocessor::implementXML(const char* filename, PrintingSystem& ps) {
             int speed = stoi(object["speed"]);
             string type = object["type"];
 
-            ps.createPrinter(name, emissions, speed, type, cost);
+            ps.createDevice(name, emissions, speed, type, cost);
         }
 
         if (object["objecttype"] == "job"){

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['implementxml_0',['implementXML',['../class_x_m_lprocessor.html#a88e378975ef7115117c83bdd40bd6203',1,'XMLprocessor']]],
-  ['isqueueempty_1',['isQueueEmpty',['../class_printing_system.html#adf9da36000dc9a3088fdc13cf32e2294',1,'PrintingSystem']]]
+  ['hascompensation_0',['hasCompensation',['../class_job.html#ab457baebe114f647448c9db4453c3544',1,'Job']]],
+  ['hasjob_1',['hasJob',['../class_device.html#a74e087dcea56fed6fa740935f950db77',1,'Device']]]
 ];
