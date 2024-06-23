@@ -7,7 +7,7 @@
  */
 bool Colorprinter::work(ostream& outputstream) {
     REQUIRE(properlyInitialized(), "Device is not properly initialized");
-
+    Loggerr l;
     int jobsbeforework = getJobAmount();
 
     if (not hasJob()){
@@ -16,12 +16,7 @@ bool Colorprinter::work(ostream& outputstream) {
 
     Job* currentjob = jobs.front();
 
-    outputstream << "Printer " << "'" << name << "'" << " finished color-printing job:" << "\n    Number: "
-                 << currentjob->getJobnumber() << "\n    Submitted by '" <<
-                 currentjob->getUsername() << "'" << endl << "    " << currentjob->getPagecount() << " pages" << endl;
-    if (currentjob->hasCompensation()){
-        outputstream << "Job " << currentjob->getJobnumber() << " was made CO2 neutral with the support of " << currentjob->getCompensation() << "." << endl;
-    }
+    l.logColorprinter(currentjob, this, outputstream);
     jobs.pop();
 
     ENSURE(getJobAmount() < jobsbeforework, "Job has not successfully been processed");
