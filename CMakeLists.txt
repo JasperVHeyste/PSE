@@ -36,6 +36,9 @@ set(RELEASE_SOURCE_FILES
         src/Colorprinter.h
         src/BWprinter.cpp
         src/BWprinter.h
+        src/logger.h
+        src/Loggerr.cpp
+        src/Loggerr.h
 )
 
 # Set source files for DEBUG target
@@ -59,6 +62,7 @@ set(DEBUG_SOURCE_FILES
         src/Colorprinter.h
         src/BWprinter.cpp
         src/BWprinter.h
+        src/Loggerr.cpp
 )
 
 # Create RELEASE target
