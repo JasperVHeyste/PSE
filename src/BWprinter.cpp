@@ -1,4 +1,5 @@
 #include "BWprinter.h"
+#include "Loggerr.h"
 
 /**
  * If this device has a job assigned to it, process that job
