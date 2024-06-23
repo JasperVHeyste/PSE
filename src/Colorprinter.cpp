@@ -1,5 +1,5 @@
 #include "Colorprinter.h"
-#include "Loggerr.h"
+#include "Logger.h"
 
 /**
  * If this device has a job assigned to it, process that job
@@ -8,7 +8,7 @@
  */
 bool Colorprinter::work(ostream& outputstream) {
     REQUIRE(properlyInitialized(), "Device is not properly initialized");
-    Loggerr l;
+    Logger l;
     int jobsbeforework = getJobAmount();
 
     if (not hasJob()){

@@ -1,7 +1,2 @@
 -=Queue=-
-*Office_Printer1
-Is not processing a job | No jobs assigned.
-
-*Office_Printer2
-Is not processing a job | No jobs assigned.
-
+No printers present in printingsystem

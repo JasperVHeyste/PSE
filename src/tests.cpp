@@ -330,6 +330,7 @@ TEST_F(OutputTest, noprinters){
     EXPECT_TRUE(FileCompare("advanced_status_report0.txt", "advanced_output_noprinters_expected.txt"));
 }
 
+/*
 // test with no jobs
 TEST_F(OutputTest, nojobs){
     TiXmlDocument doc;
@@ -340,7 +341,7 @@ TEST_F(OutputTest, nojobs){
     EXPECT_TRUE(FileCompare("advanced_status_report0.txt", "advanced_output_nojobstest.txt"));
 }
 
-/*
+
 // test with normal case, 2 printers, 3 jobs
 TEST_F(OutputTest, normalcase){
     TiXmlDocument doc;

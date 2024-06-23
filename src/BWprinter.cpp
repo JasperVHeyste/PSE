@@ -1,5 +1,5 @@
 #include "BWprinter.h"
-#include "Loggerr.h"
+#include "Logger.h"
 
 /**
  * If this device has a job assigned to it, process that job
@@ -7,7 +7,7 @@
  * @return true if the device had a job, false if not
  */
 bool BWprinter::work(ostream& outputstream) {
-    Loggerr l;
+    Logger l;
     REQUIRE(properlyInitialized(), "Device is not properly initialized");
 
     int jobsbeforework = getJobAmount();
