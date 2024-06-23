@@ -6,6 +6,7 @@
  * @return true if the device had a job, false if not
  */
 bool BWprinter::work(ostream& outputstream) {
+    Loggerr l;
     REQUIRE(properlyInitialized(), "Device is not properly initialized");
 
     int jobsbeforework = getJobAmount();
@@ -16,12 +17,8 @@ bool BWprinter::work(ostream& outputstream) {
 
     Job* currentjob = jobs.front();
 
-    outputstream << "Printer " << "'" << name << "'" << " finished black-and-white job:" << "\n    Number: "
-                 << currentjob->getJobnumber() << "\n    Submitted by '" <<
-                 currentjob->getUsername() << "'" << endl << "    " << currentjob->getPagecount() << " pages" << endl;
-    if (currentjob->hasCompensation()){
-        outputstream << "Job " << currentjob->getJobnumber() << " was made CO2 neutral with the support of " << currentjob->getCompensation() << "." << endl;
-    }
+    l.logBWPprinter2(currentjob, this, outputstream);
+
     jobs.pop();
 
     ENSURE(getJobAmount() < jobsbeforework, "Job has not successfully been processed");
